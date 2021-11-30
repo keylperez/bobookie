@@ -26,12 +26,14 @@ This project is for me and my group's final task in our 2102 Web Development Cou
 
 hey nubs, this is the repository for the 2102 practical we will be making. Before you start pls follow the steps below so we can collab on this
 
-1. Send me your github email so I can make you collaborators with
+1. Send me your github email so I can make you collaborators
 1. Clone this repository in your local storage
 1. Open the repository folder in terminal
 1. I think you need to install composer for this so pls do by clicking [here](https://getcomposer.org/download/)
 1. Type `npm install` in the terminal to install all project dependencies.
-1. Type `npm run hot` in the terminal and open up another terminal and in the same project folder and type `php artisan serve`
+1. Type `npm run hot` in the terminal
+1. Open up another terminal and type `composer udpate` to fetch vendor files
+1. type `php artisan serve` to create a live server
 1. Follow the instructions and open [localhost:8000](https://localhost:8000) to see your website real time.
 1. All front end edits shall happen in `resources/js` using Vue.
 1. That's all thank you msg me if you have questions.
