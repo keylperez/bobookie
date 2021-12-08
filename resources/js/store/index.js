@@ -1,11 +1,12 @@
 import { createStore } from "vuex";
 
 export default createStore({
-    state: {
-        test: "wassup nub",
-    },
-    mutations: {},
-    actions: {},
-    getters: {},
-    modulles: {},
+  state: {
+    app: "bobookie",
+    appDescription: "speedy cinema tickets with us",
+  },
+  mutations: {},
+  actions: {},
+  getters: {},
+  modulles: {},
 });
