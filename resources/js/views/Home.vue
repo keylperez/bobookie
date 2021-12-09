@@ -5,7 +5,15 @@
 </template>
 
 <script>
-export default {};
+import { ref } from "vue";
+export default {
+    setup() {
+        const username = ref("keyl");
+        return {
+            username,
+        };
+    },
+};
 </script>
 
 <style></style>
