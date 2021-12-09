@@ -12,10 +12,6 @@
 
 <body class="font-main">
     <div id="app">
-        
-    <header-vue name="Keyl"></header-vue>
-        @yield('content')
-        {{-- <login>@csrf</login> --}}
     </div>
 </body>
 

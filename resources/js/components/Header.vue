@@ -1,5 +1,5 @@
 <template>
-    <header class="m-5">
+    <header class="m-10 ml-20">
         <h1 class="text-9xl text-primary font-bold">
             {{ $store.state.app }}
         </h1>

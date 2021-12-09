@@ -1,30 +1,25 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace Database\Seeders;
 
-class CreateUsersTable extends Migration
+use Illuminate\Database\Seeder;
+
+class UserSeeder extends Seeder
 {
     /**
-     * Run the migrations.
+     * Run the database seeds.
      *
      * @return void
      */
-    public function up()
+    public function run()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('username')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->enum('type', ['admin', 'user'])->default('user');
-            $table->rememberToken();
-            $table->timestamps();
-        });
-
+        $data = array(
+            array('keyl', 'yuutaro', 'keyl@gmail.com', Hash::make('ejsux'), 'admin'),
+            array('marc', 'marco', 'marco@gmail.com', Hash::make('marcawesome', 'admin')),
+            array('hannah', 'draemada', 'hannah@gmail.com', Hash::make('keylawesome', 'admin')),
+            array('dummy', 'dum', 'dum@gmail.com', Hash::make('dumpass', 'user')),
+        );
+        DB::table('users')->insert($data);
         // DB::table('users')->insert(
         //     array(
         //         'name' => 'keyl',
@@ -64,15 +59,5 @@ class CreateUsersTable extends Migration
         //         'type' => 'user'
         //     )
         // );
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('users');
     }
 }
