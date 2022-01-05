@@ -10,7 +10,7 @@ module.exports = {
       fontFamily: {
         main: ["Montserrat", "sans-serif"],
       },
-      textColor: {
+      colors: {
         primary: "#FEB155",
         secondary: "#2A2A2A",
       },
@@ -21,3 +21,4 @@ module.exports = {
   },
   plugins: [],
 };
+
