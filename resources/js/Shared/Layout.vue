@@ -6,7 +6,7 @@
 </section>
 
 <section>
-  <div class="max-w-3xl mx-auto">
+  <div class="mx-auto">
     <slot/>
   </div>
 </section>

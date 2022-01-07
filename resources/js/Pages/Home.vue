@@ -1,6 +1,5 @@
 <template>
   <Layout/>
- 
 </template>
 
 <script>
@@ -12,8 +11,4 @@ export default {
 };
 </script>
 
-<style>
-body{
-  background-color: black;
-}
-</style>
+<style></style>

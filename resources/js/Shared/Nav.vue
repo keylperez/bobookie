@@ -3,7 +3,7 @@
       <p class="flex justify-end text-secondary mx-5">username</p>
       <div class="flex-grow bg-secondary p-0.5 mx-5"/>
       
-      <ul class="m-5 pt-0 flex space-x-6 list-inside">
+      <ul class="m-5 mt-0 pt-0 flex space-x-6 list-inside">
         <li>
           <NavLink href="/discover" :active="$page.component == 'Discover'">DISCOVER</NavLink>
         </li>
