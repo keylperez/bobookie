@@ -1,7 +1,7 @@
 <template>
 
   <Link class="text-secondary font-bold hover:text-primary " 
-        :class="{'font-bold text-white underline': active}">
+        :class="{'font-bold text-active': active}">
   <slot />
   </Link>
 </template>
