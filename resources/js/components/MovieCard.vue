@@ -12,7 +12,7 @@
     </div>
 
     <button class="bg-primary text-white p-2 my-1 font-bold w-32 hover:bg-secondary ">BOOK</button>
-    <button class="bg-softgray text-secondary p-2 my-1 font-bold w-32 hover:bg-secondary hover:text-softgray">DETAILS</button>
+    <button class="bg-softgray text-primary p-2 my-1 font-bold w-32 hover:bg-secondary hover:text-softgray">DETAILS</button>
   </div>
 
 </template>
