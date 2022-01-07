@@ -1,6 +1,5 @@
 <template>
   <Head title="Discover New Movies"/>
-  <Layout>
     <div class="flex justify-center top-0">
        <h1 class="font-bold text-primary text-xl font-main mx">MOVIES THIS WEEK</h1>
     </div>
@@ -10,8 +9,6 @@
       <MovieCard></MovieCard>
       <MovieCard></MovieCard>
     </div>
-
-  </Layout>
 </template>
 
 
@@ -22,6 +19,7 @@ import { Head } from '@inertiajs/inertia-vue3'
 
 export default {
   name: 'Users',
+  layout: Layout,
   components: { Layout, MovieCard, Head},
 };
 </script>

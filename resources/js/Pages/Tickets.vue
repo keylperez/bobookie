@@ -1,7 +1,5 @@
 <template>
   <Head title="Book Tickets Now!"/>
-  <Layout>
-    
    <div class="font-main">
      <div class="flex justify-center">
          <h1 class="font-bold text-primary text-xl">BOOKED MOVIES</h1>
@@ -19,7 +17,7 @@
                       <p>11 AM</p>
                       <p>DECEMBER 15, 2021</p>
                     </td>
-                    <td class="py-4 px-2 flex justify-end"><button class="bg-softgray text-primary p-2 my-1 font-bold w-32 hover:bg-secondary hover:text-softgray"><Link href="/ticketdetails">DETAILS</Link> </button></td>
+                    <td class="py-4 px-2 flex justify-end"><Link href="/ticketdetails"><button class="bg-softgray text-primary p-2 my-1 font-bold w-32 hover:bg-secondary hover:text-softgray">DETAILS </button></Link></td>
               </tr>
 
               <tr>
@@ -28,7 +26,7 @@
                       <p>1 PM</p>
                       <p>DECEMBER 16, 2021</p>
                     </td>
-                    <td class="py-4 px-2 flex justify-end" ><button class="bg-softgray text-primary p-2 my-1 font-bold w-32 hover:bg-secondary hover:text-softgray">DETAILS</button></td>
+                    <td class="py-4 px-2 flex justify-end" ><Link href="/ticketdetails"><button class="bg-softgray text-primary p-2 my-1 font-bold w-32 hover:bg-secondary hover:text-softgray">DETAILS</button></Link></td>
               </tr>
 
               <tr>
@@ -37,7 +35,7 @@
                       <p>11 AM</p>
                       <p>DECEMBER 16, 2021</p>
                     </td>
-                    <td class="py-4 px-2 flex justify-end"><button class="bg-softgray text-primary p-2 my-1 font-bold w-32 hover:bg-secondary hover:text-softgray">DETAILS</button></td>
+                    <td class="py-4 px-2 flex justify-end"><Link href="/ticketdetails"><button class="bg-softgray text-primary p-2 my-1 font-bold w-32 hover:bg-secondary hover:text-softgray">DETAILS</button></Link></td>
               </tr>
 
            </table>
@@ -54,7 +52,7 @@
                       <p>1 PM</p>
                       <p>DECEMBER 11, 2021</p>
                     </td>
-                    <td class="py-4 px-2 flex justify-end"><button class="bg-softgray text-primary p-2 my-1 font-bold w-32 hover:bg-secondary hover:text-softgray">DETAILS</button></td>
+                    <td class="py-4 px-2 flex justify-end"><Link href="/ticketdetails"><button class="bg-softgray text-primary p-2 my-1 font-bold w-32 hover:bg-secondary hover:text-softgray">DETAILS</button></Link></td>
               </tr>
               <tr>
                     <td class="text-secondary py-4 px-2">Shang-Chi and the Legend of the Ten Rings</td>
@@ -62,7 +60,7 @@
                       <p>1 PM</p>
                       <p>DECEMBER 11, 2021</p>
                     </td>
-                    <td class="py-4 px-2 flex justify-end"><button class="bg-softgray text-primary p-2 my-1 font-bold w-32 hover:bg-secondary hover:text-softgray">DETAILS</button></td>
+                    <td class="py-4 px-2 flex justify-end"><Link href="/ticketdetails"><button class="bg-softgray text-primary p-2 my-1 font-bold w-32 hover:bg-secondary hover:text-softgray">DETAILS</button></Link></td>
               </tr>
 
            </table>
@@ -70,7 +68,6 @@
    </div>
 
 
-  </Layout>
 </template>
 
 <script>
@@ -81,6 +78,7 @@ import { Link } from '@inertiajs/inertia-vue3';
 
 export default {
   name: 'Tickets',
+  layout: Layout,
   components: { Layout, Head,Link },
 };
 </script>

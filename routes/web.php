@@ -35,7 +35,7 @@ Route::get('/tickets', function () {
 });
 
 Route::get('/ticketdetails', function () {
-    return inertia('TicketDetails');
+    return Inertia::render('TicketDetails');
 });
 
 // Auth::routes();

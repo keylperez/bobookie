@@ -1,9 +1,10 @@
 <template>
 
-  <Link class="text-secondary font-bold hover:text-primary " 
+  <Link class="text-secondary font-bold hover:text-primary" 
         :class="{'font-bold text-active': active}">
-  <slot />
+    <slot />
   </Link>
+  
 </template>
 
 <script>
