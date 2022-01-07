@@ -3,8 +3,12 @@
   <Layout>
     <div class="flex justify-center top-0">
        <h1 class="font-bold text-primary text-xl font-main mx">MOVIES THIS WEEK</h1>
-       <br/>
-        <MovieCard ></MovieCard>
+    </div>
+
+    <div class="flex flex-row justify-center">
+      <MovieCard ></MovieCard>
+      <MovieCard ></MovieCard>
+      <MovieCard ></MovieCard>
     </div>
 
   </Layout>
