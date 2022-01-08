@@ -17,9 +17,7 @@ This project is for me and my group's final task in our 2102 Web Development Cou
 
 -   Laravel
 -   Vue
-    -   Vuex
-    -   Vue Router
-    -   Nuxt.js would be good for this but we'll see
+-   Inertia
 -   Tailwind
 
 ## Contributions
