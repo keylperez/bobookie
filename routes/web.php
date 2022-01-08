@@ -39,6 +39,18 @@ Route::get('/ticketdetails', function () {
     return Inertia::render('TicketDetails');
 });
 
+Route::get('/discoverdetails', function () {
+    return Inertia::render('DiscoverDetails');
+});
+
+Route::get('/discoverbook', function () {
+    return Inertia::render('Book');
+});
+
+Route::get('/discoverbookdetails', function () {
+    return Inertia::render('BookDetails');
+});
+
 // Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
