@@ -1,5 +1,5 @@
 <template>
-  <Head title="Discover New Movies"/>
+  <Head title="Movie Detail"/>
     
    <div class="font-main text-secondary">
 
@@ -41,8 +41,6 @@
 <script>
 
 import Layout from '../Shared/Layout'
-// import { Head } from '@inertiajs/inertia-vue3'
-
  
 export default {
   name: 'DiscoverDetails',

@@ -639,6 +639,22 @@ var map = {
 		"./resources/js/Pages/Home.vue",
 		"resources_js_Pages_Home_vue"
 	],
+	"./Payment": [
+		"./resources/js/Pages/Payment.vue",
+		"resources_js_Pages_Payment_vue"
+	],
+	"./Payment.vue": [
+		"./resources/js/Pages/Payment.vue",
+		"resources_js_Pages_Payment_vue"
+	],
+	"./PaymentDetails": [
+		"./resources/js/Pages/PaymentDetails.vue",
+		"resources_js_Pages_PaymentDetails_vue"
+	],
+	"./PaymentDetails.vue": [
+		"./resources/js/Pages/PaymentDetails.vue",
+		"resources_js_Pages_PaymentDetails_vue"
+	],
 	"./TicketDetails": [
 		"./resources/js/Pages/TicketDetails.vue",
 		"resources_js_Pages_TicketDetails_vue"

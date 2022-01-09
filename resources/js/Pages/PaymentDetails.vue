@@ -47,16 +47,15 @@
                 </div>
 
                 <div class="flex flex-col">
-                    <button
-                        class="bg-primary text-white p-2 my-1 font-bold w-64 hover:bg-secondary"
-                    >
+                    <button class="bg-primary text-white p-2 my-1 font-bold w-64 hover:bg-secondary">
                         PRINT RECEIPT
                     </button>
-                    <button
-                        class="bg-softgray text-primary p-2 my-1 font-bold w-64 hover:bg-secondary hover:text-softgray"
-                    >
-                        CANCEL TICKET(S)
-                    </button>
+
+                    <Link href="/tickets">
+                      <button class="bg-softgray text-primary p-2 my-1 font-bold w-64 hover:bg-secondary hover:text-softgray">
+                          GO TO MY TICKETS
+                      </button>
+                    </Link>
                 </div>
             </div>
         </div>
