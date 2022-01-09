@@ -1,8 +1,10 @@
 <?php
 
 use Inertia\Inertia;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +41,20 @@ Route::get('/ticketdetails', function () {
     return Inertia::render('TicketDetails');
 });
 
+Route::get('/discoverdetails', function () {
+    return Inertia::render('DiscoverDetails');
+});
+
+Route::get('/discoverbook', function () {
+    return Inertia::render('Book');
+});
+
+Route::get('/discoverbookdetails', function () {
+    return Inertia::render('BookDetails');
+});
+
+
+
 // Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
