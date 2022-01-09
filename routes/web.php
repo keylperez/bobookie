@@ -26,7 +26,15 @@ use Illuminate\Support\Facades\Redirect;
 // });
 
 Route::get('/', function () {
-    return Inertia::render('Home');
+    return Inertia::render('Movies');
+});
+
+Route::get('/bookings', function () {
+    return Inertia::render('Bookings');
+});
+
+Route::get('/movies', function () {
+    return Inertia::render('Movies');
 });
 
 Route::get('/discover', function () {

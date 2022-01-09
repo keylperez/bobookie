@@ -615,6 +615,14 @@ var map = {
 		"./resources/js/Pages/BookDetails.vue",
 		"resources_js_Pages_BookDetails_vue"
 	],
+	"./Bookings": [
+		"./resources/js/Pages/Bookings.vue",
+		"resources_js_Pages_Bookings_vue"
+	],
+	"./Bookings.vue": [
+		"./resources/js/Pages/Bookings.vue",
+		"resources_js_Pages_Bookings_vue"
+	],
 	"./Discover": [
 		"./resources/js/Pages/Discover.vue",
 		"resources_js_Pages_Discover_vue"
@@ -638,6 +646,14 @@ var map = {
 	"./Home.vue": [
 		"./resources/js/Pages/Home.vue",
 		"resources_js_Pages_Home_vue"
+	],
+	"./Movies": [
+		"./resources/js/Pages/Movies.vue",
+		"resources_js_Pages_Movies_vue"
+	],
+	"./Movies.vue": [
+		"./resources/js/Pages/Movies.vue",
+		"resources_js_Pages_Movies_vue"
 	],
 	"./Payment": [
 		"./resources/js/Pages/Payment.vue",
