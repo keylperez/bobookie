@@ -53,6 +53,14 @@ Route::get('/discoverbookdetails', function () {
     return Inertia::render('BookDetails');
 });
 
+Route::get('/discoverpayment', function () {
+    return Inertia::render('Payment');
+});
+
+Route::get('/discoverpaydetails', function () {
+    return Inertia::render('PaymentDetails');
+});
+
 
 
 // Auth::routes();

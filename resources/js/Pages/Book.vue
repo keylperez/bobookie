@@ -1,5 +1,5 @@
 <template>
-  <Head title="Discover New Movies"/>
+  <Head title="Book Movie"/>
     
    <div class="font-main text-secondary">
 
@@ -70,7 +70,6 @@
 <script>
 
 import Layout from '../Shared/Layout'
-import { Head } from '@inertiajs/inertia-vue3'
 import { reactive } from 'vue'
 import { Inertia } from '@inertiajs/inertia'
  
@@ -89,7 +88,7 @@ export default {
     return { form, submit }
   },
   layout: Layout,
-  components: { Head },
+  components: { Layout },
   methods: {
   increment () {
     this.form.ticketnum += 1;

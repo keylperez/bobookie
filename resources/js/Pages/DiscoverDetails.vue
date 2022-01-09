@@ -1,5 +1,5 @@
 <template>
-  <Head title="Discover New Movies"/>
+  <Head title="Movie Detail"/>
     
    <div class="font-main text-secondary">
 
