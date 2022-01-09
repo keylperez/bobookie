@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class GenreSeeder extends Seeder
 {
@@ -14,19 +15,19 @@ class GenreSeeder extends Seeder
     public function run()
     {
         $data = array(
-            array('Action'),
-            array('Adventure'),
-            array('Animation'),
-            array('Biography'),
-            array('Comedy'),
-            array('Crime'),
-            array('Drama'),
-            array('Horror'),
-            array('Music'),
-            array('Mystery'),
-            array('Romance'),
-            array('Thriller'),
-            array('War'),
+            array('name' => 'Action'),
+            array('name' => 'Adventure'),
+            array('name' => 'Animation'),
+            array('name' => 'Biography'),
+            array('name' => 'Comedy'),
+            array('name' => 'Crime'),
+            array('name' => 'Drama'),
+            array('name' => 'Horror'),
+            array('name' => 'Music'),
+            array('name' => 'Mystery'),
+            array('name' => 'Romance'),
+            array('name' => 'Thriller'),
+            array('name' => 'War'),
         );
 
         DB::table('genre')->insert($data);
