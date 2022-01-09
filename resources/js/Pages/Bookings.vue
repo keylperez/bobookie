@@ -1,9 +1,6 @@
 <template>
   <Head title="Booking"/>
    <div class="font-main">
-     <!-- <div class="flex justify-end mx-40">
-         <Link href="/#"><button  class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary ">ADD MOVIE</button></Link>
-      </div> -->
 
       <div class="flex flex-col justify-center mx-40 mt-16">
 
