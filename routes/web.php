@@ -53,11 +53,6 @@ Route::get('/discoverbookdetails', function () {
     return Inertia::render('BookDetails');
 });
 
-Route::post('/bookdata', function (Request $request) {
-    dd($request->ticketnum);
-    // return redirect('/discoverbookdetails');
-});
-
 
 
 // Auth::routes();

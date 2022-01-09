@@ -40,9 +40,6 @@ __webpack_require__.r(__webpack_exports__);
     Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Head
   },
   methods: {
-    // submit () {
-    //   this.$inertia.post('/discoverbook',this.form);
-    // },
     increment: function increment() {
       this.form.ticketnum += 1;
     },
@@ -160,13 +157,11 @@ var _hoisted_20 = {
 };
 
 var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  type: "submit",
   "class": "bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary"
 }, "PROCEED", -1
 /* HOISTED */
 );
 
-var _hoisted_22 = [_hoisted_21];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
 
@@ -203,14 +198,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.increment && $options.increment.apply($options, arguments);
     }),
     "class": "h-8 w-8 rounded-full overflow-hidden bg-primary flex justify-center items-center"
-  }, _hoisted_19)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-    onSubmit: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
-      return $setup.submit && $setup.submit.apply($setup, arguments);
-    }, ["prevent"])),
-    method: "post"
-  }, _hoisted_22, 32
-  /* HYDRATE_EVENTS */
-  )])])])])], 64
+  }, _hoisted_19)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <form @submit.prevent=\"submit\" method=\"post\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    href: "/discoverbookdetails"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_21];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </form> ")])])])])], 64
   /* STABLE_FRAGMENT */
   );
 }

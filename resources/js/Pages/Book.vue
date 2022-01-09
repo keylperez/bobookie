@@ -54,9 +54,9 @@
           </div>
 
           <div class="flex flex-col mt-4">
-            <form @submit.prevent="submit" method="post">
-               <button type="submit" class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary ">PROCEED</button>
-            </form>
+            <!-- <form @submit.prevent="submit" method="post"> -->
+               <Link href="/discoverbookdetails"><button  class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary ">PROCEED</button></Link>
+            <!-- </form> -->
           </div>
         </div>
 
