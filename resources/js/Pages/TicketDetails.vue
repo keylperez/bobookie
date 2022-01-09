@@ -64,8 +64,13 @@
 </template>
 
 <script>
+import Layout from '../Shared/Layout';
 export default {
     name: "TicketDetails",
+    layout: Layout,
+    components: {
+        Layout
+    },
 };
 </script>
 

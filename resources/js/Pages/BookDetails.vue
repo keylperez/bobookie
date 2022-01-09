@@ -27,10 +27,14 @@
             <input type="text" class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52">
 
             <p class="font-bold text-secondary">COVID-19 Vaccination Certificate (Vaxcert)</p>
-            
-                <!-- <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Default file input example</label> -->
-                  <input type="file" class="form-control w-64 px-3 py-1.5
-                  text-base font-normal text-gray-700 bg-softgray bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+
+                  <label for="actual-btn">
+                  <input v-on:change="fileChoosen" type="file" id="actual-btn" hidden/>
+                    <div class="flex justify-between items-stretch shadow-md mt-2 w-64 text-base font-normal text-gray-700 bg-softgray bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-softgray">
+                      <span class="flex flex-wrap flex-col p-2">{{ filename }}</span>
+                      <p class="flex items-center justify-center bg-primary hover:bg-secondary p-1.5 px-4 m-0 text-sm text-white font-semibold cursor-pointer">UPLOAD</p>
+                    </div>
+                  </label>
           </div>
 
           <div class="flex flex-col mt-4">
@@ -50,35 +54,20 @@
 <script>
 
 import Layout from '../Shared/Layout'
-import { Head } from '@inertiajs/inertia-vue3'
-import { reactive } from 'vue'
-import { Inertia } from '@inertiajs/inertia'
  
 export default {
   name: 'Book',
   
-  setup () {
-    const form = reactive({
-      ticketnum: 1,
-    })
-
-    function submit() {
-      Inertia.post('/bookdata', form)
+  data() {
+    return {
+      filename: "",
+      ticketnum: 1
     }
-
-    return { form, submit }
   },
   layout: Layout,
-  components: { Head },
   methods: {
-  increment () {
-    this.form.ticketnum += 1;
-  },
-  decrement () {
-    if(this.form.ticketnum > 1){
-      this.form.ticketnum -= 1;
-    }
-
+  fileChoosen(event){
+          this.filename = event.target.files[0].name;
   }
 }
 };

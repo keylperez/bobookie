@@ -41,8 +41,6 @@
 <script>
 
 import Layout from '../Shared/Layout'
-// import { Head } from '@inertiajs/inertia-vue3'
-
  
 export default {
   name: 'DiscoverDetails',
