@@ -1,11 +1,12 @@
 <template>
-  <div>BookDetails</div>
+  <div>BookDetails Page</div>
+
 </template>
 
 <script>
-// import BookDetails from '.src/components/BookDetails.vue';
 export default {
   name: 'BookDetails',
+  layout: Layout
 };
 </script>
 

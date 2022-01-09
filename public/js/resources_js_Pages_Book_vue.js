@@ -13,13 +13,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Shared_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Shared/Layout */ "./resources/js/Shared/Layout.vue");
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Book',
-  data: function data() {
-    return {
+  setup: function setup() {
+    var form = (0,vue__WEBPACK_IMPORTED_MODULE_2__.reactive)({
       ticketnum: 1
+    });
+
+    function submit() {
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__.Inertia.post('/bookdata', form);
+    }
+
+    return {
+      form: form,
+      submit: submit
     };
   },
   layout: _Shared_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -27,12 +40,15 @@ __webpack_require__.r(__webpack_exports__);
     Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Head
   },
   methods: {
+    // submit () {
+    //   this.$inertia.post('/discoverbook',this.form);
+    // },
     increment: function increment() {
-      this.ticketnum += 1;
+      this.form.ticketnum += 1;
     },
     decrement: function decrement() {
-      if (this.ticketnum > 1) {
-        this.ticketnum -= 1;
+      if (this.form.ticketnum > 1) {
+        this.form.ticketnum -= 1;
       }
     }
   }
@@ -139,15 +155,18 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_19 = [_hoisted_18];
-
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_20 = {
   "class": "flex flex-col mt-4"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+};
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  type: "submit",
   "class": "bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary"
-}, "PROCEED")], -1
+}, "PROCEED", -1
 /* HOISTED */
 );
 
+var _hoisted_22 = [_hoisted_21];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
 
@@ -177,14 +196,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.decrement && $options.decrement.apply($options, arguments);
     }),
     "class": "h-8 w-8 rounded-full overflow-hidden bg-primary flex justify-center items-center"
-  }, _hoisted_17), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.ticketnum), 1
+  }, _hoisted_17), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.ticketnum), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[1] || (_cache[1] = function () {
       return $options.increment && $options.increment.apply($options, arguments);
     }),
     "class": "h-8 w-8 rounded-full overflow-hidden bg-primary flex justify-center items-center"
-  }, _hoisted_19)])]), _hoisted_20])])])], 64
+  }, _hoisted_19)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    onSubmit: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $setup.submit && $setup.submit.apply($setup, arguments);
+    }, ["prevent"])),
+    method: "post"
+  }, _hoisted_22, 32
+  /* HYDRATE_EVENTS */
+  )])])])])], 64
   /* STABLE_FRAGMENT */
   );
 }

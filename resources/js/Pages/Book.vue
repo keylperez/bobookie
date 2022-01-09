@@ -40,7 +40,7 @@
                 </svg>
               </button>
 
-                <p>{{ticketnum}}</p>
+                <p>{{form.ticketnum}}</p>
 
               <button @click="increment" class=" h-8 w-8 rounded-full overflow-hidden bg-primary flex justify-center items-center">
                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -54,9 +54,12 @@
           </div>
 
           <div class="flex flex-col mt-4">
-            <button class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary ">PROCEED</button>
+            <form @submit.prevent="submit" method="post">
+               <button type="submit" class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary ">PROCEED</button>
+            </form>
           </div>
         </div>
+
         
       </div>
    </div>
@@ -68,23 +71,32 @@
 
 import Layout from '../Shared/Layout'
 import { Head } from '@inertiajs/inertia-vue3'
+import { reactive } from 'vue'
+import { Inertia } from '@inertiajs/inertia'
  
 export default {
   name: 'Book',
-  data() {
-    return {
+  
+  setup () {
+    const form = reactive({
       ticketnum: 1,
+    })
+
+    function submit() {
+      Inertia.post('/bookdata', form)
     }
+
+    return { form, submit }
   },
   layout: Layout,
   components: { Head },
   methods: {
   increment () {
-    this.ticketnum += 1;
+    this.form.ticketnum += 1;
   },
   decrement () {
-    if(this.ticketnum > 1){
-      this.ticketnum -= 1;
+    if(this.form.ticketnum > 1){
+      this.form.ticketnum -= 1;
     }
 
   }

@@ -1,8 +1,10 @@
 <?php
 
 use Inertia\Inertia;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +53,13 @@ Route::get('/discoverbookdetails', function () {
     return Inertia::render('BookDetails');
 });
 
+Route::post('/bookdata', function (Request $request) {
+    dd($request->ticketnum);
+    // return redirect('/discoverbookdetails');
+});
+
+
+
 // Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
