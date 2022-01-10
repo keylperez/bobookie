@@ -60,8 +60,6 @@
 import Layout from '../Shared/Layout'
  
 export default {
-  name: 'Book',
-  
   data() {
     return {
       filename: "",

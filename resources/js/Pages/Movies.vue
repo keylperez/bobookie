@@ -81,7 +81,7 @@
 
 <div>
    <!-- MODAL HERE -->
-    <div v-if="showModal" class="font-main overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+    <div v-if="showModal" class="font-main  overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex flex-wrap">
       <div class="relative w-auto my-8 mx-auto max-w-3xl">
         <!--content-->
         <div class="shadow-lg relative flex flex-col   bg-white outline-none focus:outline-none">
@@ -105,35 +105,85 @@
 
             <div class="flex flex-row text-secondary font-main flex-wrap justify-end">
 
-          <div>
-              <h1 class="text-primary text-2xl">MOVIE DETAILS</h1>
+                <div>
+                    <h1 class="text-primary text-2xl">MOVIE DETAILS</h1>
 
-              <div class="text-sm my-2">
-                <p class="font-bold">Rating: <span class="font-thin">PG-13</span></p>
-                <p class="font-bold">Genre: <span class="font-thin">Adventure, Action</span></p>
-                <p class="font-bold">Director: <span class="font-thin">Chloé Zhao</span></p>
-                <p class="font-bold">Stars: <span class="font-thin">Gemma Chan, Richard Madden, Angelina Jolie</span></p>
-                <p class="font-bold w-2/3">Description: <span class="font-thin ">Marvel Studios' Eternals features an exciting new team of Super Heroes in the Marvel Cinematic Universe, ancient aliens who have been living on Earth in secret for thousands of years. Following the events of Avengers: Endgame, an unexpected tragedy forces them out of the shadows to reunite against mankind's most ancient enemy, the Deviants.</span></p>
+                  <div class="flex flex-row flex-wrap space-x-8 justify-evenly">
+
+                    <div class="text-sm mt-4 space-y-8 font-bold text-secondary">
+                      <div>
+                        <p>Enter Movie Name</p>
+                        <input type="text" class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52">
+                      </div>
+
+                      <div>
+                        <p>Director</p>
+                        <input type="text" class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52">
+                      </div>
+
+                      <div>
+                        <p>Genre</p>
+                        <input type="text" class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52">
+                      </div>
+
+                      <div>
+                        <p>Start Date</p>
+                        <input type="date" class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52">
+                      </div>
+
+                      <div>
+                        <p>End Date</p>
+                        <input type="date" class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52">
+                      </div>
+
+                    </div>
+
+                    <div class="text-sm mt-4 space-y-8">
+
+                      <div>
+                        <p class="font-bold text-secondary">Movie Poster</p>
+                        <label for="actual-btn">
+                        <input v-on:change="fileChoosen" type="file" id="actual-btn" hidden/>
+                          <div class="flex justify-between items-stretch shadow-md w-52 text-base font-normal text-gray-700 bg-softgray bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-softgray">
+
+                            <span class="flex flex-wrap flex-col p-2 overflow-x-hidden">{{ filename }}</span>
+
+                            <p class="flex items-center justify-center bg-primary hover:bg-secondary p-1 px-4 m-0 text-sm text-white font-semibold cursor-pointer">UPLOAD</p>
+                          </div>
+                        </label>
+                      </div>
+
+                      <div class="selectdiv">
+                        <!-- <label> -->
+                        <p class="font-bold">Rating</p>
+                            <select class="focus:outline-none cursor-pointer w-52 p-2">
+                                <option selected> PG-13 </option>
+                                <option>G</option>
+                                <option>PG</option>
+                                <option>R</option>
+                                <option>NC-17</option>
+                            </select>
+                        <!-- </label> -->
+                      </div>
+
+                       <div>
+                        <p>Description</p>
+                        <textarea name="movie-desc" cols="30" rows="9" class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52"></textarea>
+                      </div>
+                      
+                    </div>
+
+                  </div>
+
+                    <div class="flex flex-row justify-center space-x-4 mb-8 mt-12">
+                      <button v-on:click="toggleModal()" class="btn-secondary">CANCEL</button>
+                      <Link href="#"><button class="btn-primary">SAVE</button></Link>
+                    </div>
+                    
               </div>
 
-              <div class="flex flex-col">
-                <Link href="#"><button class="btn-primary">BOOK</button></Link>
-                <button v-on:click="toggleModal()" class="btn-secondary">CANCEL</button>
-              </div>
-        </div>
-
-        </div>
+            </div>
           </div>
-          <!--footer-->
-          <!-- <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-            <button class="text-red-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" v-on:click="toggleModal()">
-              Close
-            </button>
-            <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" v-on:click="toggleModal()">
-              Save Changes
-            </button>
-          </div> -->
-
         </div>
       </div>
     </div>
@@ -154,12 +204,16 @@ import DelIcon from '../Shared/Delete.vue'
 export default {
    data() {
       return {
-         showModal: false
+        filename: "",
+        showModal: false
       }
    },
    methods: {
     toggleModal: function(){
       this.showModal = !this.showModal;
+    },
+    fileChoosen(event){
+          this.filename = event.target.files[0].name;
     }
   },
   name: 'Movies',
@@ -169,21 +223,48 @@ export default {
 </script>
 
 <style>
-	/* .link-underline {
-		border-bottom-width: 0;
-		background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
-		background-size: 0 3px;
-		background-position: 0 100%;
-		background-repeat: no-repeat;
-		transition: background-size .5s ease-in-out;
-	}
+.selectdiv {
+  position: relative;
+  min-width: 208px;
+}
 
-	.link-underline-black {
-		background-image: linear-gradient(transparent, transparent), linear-gradient(#FEB155,#FEB155)
-	}
+/*To remove button from IE11, thank you Matt */
+select::-ms-expand {
+     display: none;
+}
 
-	.link-underline:hover {
-		background-size: 100% 3px;
-		background-position: 0 100%
-	} */
+.selectdiv:after {
+  content: '>';
+  font: 17px "Consolas", monospace;
+  color: rgb(255, 255, 255);
+  background-color: #FEB155;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  right: 5px;
+  padding: 12.5px;
+  position: absolute;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.selectdiv select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  max-width: 208px;
+  height: 35px;
+  float: right;
+  margin: 5px 0px;
+  margin-bottom: 30px;
+  padding: 0px 24px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #333;
+  background-color: #E5E5E5;
+  background-image: none;
+}
 </style>

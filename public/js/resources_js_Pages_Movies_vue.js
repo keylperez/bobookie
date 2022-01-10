@@ -20,12 +20,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      filename: "",
       showModal: false
     };
   },
   methods: {
     toggleModal: function toggleModal() {
       this.showModal = !this.showModal;
+    },
+    fileChoosen: function fileChoosen(event) {
+      this.filename = event.target.files[0].name;
     }
   },
   name: 'Movies',
@@ -313,7 +317,7 @@ var _hoisted_33 = {
 };
 var _hoisted_34 = {
   key: 0,
-  "class": "font-main overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex"
+  "class": "font-main overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex flex-wrap"
 };
 var _hoisted_35 = {
   "class": "relative w-auto my-8 mx-auto max-w-3xl"
@@ -357,19 +361,57 @@ var _hoisted_43 = {
   "class": "flex flex-row text-secondary font-main flex-wrap justify-end"
 };
 
-var _hoisted_44 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<h1 class=\"text-primary text-2xl\">MOVIE DETAILS</h1><div class=\"text-sm my-2\"><p class=\"font-bold\">Rating: <span class=\"font-thin\">PG-13</span></p><p class=\"font-bold\">Genre: <span class=\"font-thin\">Adventure, Action</span></p><p class=\"font-bold\">Director: <span class=\"font-thin\">Chloé Zhao</span></p><p class=\"font-bold\">Stars: <span class=\"font-thin\">Gemma Chan, Richard Madden, Angelina Jolie</span></p><p class=\"font-bold w-2/3\">Description: <span class=\"font-thin\">Marvel Studios&#39; Eternals features an exciting new team of Super Heroes in the Marvel Cinematic Universe, ancient aliens who have been living on Earth in secret for thousands of years. Following the events of Avengers: Endgame, an unexpected tragedy forces them out of the shadows to reunite against mankind&#39;s most ancient enemy, the Deviants.</span></p></div>", 2);
-
-var _hoisted_46 = {
-  "class": "flex flex-col"
-};
-
-var _hoisted_47 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "btn-primary"
-}, "BOOK", -1
+var _hoisted_44 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-primary text-2xl"
+}, "MOVIE DETAILS", -1
 /* HOISTED */
 );
 
-var _hoisted_48 = {
+var _hoisted_45 = {
+  "class": "flex flex-row flex-wrap space-x-8 justify-evenly"
+};
+
+var _hoisted_46 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"text-sm mt-4 space-y-8 font-bold text-secondary\"><div><p>Enter Movie Name</p><input type=\"text\" class=\"bg-softgray form-input p-1 shadow-md focus:outline-none w-52\"></div><div><p>Director</p><input type=\"text\" class=\"bg-softgray form-input p-1 shadow-md focus:outline-none w-52\"></div><div><p>Genre</p><input type=\"text\" class=\"bg-softgray form-input p-1 shadow-md focus:outline-none w-52\"></div><div><p>Start Date</p><input type=\"date\" class=\"bg-softgray form-input p-1 shadow-md focus:outline-none w-52\"></div><div><p>End Date</p><input type=\"date\" class=\"bg-softgray form-input p-1 shadow-md focus:outline-none w-52\"></div></div>", 1);
+
+var _hoisted_47 = {
+  "class": "text-sm mt-4 space-y-8"
+};
+
+var _hoisted_48 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "font-bold text-secondary"
+}, "Movie Poster", -1
+/* HOISTED */
+);
+
+var _hoisted_49 = {
+  "for": "actual-btn"
+};
+var _hoisted_50 = {
+  "class": "flex justify-between items-stretch shadow-md w-52 text-base font-normal text-gray-700 bg-softgray bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-softgray"
+};
+var _hoisted_51 = {
+  "class": "flex flex-wrap flex-col p-2 overflow-x-hidden"
+};
+
+var _hoisted_52 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "flex items-center justify-center bg-primary hover:bg-secondary p-1 px-4 m-0 text-sm text-white font-semibold cursor-pointer"
+}, "UPLOAD", -1
+/* HOISTED */
+);
+
+var _hoisted_53 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"selectdiv\"><!-- &lt;label&gt; --><p class=\"font-bold\">Rating</p><select class=\"focus:outline-none cursor-pointer w-52 p-2\"><option selected> PG-13 </option><option>G</option><option>PG</option><option>R</option><option>NC-17</option></select><!-- &lt;/label&gt; --></div><div><p>Description</p><textarea name=\"movie-desc\" cols=\"30\" rows=\"9\" class=\"bg-softgray form-input p-1 shadow-md focus:outline-none w-52\"></textarea></div>", 2);
+
+var _hoisted_55 = {
+  "class": "flex flex-row justify-center space-x-4 mb-8 mt-12"
+};
+
+var _hoisted_56 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "btn-primary"
+}, "SAVE", -1
+/* HOISTED */
+);
+
+var _hoisted_57 = {
   key: 1,
   "class": "opacity-25 fixed inset-0 z-40 bg-black"
 };
@@ -470,21 +512,32 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.toggleModal();
     }),
     "class": "flex flex-row items-center space-x-1 font-bold"
-  }, _hoisted_41)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("body"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_43, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_44, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+  }, _hoisted_41)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("body"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_43, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_44, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [_hoisted_46, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_48, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_49, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    onChange: _cache[2] || (_cache[2] = function () {
+      return $options.fileChoosen && $options.fileChoosen.apply($options, arguments);
+    }),
+    type: "file",
+    id: "actual-btn",
+    hidden: ""
+  }, null, 32
+  /* HYDRATE_EVENTS */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_50, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_51, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.filename), 1
+  /* TEXT */
+  ), _hoisted_52])])]), _hoisted_53])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_55, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[3] || (_cache[3] = function ($event) {
+      return $options.toggleModal();
+    }),
+    "class": "btn-secondary"
+  }, "CANCEL"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     href: "#"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_47];
+      return [_hoisted_56];
     }),
     _: 1
     /* STABLE */
 
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[2] || (_cache[2] = function ($event) {
-      return $options.toggleModal();
-    }),
-    "class": "btn-secondary"
-  }, "CANCEL")])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("footer"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b\">\r\n            <button class=\"text-red-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150\" type=\"button\" v-on:click=\"toggleModal()\">\r\n              Close\r\n            </button>\r\n            <button class=\"text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150\" type=\"button\" v-on:click=\"toggleModal()\">\r\n              Save Changes\r\n            </button>\r\n          </div> ")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_48)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 64
+  })])])])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_57)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -679,7 +732,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n\t/* .link-underline {\r\n\t\tborder-bottom-width: 0;\r\n\t\tbackground-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);\r\n\t\tbackground-size: 0 3px;\r\n\t\tbackground-position: 0 100%;\r\n\t\tbackground-repeat: no-repeat;\r\n\t\ttransition: background-size .5s ease-in-out;\r\n\t}\r\n\r\n\t.link-underline-black {\r\n\t\tbackground-image: linear-gradient(transparent, transparent), linear-gradient(#FEB155,#FEB155)\r\n\t}\r\n\r\n\t.link-underline:hover {\r\n\t\tbackground-size: 100% 3px;\r\n\t\tbackground-position: 0 100%\r\n\t} */\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.selectdiv {\r\n  position: relative;\r\n  min-width: 208px;\n}\r\n\r\n/*To remove button from IE11, thank you Matt */\nselect::-ms-expand {\r\n     display: none;\n}\n.selectdiv:after {\r\n  content: '>';\r\n  font: 17px \"Consolas\", monospace;\r\n  color: rgb(255, 255, 255);\r\n  background-color: #FEB155;\r\n  transform: rotate(90deg);\r\n  right: 5px;\r\n  padding: 12.5px;\r\n  position: absolute;\r\n  pointer-events: none;\r\n  cursor: pointer;\n}\n.selectdiv select {\r\n  -webkit-appearance: none;\r\n  -moz-appearance: none;\r\n  appearance: none;\r\n  display: block;\r\n  width: 100%;\r\n  max-width: 208px;\r\n  height: 35px;\r\n  float: right;\r\n  margin: 5px 0px;\r\n  margin-bottom: 30px;\r\n  padding: 0px 24px;\r\n  font-size: 16px;\r\n  line-height: 1.75;\r\n  color: #333;\r\n  background-color: #E5E5E5;\r\n  background-image: none;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
