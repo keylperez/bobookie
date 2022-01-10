@@ -649,12 +649,10 @@ var map = {
 	],
 	"./Movies": [
 		"./resources/js/Pages/Movies.vue",
-		"/js/vendor",
 		"resources_js_Pages_Movies_vue"
 	],
 	"./Movies.vue": [
 		"./resources/js/Pages/Movies.vue",
-		"/js/vendor",
 		"resources_js_Pages_Movies_vue"
 	],
 	"./Payment": [
@@ -700,7 +698,7 @@ function webpackAsyncContext(req) {
 	}
 
 	var ids = map[req], id = ids[0];
-	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(() => {
+	return __webpack_require__.e(ids[1]).then(() => {
 		return __webpack_require__(id);
 	});
 }

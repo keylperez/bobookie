@@ -32,10 +32,54 @@ body {
   }
 
   .btn-primary {
-    @apply bg-primary text-white p-2 my-1 font-bold w-40 m-0 hover:bg-secondary;
+    @apply bg-primary text-white p-2 my-1 font-bold w-40 m-0 hover:bg-secondary transition transform hover:-translate-y-1;
   }
 
   .btn-secondary{
-    @apply bg-softgray text-primary p-2 my-1 font-bold w-40 m-0 hover:bg-secondary hover:text-softgray;
+    @apply bg-softgray text-primary p-2 my-1 font-bold w-40 m-0 hover:bg-secondary hover:text-softgray  transition transform hover:-translate-y-1;
+  }
+
+  .selectdiv {
+    position: relative;
+    min-width: 208px;
+  }
+  
+  select::-ms-expand {
+       display: none;
+  }
+  
+  .selectdiv:after {
+    content: '>';
+    font: 17px "Consolas", monospace;
+    color: rgb(255, 255, 255);
+    background-color: #FEB155;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    right: 5px;
+    padding: 12.5px;
+    position: absolute;
+    pointer-events: none;
+    cursor: pointer;
+  }
+  
+  .selectdiv select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: block;
+    width: 100%;
+    max-width: 208px;
+    height: 35px;
+    float: right;
+    margin: 5px 0px;
+    margin-bottom: 30px;
+    padding: 0px 24px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #333;
+    background-color: #E5E5E5;
+    background-image: none;
   }
 }

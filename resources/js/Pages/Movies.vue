@@ -223,48 +223,5 @@ export default {
 </script>
 
 <style>
-.selectdiv {
-  position: relative;
-  min-width: 208px;
-}
 
-/*To remove button from IE11, thank you Matt */
-select::-ms-expand {
-     display: none;
-}
-
-.selectdiv:after {
-  content: '>';
-  font: 17px "Consolas", monospace;
-  color: rgb(255, 255, 255);
-  background-color: #FEB155;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-  right: 5px;
-  padding: 12.5px;
-  position: absolute;
-  pointer-events: none;
-  cursor: pointer;
-}
-
-.selectdiv select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: block;
-  width: 100%;
-  max-width: 208px;
-  height: 35px;
-  float: right;
-  margin: 5px 0px;
-  margin-bottom: 30px;
-  padding: 0px 24px;
-  font-size: 16px;
-  line-height: 1.75;
-  color: #333;
-  background-color: #E5E5E5;
-  background-image: none;
-}
 </style>
