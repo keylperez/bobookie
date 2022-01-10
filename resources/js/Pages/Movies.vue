@@ -81,30 +81,48 @@
 
 <div>
    <!-- MODAL HERE -->
-    <div v-if="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
-      <div class="relative w-auto my-6 mx-auto max-w-3xl">
+    <div v-if="showModal" class="font-main overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+      <div class="relative w-auto my-8 mx-auto max-w-3xl">
         <!--content-->
-        <div class="border-0 shadow-lg relative flex flex-col   bg-white outline-none focus:outline-none">
+        <div class="shadow-lg relative flex flex-col   bg-white outline-none focus:outline-none">
+         
           <!--header-->
-          <!-- <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-            <h3 class="text-3xl font-semibold">
-              Modal Title
-            </h3>
-            <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" v-on:click="toggleModal()">
-              <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                ×
-              </span>
-            </button>
-          </div> -->
+          <div class="flex items-start justify-between mt-10 ml-2 p-2">
+            <div class="text-sm font-bold mx-2 text-secondary">
+               
+               <button v-on:click="toggleModal()" class="flex flex-row items-center space-x-1 font-bold">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                  </svg><p class="text-xs link-underline link-underline-black text-secondary cursor-pointer">BACK</p>
+              </button> 
+
+            </div>
+          </div>
+
+
           <!--body-->
-          <div class="relative p-6 flex-auto h-80">
-            <p class="my-4 text-blueGray-500 text-lg leading-relaxed">
-              I always felt like I could do anything. That’s the main
-              thing people are controlled by! Thoughts- their perception
-              of themselves! They're slowed down by their perception of
-              themselves. If you're taught you can’t do anything, you
-              won’t do anything. I was taught I could do everything.
-            </p>
+          <div class="p-6 flex-auto h-auto">
+
+            <div class="flex flex-row text-secondary font-main flex-wrap justify-end">
+
+          <div>
+              <h1 class="text-primary text-2xl">MOVIE DETAILS</h1>
+
+              <div class="text-sm my-2">
+                <p class="font-bold">Rating: <span class="font-thin">PG-13</span></p>
+                <p class="font-bold">Genre: <span class="font-thin">Adventure, Action</span></p>
+                <p class="font-bold">Director: <span class="font-thin">Chloé Zhao</span></p>
+                <p class="font-bold">Stars: <span class="font-thin">Gemma Chan, Richard Madden, Angelina Jolie</span></p>
+                <p class="font-bold w-2/3">Description: <span class="font-thin ">Marvel Studios' Eternals features an exciting new team of Super Heroes in the Marvel Cinematic Universe, ancient aliens who have been living on Earth in secret for thousands of years. Following the events of Avengers: Endgame, an unexpected tragedy forces them out of the shadows to reunite against mankind's most ancient enemy, the Deviants.</span></p>
+              </div>
+
+              <div class="flex flex-col">
+                <Link href="#"><button class="btn-primary">BOOK</button></Link>
+                <button v-on:click="toggleModal()" class="btn-secondary">CANCEL</button>
+              </div>
+        </div>
+
+        </div>
           </div>
           <!--footer-->
           <!-- <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
@@ -115,9 +133,11 @@
               Save Changes
             </button>
           </div> -->
+
         </div>
       </div>
     </div>
+
     <div v-if="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
   </div>
 
@@ -149,4 +169,21 @@ export default {
 </script>
 
 <style>
+	/* .link-underline {
+		border-bottom-width: 0;
+		background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+		background-size: 0 3px;
+		background-position: 0 100%;
+		background-repeat: no-repeat;
+		transition: background-size .5s ease-in-out;
+	}
+
+	.link-underline-black {
+		background-image: linear-gradient(transparent, transparent), linear-gradient(#FEB155,#FEB155)
+	}
+
+	.link-underline:hover {
+		background-size: 100% 3px;
+		background-position: 0 100%
+	} */
 </style>

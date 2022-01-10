@@ -242,8 +242,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-secondary font-bold hover:text-primary", {
-      'font-bold text-active': $props.active
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-secondary font-bold link link-underline link-underline-black cursor-pointer", {
+      'font-bold text-active link-underline-white': $props.active
     }])
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -649,10 +649,12 @@ var map = {
 	],
 	"./Movies": [
 		"./resources/js/Pages/Movies.vue",
+		"/js/vendor",
 		"resources_js_Pages_Movies_vue"
 	],
 	"./Movies.vue": [
 		"./resources/js/Pages/Movies.vue",
+		"/js/vendor",
 		"resources_js_Pages_Movies_vue"
 	],
 	"./Payment": [
@@ -698,7 +700,7 @@ function webpackAsyncContext(req) {
 	}
 
 	var ids = map[req], id = ids[0];
-	return __webpack_require__.e(ids[1]).then(() => {
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(() => {
 		return __webpack_require__(id);
 	});
 }
