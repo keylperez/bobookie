@@ -722,6 +722,20 @@ video {
   transition-duration: 150ms;
 }
 
+.input-primary {
+  width: 13rem;
+  --tw-bg-opacity: 1;
+  background-color: rgba(229, 229, 229, var(--tw-bg-opacity));
+  padding: 0.25rem;
+  --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.input-primary:focus{
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 .selectdiv {
   position: relative;
   min-width: 208px;

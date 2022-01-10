@@ -26,7 +26,12 @@
 </template>
 
 <script>
-export default {};
+import Layout from '../Shared/Layout';
+
+export default {
+    layout: Layout,
+    components: { Layout }
+};
 </script>
 
 <style></style>

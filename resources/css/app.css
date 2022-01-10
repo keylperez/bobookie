@@ -39,6 +39,10 @@ body {
     @apply bg-softgray text-primary p-2 my-1 font-bold w-40 m-0 hover:bg-secondary hover:text-softgray  transition transform hover:-translate-y-1;
   }
 
+  .input-primary {
+    @apply bg-softgray p-1 shadow-md focus:outline-none w-52;
+  }
+
   .selectdiv {
     position: relative;
     min-width: 208px;

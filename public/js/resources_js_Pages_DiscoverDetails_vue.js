@@ -64,7 +64,7 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-xs"
+  "class": "text-xs link-underline link-underline-black cursor-pointer"
 }, "BACK", -1
 /* HOISTED */
 );
@@ -80,7 +80,7 @@ var _hoisted_10 = {
 };
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary"
+  "class": "btn-primary"
 }, "BOOK", -1
 /* HOISTED */
 );

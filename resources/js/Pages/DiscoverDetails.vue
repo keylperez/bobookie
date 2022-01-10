@@ -10,7 +10,7 @@
                <Link href="/discover" class="flex flex-row items-center space-x-1">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg><p class="text-xs">BACK</p></Link> 
+                </svg><p class="text-xs link-underline link-underline-black  cursor-pointer">BACK</p></Link> 
             </div>
 
             <div class="bg-secondary p-4 my-2 h-80 w-48 mt-6 bg-cover" :style="{'background-image': `url(img/Home/eternals_poster.jpg)`}"></div>
@@ -28,7 +28,7 @@
           </div>
 
           <div class="flex flex-col">
-            <Link href="/discoverbook"><button class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary ">BOOK</button></Link>
+            <Link href="/discoverbook"><button class="btn-primary ">BOOK</button></Link>
           </div>
         </div>
         

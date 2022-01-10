@@ -26,8 +26,8 @@
                       <td class="font-thin py-4">PG-13</td>
                       <td class="py-4 flex flex-row justify-end items-center space-x-3" align="right">
 
-                        <Link href="#" class="cursor-pointer"><EditIcon/></Link>
-                        <Link href="#"><DelIcon/></Link>
+                        <button v-on:click="toggleModal()"><EditIcon/></button>
+                        <button v-on:click="toggleDel()"><DelIcon/></button>
 
                         
                         </td>
@@ -41,8 +41,8 @@
                       <td class="font-thin py-4">PG-13</td>
                       <td class="py-4 flex flex-row justify-end items-center space-x-3" align="right">
 
-                         <Link href="#" class="cursor-pointer"><EditIcon/></Link>
-                         <Link href="#"><DelIcon/></Link>
+                         <button v-on:click="toggleModal()"><EditIcon/></button>
+                         <button v-on:click="toggleDel()"><DelIcon/></button>
 
                       </td>
               </tr>
@@ -55,8 +55,8 @@
                       <td class="font-thin py-4">PG-13</td>
                       <td class="py-4 flex flex-row justify-end items-center space-x-3" align="right">
 
-                        <Link href="#" class="cursor-pointer"><EditIcon/></Link>
-                         <Link href="#"><DelIcon/></Link>                      
+                        <button v-on:click="toggleModal()"><EditIcon/></button>
+                         <button v-on:click="toggleDel()"><DelIcon/></button>                      
 
                       </td>
               </tr>
@@ -69,8 +69,8 @@
                       <td class="font-thin py-4">PG-13</td>
                       <td class="py-4 flex flex-row justify-end items-center space-x-3" align="right">
 
-                         <Link href="#" class="cursor-pointer"><EditIcon/></Link>
-                         <Link href="#"><DelIcon/></Link>
+                         <button v-on:click="toggleModal()"><EditIcon/></button>
+                         <button v-on:click="toggleDel()"><DelIcon/></button>
 
                       </td>
               </tr>
@@ -93,7 +93,7 @@
                <button v-on:click="toggleModal()" class="flex flex-row items-center space-x-1 font-bold">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                  </svg><p class="text-xs link-underline link-underline-black text-secondary cursor-pointer">BACK</p>
+                  </svg><p class="text-xs text-secondary link-underline link-underline-black  cursor-pointer">BACK</p>
               </button> 
 
             </div>
@@ -113,27 +113,27 @@
                     <div class="text-sm mt-4 space-y-8 font-bold text-secondary">
                       <div>
                         <p>Enter Movie Name</p>
-                        <input type="text" class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52">
+                        <input type="text" class="input-primary">
                       </div>
 
                       <div>
                         <p>Director</p>
-                        <input type="text" class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52">
+                        <input type="text" class="input-primary">
                       </div>
 
                       <div>
                         <p>Genre</p>
-                        <input type="text" class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52">
+                        <input type="text" class="input-primary">
                       </div>
 
                       <div>
                         <p>Start Date</p>
-                        <input type="date" class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52">
+                        <input type="date" class="input-primary">
                       </div>
 
                       <div>
                         <p>End Date</p>
-                        <input type="date" class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52">
+                        <input type="date" class="input-primary">
                       </div>
 
                     </div>
@@ -168,7 +168,7 @@
 
                        <div>
                         <p>Description</p>
-                        <textarea name="movie-desc" cols="30" rows="9" class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52"></textarea>
+                        <textarea name="movie-desc" cols="30" rows="9" class="input-primary"></textarea>
                       </div>
                       
                     </div>
@@ -191,6 +191,45 @@
     <div v-if="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
   </div>
 
+ <!-- DELETE CONFIRMATION MODAL HERE -->
+    <div>
+   <!-- MODAL HERE -->
+    <div v-if="delModal" class="font-main  overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex flex-wrap">
+      <div class="relative w-auto my-8 mx-auto max-w-3xl">
+        <!--content-->
+        <div class="shadow-lg relative flex flex-col   bg-white outline-none focus:outline-none">
+         
+          <!--body-->
+          <div class="p-6 flex-auto h-auto">
+
+            <div class="flex flex-row text-secondary font-main flex-wrap justify-end">
+
+                <div>
+                    <h1 class="text-2xl m-20 text-center">ARE YOU SURE YOU WANT TO REMOVE THIS MOVIE?</h1>
+
+                    <div class="flex flex-row justify-center space-x-4 mb-8 mt-8">
+                      <button v-on:click="toggleDel()" class="btn-secondary">CANCEL</button>
+                      <Link href="#"><button class="btn-primary">CONFIRM</button></Link>
+                    </div>
+                    
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div v-if="delModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+  </div>
+
+
+   
+
+
+
+
 
 </template>
 
@@ -205,12 +244,16 @@ export default {
    data() {
       return {
         filename: "",
-        showModal: false
+        showModal: false,
+        delModal: false,
       }
    },
    methods: {
     toggleModal: function(){
       this.showModal = !this.showModal;
+    },
+    toggleDel: function(){
+      this.delModal = !this.delModal;
     },
     fileChoosen(event){
           this.filename = event.target.files[0].name;

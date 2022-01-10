@@ -115,7 +115,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "bg-primary text-white p-2 my-1 font-bold w-32 hover:bg-secondary"
+  "class": "btn-primary w-32"
 }, "BOOK", -1
 /* HOISTED */
 );
