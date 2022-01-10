@@ -143,7 +143,7 @@ var _hoisted_2 = {
   "class": "flex justify-end mx-40"
 };
 var _hoisted_3 = {
-  "class": "flex flex-col justify-center mx-40"
+  "class": "flex flex-col justify-center mx-40 sm:mx-2 sm:text-xs md:text-base md:mx-40"
 };
 var _hoisted_4 = {
   "class": "mx-2 table-fixed mt-4"

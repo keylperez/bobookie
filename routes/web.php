@@ -17,16 +17,20 @@ use Illuminate\Support\Facades\Redirect;
 |
 */
 
-// Route::get('/login', function () {
-//     return view('login');
-// });
 
 // Route::get('/', function () {
-//     return view('app');
-// });
-
+    //     return view('app');
+    // });
 Route::get('/', function () {
-    return Inertia::render('Movies');
+    return Inertia::render('Login');
+});
+
+Route::get('/login', function () {
+    return Inertia::render('Login');
+});
+
+Route::get('/signup', function () {
+    return Inertia::render('SignUp');
 });
 
 Route::get('/bookings', function () {

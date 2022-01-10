@@ -1,11 +1,11 @@
 <template>
   <Head title="Movie Dashboard"/>
    <div class="font-main">
-     <div class="flex justify-end mx-40">
+     <div class="flex justify-end mx-40 ">
          <button  class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary" v-on:click="toggleModal()">ADD MOVIE</button>
       </div>
 
-      <div class="flex flex-col justify-center mx-40">
+      <div class="flex flex-col justify-center mx-40 sm:mx-2 sm:text-xs md:text-base md:mx-40">
 
           <table class="mx-2 table-fixed mt-4">
             <thead class="border-b-4 border-secondary text-secondary">

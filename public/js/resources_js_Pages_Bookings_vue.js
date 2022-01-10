@@ -137,7 +137,7 @@ var _hoisted_1 = {
   "class": "font-main"
 };
 var _hoisted_2 = {
-  "class": "flex flex-col justify-center mx-40 mt-16"
+  "class": "flex flex-col justify-center sm:mx-2 sm:text-xs md:text-base md:mx-40 mt-16"
 };
 var _hoisted_3 = {
   "class": "mx-2 table-fixed mt-4"

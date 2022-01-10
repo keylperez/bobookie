@@ -2,7 +2,7 @@
   <Head title="Booking"/>
    <div class="font-main">
 
-      <div class="flex flex-col justify-center mx-40 mt-16">
+      <div class="flex flex-col justify-center sm:mx-2 sm:text-xs md:text-base md:mx-40 mt-16">
 
           <table class="mx-2 table-fixed mt-4">
             <thead class="border-b-4 border-secondary text-secondary">
