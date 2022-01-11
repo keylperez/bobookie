@@ -28,9 +28,12 @@ class UserController extends Controller
         return Inertia::render('Users/DiscoverDetails');
     }
 
-    public function discoverbookdetails()
+    public function discoverbookdetails(Request $request)
     {
-        return Inertia::render('Users/BookDetails');
+        
+        return Inertia::render('Users/BookDetails',[
+            'count' => $request->count
+        ]);
     }
 
     public function payment()

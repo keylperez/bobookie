@@ -19,9 +19,9 @@
         <div class="mt-6">
           <h1 class="text-primary text-2xl">ETERNALS</h1>
 
-          <div class="text-sm mt-4">
+          <div class="text-sm mt-6" v-for="index in count" :key="index">
             
-            <h1 class="font-bold text-primary">Ticket 1</h1>
+            <h1 class="font-bold text-primary">Ticket {{index}}</h1>
 
             <div class="mt-2">
               <p class="font-bold text-secondary">Name</p>
@@ -33,7 +33,7 @@
               <label for="actual-btn">
               <input v-on:change="fileChoosen" type="file" id="actual-btn" hidden/>
                 <div class="flex justify-between items-stretch shadow-md mt-2 w-64 text-base font-normal text-gray-700 bg-softgray bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-softgray">
-                  <span class="flex flex-wrap flex-col p-2">{{ filename }}</span>
+                  <span class="flex flex-wrap flex-col p-2 overflow-x-hidden">{{ filename }}</span>
                   <p class="flex items-center justify-center bg-primary hover:bg-secondary p-1.5 px-4 m-0 text-sm text-white font-semibold cursor-pointer">UPLOAD</p>
                 </div>
               </label>
@@ -57,15 +57,17 @@
 
 <script>
 
-import Layout from '../../Shared/Layout'
+import Layout from '../../Shared/Layout';
+
  
 export default {
   data() {
     return {
       filename: "",
-      ticketnum: 1
     }
   },
+
+  props: ['count'],
   layout: Layout,
   methods: {
   fileChoosen(event){

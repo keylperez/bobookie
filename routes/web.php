@@ -31,9 +31,11 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/user/discover', [UserController::class, 'discover']);
 Route::get('/user/discoverbook', [UserController::class, 'discoverbook']);
 Route::get('/user/discoverdetails', [UserController::class, 'discoverdetails']);
-Route::get('/user/discoverbookdetails', [UserController::class, 'discoverbookdetails']);
 Route::get('/user/discoverpayment', [UserController::class, 'payment']);
 Route::get('/user/discoverpaydetails', [UserController::class, 'paymentdetails']);
+
+Route::get('/user/discoverbookdetails', [UserController::class, 'discoverbookdetails']);
+Route::post('/user/discoverbookdetails', [UserController::class, 'discoverbookdetails']);
 
 // Tickets Tab
 Route::get('/user/tickets', [UserController::class, 'tickets']);
