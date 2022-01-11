@@ -17,7 +17,7 @@
                       <p>11 AM</p>
                       <p>DECEMBER 15, 2021</p>
                     </td>
-                    <td class="py-4 px-2 flex justify-end"><Link href="/ticketdetails"><button class="btn-secondary">DETAILS </button></Link></td>
+                    <td class="py-4 px-2 flex justify-end"><Link href="/user/ticketdetails"><button class="btn-secondary">DETAILS </button></Link></td>
               </tr>
 
               <tr>
@@ -26,7 +26,7 @@
                       <p>1 PM</p>
                       <p>DECEMBER 16, 2021</p>
                     </td>
-                    <td class="py-4 px-2 flex justify-end" ><Link href="/ticketdetails"><button class="btn-secondary">DETAILS</button></Link></td>
+                    <td class="py-4 px-2 flex justify-end" ><Link href="/user/ticketdetails"><button class="btn-secondary">DETAILS</button></Link></td>
               </tr>
 
               <tr>
@@ -35,7 +35,7 @@
                       <p>11 AM</p>
                       <p>DECEMBER 16, 2021</p>
                     </td>
-                    <td class="py-4 px-2 flex justify-end"><Link href="/ticketdetails"><button class="btn-secondary">DETAILS</button></Link></td>
+                    <td class="py-4 px-2 flex justify-end"><Link href="/user/ticketdetails"><button class="btn-secondary">DETAILS</button></Link></td>
               </tr>
 
            </table>
@@ -52,7 +52,7 @@
                       <p>1 PM</p>
                       <p>DECEMBER 11, 2021</p>
                     </td>
-                    <td class="py-4 px-2 flex justify-end"><Link href="/ticketdetails"><button class="btn-secondary">DETAILS</button></Link></td>
+                    <td class="py-4 px-2 flex justify-end"><Link href="/user/ticketdetails"><button class="btn-secondary">DETAILS</button></Link></td>
               </tr>
               <tr>
                     <td class="text-secondary py-4 px-2">Shang-Chi and the Legend of the Ten Rings</td>
@@ -60,7 +60,7 @@
                       <p>1 PM</p>
                       <p>DECEMBER 11, 2021</p>
                     </td>
-                    <td class="py-4 px-2 flex justify-end"><Link href="/ticketdetails"><button class="btn-secondary">DETAILS</button></Link></td>
+                    <td class="py-4 px-2 flex justify-end"><Link href="/user/ticketdetails"><button class="btn-secondary">DETAILS</button></Link></td>
               </tr>
 
            </table>
@@ -72,7 +72,7 @@
 
 <script>
 
-import Layout from '../Shared/Layout'
+import Layout from '../../Shared/Layout'
 
 export default {
   name: 'Tickets',

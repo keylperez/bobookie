@@ -7,7 +7,7 @@
 
         <div class="flex flex-row flex-wrap justify-end">
             <div class="text-sm font-bold mx-16">
-              <Link href="/discoverbook" class="flex flex-row items-center space-x-1">
+              <Link href="/user/discoverbook" class="flex flex-row items-center space-x-1">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
               </svg><p class="text-xs link-underline link-underline-black  cursor-pointer">BACK</p></Link> 
@@ -43,7 +43,7 @@
 
           <div class="flex flex-col mt-4">
             <!-- <form @submit.prevent="submit" method="post"> -->
-               <Link href="/discoverpayment"><button class="block bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary ">PROCEED</button></Link>
+               <Link href="/user/discoverpayment"><button class="block bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary ">PROCEED</button></Link>
             <!-- </form> -->
           </div>
         </div>
@@ -57,7 +57,7 @@
 
 <script>
 
-import Layout from '../Shared/Layout'
+import Layout from '../../Shared/Layout'
  
 export default {
   data() {

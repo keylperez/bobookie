@@ -5,10 +5,10 @@
       
       <ul class="m-5 mt-0 pt-0 flex space-x-6 list-inside">
         <li>
-          <NavLink href="/movies" :active="$page.url.startsWith('/movie')">MOVIES</NavLink>
+          <NavLink href="/admin/movies" :active="$page.url.startsWith('/admin/movie')">MOVIES</NavLink>
         </li>
         <li>
-          <NavLink href="/bookings" :active="$page.url.startsWith('/booking')">BOOKINGS</NavLink>
+          <NavLink href="/admin/bookings" :active="$page.url.startsWith('/admin/booking')">BOOKINGS</NavLink>
         </li>
       </ul>
   </nav>

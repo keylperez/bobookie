@@ -11,13 +11,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Shared_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Shared/Layout */ "./resources/js/Shared/Layout.vue");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../Shared/Layout'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "TicketDetails",
-  layout: _Shared_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
+  layout: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../Shared/Layout'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
   components: {
-    Layout: _Shared_Layout__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Layout: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../Shared/Layout'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
   }
 });
 

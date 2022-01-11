@@ -7,7 +7,7 @@
 
         <div class="flex flex-row flex-wrap justify-end">
             <div class="text-sm font-bold mx-16">
-               <Link href="/discover" class="flex flex-row items-center space-x-1">
+               <Link href="/user/discover" class="flex flex-row items-center space-x-1">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                 </svg><p class="text-xs link-underline link-underline-black  cursor-pointer">BACK</p></Link> 
@@ -28,7 +28,7 @@
           </div>
 
           <div class="flex flex-col">
-            <Link href="/discoverbook"><button class="btn-primary ">BOOK</button></Link>
+            <Link href="/user/discoverbook"><button class="btn-primary ">BOOK</button></Link>
           </div>
         </div>
         
@@ -40,7 +40,7 @@
 
 <script>
 
-import Layout from '../Shared/Layout'
+import Layout from '../../Shared/Layout'
  
 export default {
   name: 'DiscoverDetails',

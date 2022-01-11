@@ -259,9 +259,9 @@
 
 <script>
 
-import Layout from '../Shared/AdminLayout.vue'
-import EditIcon from '../Shared/Edit.vue'
-import DelIcon from '../Shared/Delete.vue'
+import Layout from '../../Shared/AdminLayout.vue'
+import EditIcon from '../../Shared/Edit.vue'
+import DelIcon from '../../Shared/Delete.vue'
 
 export default {
   data() {

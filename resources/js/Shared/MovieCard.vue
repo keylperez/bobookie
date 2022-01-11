@@ -10,8 +10,8 @@
         <p>EVERY 1PM</p>
         <p>EVERY 6PM</p>
       </div>
-      <Link href="/discoverbook"><button class="btn-primary  w-32">BOOK</button></Link>
-      <Link href="/discoverdetails"><button class="bg-softgray text-primary p-2 my-1 font-bold w-32 hover:bg-secondary hover:text-softgray">DETAILS</button></Link>
+      <Link href="/user/discoverbook"><button class="btn-primary  w-32">BOOK</button></Link>
+      <Link href="/user/discoverdetails"><button class="bg-softgray text-primary p-2 my-1 font-bold w-32 hover:bg-secondary hover:text-softgray">DETAILS</button></Link>
     </div>
 
 
