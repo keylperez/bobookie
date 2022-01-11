@@ -10,6 +10,9 @@ module.exports = {
       fontFamily: {
         main: ["Montserrat", "sans-serif"],
       },
+      fontSize: {
+        'vxs': '0.5rem',
+      },
       colors: {
         primary: "#FEB155",
         secondary: "#2A2A2A",

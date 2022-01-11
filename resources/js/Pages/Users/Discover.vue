@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import MovieCard from "../Shared/MovieCard";
+import MovieCard from "../../Shared/MovieCard";
 
 export default {
     name: "Users",

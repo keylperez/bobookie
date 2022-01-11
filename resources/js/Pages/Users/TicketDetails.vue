@@ -5,10 +5,10 @@
         <div class="grid grid-cols-2 gap-14 mx-10 my-10">
             <div class="flex flex-row flex-wrap justify-end">
                 <div class="text-sm font-bold mx-16">
-                     <Link href="/tickets" class="flex flex-row items-center space-x-1">
+                     <Link href="/user/tickets" class="flex flex-row items-center space-x-1">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg><p class="text-xs">BACK</p></Link> 
+                        </svg><p class="text-xs link-underline link-underline-black  cursor-pointer">BACK</p></Link> 
                 </div>
 
                 <div
@@ -47,15 +47,16 @@
                 </div>
 
                 <div class="flex flex-col">
-                    <button class="bg-primary text-white p-2 my-1 font-bold w-64 hover:bg-secondary">
+                    <button
+                        class="bg-primary text-white p-2 my-1 font-bold w-64 hover:bg-secondary"
+                    >
                         PRINT RECEIPT
                     </button>
-
-                    <Link href="/tickets">
-                      <button class="bg-softgray text-primary p-2 my-1 font-bold w-64 hover:bg-secondary hover:text-softgray">
-                          GO TO MY TICKETS
-                      </button>
-                    </Link>
+                    <button
+                        class="bg-softgray text-primary p-2 my-1 font-bold w-64 hover:bg-secondary hover:text-softgray"
+                    >
+                        CANCEL TICKET(S)
+                    </button>
                 </div>
             </div>
         </div>
@@ -63,7 +64,7 @@
 </template>
 
 <script>
-import Layout from '../Shared/Layout';
+import Layout from '../../Shared/Layout';
 export default {
     name: "TicketDetails",
     layout: Layout,

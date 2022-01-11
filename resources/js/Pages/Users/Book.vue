@@ -7,10 +7,10 @@
 
         <div class="flex flex-row flex-wrap justify-end">
             <div class="text-sm font-bold mx-16">
-              <Link href="/discover" class="flex flex-row items-center space-x-1">
+              <Link href="/user/discover" class="flex flex-row items-center space-x-1">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-              </svg><p class="text-xs">BACK</p></Link> 
+              </svg><p class="text-xs link-underline link-underline-black  cursor-pointer">BACK</p></Link> 
             </div>
 
             <div class="bg-secondary p-4 my-2 h-80 w-48 mt-6 bg-cover" :style="{'background-image': `url(img/Home/eternals_poster.jpg)`}"></div>
@@ -55,7 +55,7 @@
 
           <div class="flex flex-col mt-4">
             <!-- <form @submit.prevent="submit" method="post"> -->
-               <Link href="/discoverbookdetails"><button  class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary ">PROCEED</button></Link>
+               <Link href="/user/discoverbookdetails"><button  class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary ">PROCEED</button></Link>
             <!-- </form> -->
           </div>
         </div>
@@ -69,7 +69,7 @@
 
 <script>
 
-import Layout from '../Shared/Layout'
+import Layout from '../../Shared/Layout'
 import { reactive } from 'vue'
 import { Inertia } from '@inertiajs/inertia'
  
@@ -104,4 +104,5 @@ export default {
 </script>
 
 <style>
+
 </style>

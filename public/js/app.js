@@ -197,8 +197,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_NavLink = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("NavLink");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("nav", _hoisted_1, [_hoisted_2, _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_NavLink, {
-    href: "/discover",
-    active: _ctx.$page.url.startsWith('/discover')
+    href: "/user/discover",
+    active: _ctx.$page.url.startsWith('/user/discover')
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_5];
@@ -209,8 +209,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8
   /* PROPS */
   , ["active"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_NavLink, {
-    href: "/tickets",
-    active: _ctx.$page.url.startsWith('/ticket')
+    href: "/user/tickets",
+    active: _ctx.$page.url.startsWith('/user/ticket')
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_6];
@@ -242,8 +242,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-secondary font-bold hover:text-primary", {
-      'font-bold text-active': $props.active
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-secondary font-bold link link-underline link-underline-black cursor-pointer", {
+      'font-bold text-active link-underline-white': $props.active
     }])
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -599,37 +599,21 @@ __webpack_require__.r(__webpack_exports__);
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
-	"./Book": [
-		"./resources/js/Pages/Book.vue",
-		"resources_js_Pages_Book_vue"
+	"./Admin/Bookings": [
+		"./resources/js/Pages/Admin/Bookings.vue",
+		"resources_js_Pages_Admin_Bookings_vue"
 	],
-	"./Book.vue": [
-		"./resources/js/Pages/Book.vue",
-		"resources_js_Pages_Book_vue"
+	"./Admin/Bookings.vue": [
+		"./resources/js/Pages/Admin/Bookings.vue",
+		"resources_js_Pages_Admin_Bookings_vue"
 	],
-	"./BookDetails": [
-		"./resources/js/Pages/BookDetails.vue",
-		"resources_js_Pages_BookDetails_vue"
+	"./Admin/Movies": [
+		"./resources/js/Pages/Admin/Movies.vue",
+		"resources_js_Pages_Admin_Movies_vue"
 	],
-	"./BookDetails.vue": [
-		"./resources/js/Pages/BookDetails.vue",
-		"resources_js_Pages_BookDetails_vue"
-	],
-	"./Discover": [
-		"./resources/js/Pages/Discover.vue",
-		"resources_js_Pages_Discover_vue"
-	],
-	"./Discover.vue": [
-		"./resources/js/Pages/Discover.vue",
-		"resources_js_Pages_Discover_vue"
-	],
-	"./DiscoverDetails": [
-		"./resources/js/Pages/DiscoverDetails.vue",
-		"resources_js_Pages_DiscoverDetails_vue"
-	],
-	"./DiscoverDetails.vue": [
-		"./resources/js/Pages/DiscoverDetails.vue",
-		"resources_js_Pages_DiscoverDetails_vue"
+	"./Admin/Movies.vue": [
+		"./resources/js/Pages/Admin/Movies.vue",
+		"resources_js_Pages_Admin_Movies_vue"
 	],
 	"./Home": [
 		"./resources/js/Pages/Home.vue",
@@ -639,37 +623,85 @@ var map = {
 		"./resources/js/Pages/Home.vue",
 		"resources_js_Pages_Home_vue"
 	],
-	"./Payment": [
-		"./resources/js/Pages/Payment.vue",
-		"resources_js_Pages_Payment_vue"
+	"./Login": [
+		"./resources/js/Pages/Login.vue",
+		"resources_js_Pages_Login_vue"
 	],
-	"./Payment.vue": [
-		"./resources/js/Pages/Payment.vue",
-		"resources_js_Pages_Payment_vue"
+	"./Login.vue": [
+		"./resources/js/Pages/Login.vue",
+		"resources_js_Pages_Login_vue"
 	],
-	"./PaymentDetails": [
-		"./resources/js/Pages/PaymentDetails.vue",
-		"resources_js_Pages_PaymentDetails_vue"
+	"./SignUp": [
+		"./resources/js/Pages/SignUp.vue",
+		"resources_js_Pages_SignUp_vue"
 	],
-	"./PaymentDetails.vue": [
-		"./resources/js/Pages/PaymentDetails.vue",
-		"resources_js_Pages_PaymentDetails_vue"
+	"./SignUp.vue": [
+		"./resources/js/Pages/SignUp.vue",
+		"resources_js_Pages_SignUp_vue"
 	],
-	"./TicketDetails": [
-		"./resources/js/Pages/TicketDetails.vue",
-		"resources_js_Pages_TicketDetails_vue"
+	"./Users/Book": [
+		"./resources/js/Pages/Users/Book.vue",
+		"resources_js_Pages_Users_Book_vue"
 	],
-	"./TicketDetails.vue": [
-		"./resources/js/Pages/TicketDetails.vue",
-		"resources_js_Pages_TicketDetails_vue"
+	"./Users/Book.vue": [
+		"./resources/js/Pages/Users/Book.vue",
+		"resources_js_Pages_Users_Book_vue"
 	],
-	"./Tickets": [
-		"./resources/js/Pages/Tickets.vue",
-		"resources_js_Pages_Tickets_vue"
+	"./Users/BookDetails": [
+		"./resources/js/Pages/Users/BookDetails.vue",
+		"resources_js_Pages_Users_BookDetails_vue"
 	],
-	"./Tickets.vue": [
-		"./resources/js/Pages/Tickets.vue",
-		"resources_js_Pages_Tickets_vue"
+	"./Users/BookDetails.vue": [
+		"./resources/js/Pages/Users/BookDetails.vue",
+		"resources_js_Pages_Users_BookDetails_vue"
+	],
+	"./Users/Discover": [
+		"./resources/js/Pages/Users/Discover.vue",
+		"resources_js_Pages_Users_Discover_vue"
+	],
+	"./Users/Discover.vue": [
+		"./resources/js/Pages/Users/Discover.vue",
+		"resources_js_Pages_Users_Discover_vue"
+	],
+	"./Users/DiscoverDetails": [
+		"./resources/js/Pages/Users/DiscoverDetails.vue",
+		"resources_js_Pages_Users_DiscoverDetails_vue"
+	],
+	"./Users/DiscoverDetails.vue": [
+		"./resources/js/Pages/Users/DiscoverDetails.vue",
+		"resources_js_Pages_Users_DiscoverDetails_vue"
+	],
+	"./Users/Payment": [
+		"./resources/js/Pages/Users/Payment.vue",
+		"resources_js_Pages_Users_Payment_vue"
+	],
+	"./Users/Payment.vue": [
+		"./resources/js/Pages/Users/Payment.vue",
+		"resources_js_Pages_Users_Payment_vue"
+	],
+	"./Users/PaymentDetails": [
+		"./resources/js/Pages/Users/PaymentDetails.vue",
+		"resources_js_Pages_Users_PaymentDetails_vue"
+	],
+	"./Users/PaymentDetails.vue": [
+		"./resources/js/Pages/Users/PaymentDetails.vue",
+		"resources_js_Pages_Users_PaymentDetails_vue"
+	],
+	"./Users/TicketDetails": [
+		"./resources/js/Pages/Users/TicketDetails.vue",
+		"resources_js_Pages_Users_TicketDetails_vue"
+	],
+	"./Users/TicketDetails.vue": [
+		"./resources/js/Pages/Users/TicketDetails.vue",
+		"resources_js_Pages_Users_TicketDetails_vue"
+	],
+	"./Users/Tickets": [
+		"./resources/js/Pages/Users/Tickets.vue",
+		"resources_js_Pages_Users_Tickets_vue"
+	],
+	"./Users/Tickets.vue": [
+		"./resources/js/Pages/Users/Tickets.vue",
+		"resources_js_Pages_Users_Tickets_vue"
 	]
 };
 function webpackAsyncContext(req) {

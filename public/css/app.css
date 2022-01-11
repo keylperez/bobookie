@@ -610,6 +610,196 @@ video {
   }
 }
 
+.link-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size .5s ease-in-out;
+}
+
+.link-underline-black {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#FEB155,#FEB155)
+}
+
+.link-underline-white {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#FFFFFF,#FFFFFF)
+}
+
+.link-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%
+}
+
+.btn{
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+
+.btn:hover{
+  --tw-translate-y: -0.25rem;
+}
+
+.btn{
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.btn-primary {
+  margin: 0px;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  width: 10rem;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.btn-primary:hover{
+  --tw-translate-y: -0.25rem;
+}
+
+.btn-primary{
+  --tw-bg-opacity: 1;
+  background-color: rgba(254, 177, 85, var(--tw-bg-opacity));
+}
+
+.btn-primary:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgba(42, 42, 42, var(--tw-bg-opacity));
+}
+
+.btn-primary{
+  padding: 0.5rem;
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.btn-secondary{
+  margin: 0px;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  width: 10rem;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.btn-secondary:hover{
+  --tw-translate-y: -0.25rem;
+}
+
+.btn-secondary{
+  --tw-bg-opacity: 1;
+  background-color: rgba(229, 229, 229, var(--tw-bg-opacity));
+}
+
+.btn-secondary:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgba(42, 42, 42, var(--tw-bg-opacity));
+}
+
+.btn-secondary{
+  padding: 0.5rem;
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgba(254, 177, 85, var(--tw-text-opacity));
+}
+
+.btn-secondary:hover{
+  --tw-text-opacity: 1;
+  color: rgba(229, 229, 229, var(--tw-text-opacity));
+}
+
+.btn-secondary{
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.input-primary {
+  width: 13rem;
+  --tw-bg-opacity: 1;
+  background-color: rgba(229, 229, 229, var(--tw-bg-opacity));
+  padding: 0.25rem;
+  --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.input-primary:focus{
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.selectdiv {
+  position: relative;
+  min-width: 208px;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.selectdiv:after {
+  content: '>';
+  font: 17px "Consolas", monospace;
+  color: rgb(255, 255, 255);
+  background-color: #FEB155;
+  transform: rotate(90deg);
+  right: 5px;
+  padding: 12.5px;
+  position: absolute;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.selectdiv select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  max-width: 208px;
+  height: 35px;
+  float: right;
+  margin: 5px 0px;
+  margin-bottom: 30px;
+  padding: 0px 24px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #333;
+  background-color: #E5E5E5;
+  background-image: none;
+}
+
 .sr-only{
   position: absolute;
   width: 1px;
@@ -22800,6 +22990,10 @@ video {
 .text-9xl{
   font-size: 8rem;
   line-height: 1;
+}
+
+.text-vxs{
+  font-size: 0.5rem;
 }
 
 .font-thin{
@@ -54755,6 +54949,10 @@ body {
     line-height: 1;
   }
 
+  .sm\:text-vxs{
+    font-size: 0.5rem;
+  }
+
   .sm\:font-thin{
     font-weight: 100;
   }
@@ -86689,6 +86887,10 @@ body {
   .md\:text-9xl{
     font-size: 8rem;
     line-height: 1;
+  }
+
+  .md\:text-vxs{
+    font-size: 0.5rem;
   }
 
   .md\:font-thin{
@@ -118627,6 +118829,10 @@ body {
     line-height: 1;
   }
 
+  .lg\:text-vxs{
+    font-size: 0.5rem;
+  }
+
   .lg\:font-thin{
     font-weight: 100;
   }
@@ -150563,6 +150769,10 @@ body {
     line-height: 1;
   }
 
+  .xl\:text-vxs{
+    font-size: 0.5rem;
+  }
+
   .xl\:font-thin{
     font-weight: 100;
   }
@@ -182497,6 +182707,10 @@ body {
   .\32xl\:text-9xl{
     font-size: 8rem;
     line-height: 1;
+  }
+
+  .\32xl\:text-vxs{
+    font-size: 0.5rem;
   }
 
   .\32xl\:font-thin{
