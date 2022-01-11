@@ -91,7 +91,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "bg-secondary p-4 my-2 h-80 w-48 mt-6 bg-cover",
     style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)({
-      'background-image': "url(img/Home/eternals_poster.jpg)"
+      'background-image': "url(../img/Home/eternals_poster.jpg)"
     })
   }, null, 4
   /* STYLE */
