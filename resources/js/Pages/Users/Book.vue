@@ -70,17 +70,8 @@
 
 <script setup>
 
-// import Layout from '../../Shared/Layout';
 import { useForm } from "@inertiajs/inertia-vue3";
  
-// export default {
-  // data() {
-  //   return {
-  //     form: {
-  //       count: 1,
-  //     }
-  //   }
-  // },
   const form = useForm({
     count: 1,
   });
@@ -98,23 +89,7 @@ import { useForm } from "@inertiajs/inertia-vue3";
       form.count -= 1;
     }
   }
-  // layout: Layout,
-  // components: { Layout },
-  // methods: {
-  // async submit (){
-  //   let response = await this.$inertia.post('/user/discoverbookdetails', this.count);
-  // },
-  // increment () {
-  //   this.form.count += 1;
-  // },
-  // decrement () {
-  //   if(this.form.count > 1){
-  //     this.form.count -= 1;
-  //   }
 
-  // }
-// }
-// };
 </script>
 
 <style>
