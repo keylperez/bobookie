@@ -263,6 +263,7 @@ import Layout from '../../Shared/AdminLayout.vue'
 import EditIcon from '../../Shared/Edit.vue'
 import DelIcon from '../../Shared/Delete.vue'
 
+
 export default {
   data() {
       return {
@@ -272,8 +273,8 @@ export default {
         myDate : new Date().toISOString().slice(0,10)
       }
    },
-  layout: Layout,
-  components: { Layout,EditIcon,DelIcon },
+layout: Layout,
+components: { Layout,EditIcon,DelIcon },
   methods: {
     toggleModal: function(){
       this.showModal = !this.showModal;
@@ -284,6 +285,20 @@ export default {
   },
 };
 </script>
+
+// <script setup>
+
+//   import { useForm } from "@inertiajs/inertia-vue3";
+ 
+//   const form = useForm({
+//     count: 1,
+//   });
+
+//   const submit = () => {
+//       form.post("/user/discoverbookdetails");
+//   };
+
+// </script>
 
 <style>
 </style>

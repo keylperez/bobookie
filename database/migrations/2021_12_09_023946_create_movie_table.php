@@ -25,6 +25,10 @@ class CreateMovieTable extends Migration
             $table->longText('description');
             // $table->foreignId('genre_id')->reference('id')->on('genre');
             $table->timestamps();
+
+            $table->string('img');
+            $table->date('start_date');
+            $table->date('end_date');
         });
     }
 

@@ -44,11 +44,11 @@ Route::get('/user/ticketdetails', [UserController::class, 'ticketdetails']);
 
 // ====================== ADMIN ==========================
 //Movies Tab
-Route::get('/admin/movies', [AdminController::class, 'movies']);
+Route::get('/admin/movies', [AdminController::class, 'movies'])->name('admin.movies');
+Route::post('/admin/movies/create', [AdminController::class, 'create_movie']);
 
 //Bookings Tab
 Route::get('/admin/bookings', [AdminController::class, 'bookings']);
-
 
 
 

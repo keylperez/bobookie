@@ -18,8 +18,11 @@
             </thead>
 
               
-               <tr align="center" class="text-secondary">
-                      <td class="py-4" align="left">Eternals</td>
+               <tr v-for="movie in movies" :key="movie.id" align="center" class="text-secondary">
+                      <td class="py-4" align="left">{{movie.title}}</td>
+                      <!-- <td class="py-4" align="left">{{movie.image}}</td> -->
+                      <td class="font-thin py-4"><img :src="movie.image" alt=""></td>
+                      
                       <td class="font-thin py-4">DECEMBER 12, 2021</td>
                       <td class="font-thin py-4">DECEMBER 18, 2021</td>
                       <td class="font-thin py-4">11:00 AM, 5:00 PM</td>
@@ -27,52 +30,8 @@
                       <td class="py-4 flex flex-row justify-end items-center space-x-3" align="right">
 
                         <button v-on:click="toggleModal()"><EditIcon/></button>
-                        <button v-on:click="toggleDel()"><DelIcon/></button>
-
-                        
+                        <button v-on:click="toggleDel(movie.id)" ><DelIcon/></button>
                         </td>
-              </tr>
-
-               <tr align="center" class="text-secondary">
-                      <td class="py-4" align="left">Venom: Let There Be Carnage</td>
-                      <td class="font-thin py-4">DECEMBER 12, 2021</td>
-                      <td class="font-thin py-4">DECEMBER 18, 2021</td>
-                      <td class="font-thin py-4">11:00 AM, 5:00 PM</td>
-                      <td class="font-thin py-4">PG-13</td>
-                      <td class="py-4 flex flex-row justify-end items-center space-x-3" align="right">
-
-                         <button v-on:click="toggleModal()"><EditIcon/></button>
-                         <button v-on:click="toggleDel()"><DelIcon/></button>
-
-                      </td>
-              </tr>
-
-            <tr align="center" class="text-secondary">
-                      <td class="py-4" align="left">Spiderman: No Way Home </td>
-                      <td class="font-thin py-4">DECEMBER 12, 2021</td>
-                      <td class="font-thin py-4">DECEMBER 18, 2021</td>
-                      <td class="font-thin py-4">11:00 AM, 5:00 PM</td>
-                      <td class="font-thin py-4">PG-13</td>
-                      <td class="py-4 flex flex-row justify-end items-center space-x-3" align="right">
-
-                        <button v-on:click="toggleModal()"><EditIcon/></button>
-                         <button v-on:click="toggleDel()"><DelIcon/></button>                      
-
-                      </td>
-              </tr>
-
-               <tr align="center" class="text-secondary">
-                      <td class="py-4" align="left">Crazy Rich Asians</td>
-                      <td class="font-thin py-4">DECEMBER 12, 2021</td>
-                      <td class="font-thin py-4">DECEMBER 18, 2021</td>
-                      <td class="font-thin py-4">11:00 AM, 5:00 PM</td>
-                      <td class="font-thin py-4">PG-13</td>
-                      <td class="py-4 flex flex-row justify-end items-center space-x-3" align="right">
-
-                         <button v-on:click="toggleModal()"><EditIcon/></button>
-                         <button v-on:click="toggleDel()"><DelIcon/></button>
-
-                      </td>
               </tr>
 
           </table>
@@ -108,76 +67,76 @@
                 <div>
                     <h1 class="text-primary text-2xl">MOVIE DETAILS</h1>
 
-                  <div class="flex flex-row flex-wrap space-x-8 justify-evenly">
+                  <div>
+                    <form @submit.prevent="submit" method="post" enctype="multipart/form-data" id="movie_form" class=" flex flex-row flex-wrap space-x-8 justify-evenly">
+                      <div class="text-sm mt-4 space-y-8 font-bold text-secondary">
+                        <div>
+                          <p>Enter Movie Name</p>
+                          <input type="text" v-model="form.title" class="input-primary">
+                        </div>
 
-                    <div class="text-sm mt-4 space-y-8 font-bold text-secondary">
-                      <div>
-                        <p>Enter Movie Name</p>
-                        <input type="text" class="input-primary">
+                        <div>
+                          <p>Director</p>
+                          <input type="text" v-model="form.director" class="input-primary">
+                        </div>
+
+                        <div>
+                          <p>Genre</p>
+                          <input type="text" v-model="form.genre" class="input-primary">
+                        </div>
+
+                        <div>
+                          <p>Start Date</p>
+                          <input type="date" v-model="form.start_date" class="input-primary">
+                        </div>
+
+                        <div>
+                          <p>End Date</p>
+                          <input type="date" v-model="form.end_date" class="input-primary">
+                        </div>
+
                       </div>
 
-                      <div>
-                        <p>Director</p>
-                        <input type="text" class="input-primary">
+                      <div class="text-sm mt-4 space-y-8">
+
+                        <div>
+                          <p class="font-bold text-secondary">Movie Poster</p>
+                          <label for="actual-btn">
+                          <input v-on:change="fileChoosen" @input="form.image = $event.target.files[0]" type="file" id="actual-btn" hidden/>
+                            <div class="flex justify-between items-stretch shadow-md w-52 text-base font-normal text-gray-700 bg-softgray bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-softgray">
+
+                              <span class="flex flex-wrap flex-col p-2 overflow-x-hidden">{{ filename }}</span>
+
+                              <p class="flex items-center justify-center bg-primary hover:bg-secondary p-1 px-4 m-0 text-sm text-white font-semibold cursor-pointer">UPLOAD</p>
+                            </div>
+                          </label>
+                        </div>
+
+                        <div class="selectdiv">
+                          <!-- <label> -->
+                          <p class="font-bold">Rating</p>
+                              <select v-model="form.rating" class="focus:outline-none cursor-pointer w-52 p-2">
+                                  <option selected> PG-13 </option>
+                                  <option>G</option>
+                                  <option>PG</option>
+                                  <option>R</option>
+                                  <option>NC-17</option>
+                              </select>
+                          <!-- </label> -->
+                        </div>
+
+                        <div>
+                          <p>Description</p>
+                          <textarea name="movie-desc" cols="30" rows="9" v-model="form.desc" class="input-primary"></textarea>
+                        </div>
+                        
                       </div>
-
-                      <div>
-                        <p>Genre</p>
-                        <input type="text" class="input-primary">
-                      </div>
-
-                      <div>
-                        <p>Start Date</p>
-                        <input type="date" class="input-primary">
-                      </div>
-
-                      <div>
-                        <p>End Date</p>
-                        <input type="date" class="input-primary">
-                      </div>
-
-                    </div>
-
-                    <div class="text-sm mt-4 space-y-8">
-
-                      <div>
-                        <p class="font-bold text-secondary">Movie Poster</p>
-                        <label for="actual-btn">
-                        <input v-on:change="fileChoosen" type="file" id="actual-btn" hidden/>
-                          <div class="flex justify-between items-stretch shadow-md w-52 text-base font-normal text-gray-700 bg-softgray bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-softgray">
-
-                            <span class="flex flex-wrap flex-col p-2 overflow-x-hidden">{{ filename }}</span>
-
-                            <p class="flex items-center justify-center bg-primary hover:bg-secondary p-1 px-4 m-0 text-sm text-white font-semibold cursor-pointer">UPLOAD</p>
-                          </div>
-                        </label>
-                      </div>
-
-                      <div class="selectdiv">
-                        <!-- <label> -->
-                        <p class="font-bold">Rating</p>
-                            <select class="focus:outline-none cursor-pointer w-52 p-2">
-                                <option selected> PG-13 </option>
-                                <option>G</option>
-                                <option>PG</option>
-                                <option>R</option>
-                                <option>NC-17</option>
-                            </select>
-                        <!-- </label> -->
-                      </div>
-
-                       <div>
-                        <p>Description</p>
-                        <textarea name="movie-desc" cols="30" rows="9" class="input-primary"></textarea>
-                      </div>
-                      
-                    </div>
-
+                  </form>
                   </div>
 
                     <div class="flex flex-row justify-center space-x-4 mb-8 mt-12">
                       <button v-on:click="toggleModal()" class="btn-secondary">CANCEL</button>
-                      <Link href="#"><button class="btn-primary">SAVE</button></Link>
+                      <button type="submit" form="movie_form" class="btn-primary">SAVE</button>
                     </div>
                     
               </div>
@@ -207,9 +166,14 @@
                 <div>
                     <h1 class="text-2xl m-20 text-center">ARE YOU SURE YOU WANT TO REMOVE THIS MOVIE?</h1>
 
-                    <div class="flex flex-row justify-center space-x-4 mb-8 mt-8">
-                      <button v-on:click="toggleDel()" class="btn-secondary">CANCEL</button>
-                      <Link href="#"><button class="btn-primary">CONFIRM</button></Link>
+                    <div>
+
+                      <form action="" @submit.prevent="delMovie" class="flex flex-row justify-center space-x-4 mb-8 mt-8">
+                        <input type="text" :value="movieID" hidden>
+                        <button v-on:click="toggleDel()" class="btn-secondary">CANCEL</button>
+                        <button type="submit" class="btn-primary">CONFIRM</button>
+                      </form>
+
                     </div>
                     
               </div>
@@ -238,22 +202,29 @@
 import Layout from '../../Shared/AdminLayout.vue'
 import EditIcon from '../../Shared/Edit.vue'
 import DelIcon from '../../Shared/Delete.vue'
+import { useForm } from "@inertiajs/inertia-vue3";
 
 
 export default {
    data() {
       return {
+        movieID: null,
         filename: "",
         showModal: false,
         delModal: false,
       }
    },
+   setup(){
+     
+   },
    methods: {
+    
     toggleModal: function(){
       this.showModal = !this.showModal;
     },
-    toggleDel: function(){
+    toggleDel: function(id){
       this.delModal = !this.delModal;
+      this.movieID = id;
     },
     fileChoosen(event){
           this.filename = event.target.files[0].name;
@@ -263,6 +234,38 @@ export default {
   layout: Layout,
   components: { Layout,EditIcon,DelIcon },
 };
+</script>
+
+<script setup>
+
+
+  const props = defineProps({
+    movies: Array
+  });
+ 
+  const form = useForm({
+    title: null,
+    director: null,
+    genre:null,
+    start_date: null,
+    end_date: null,
+    rating: null,
+    desc: null,
+    image:null
+  });
+
+  const submit = () => {
+      form.post("/admin/movies/create");
+      form.title = null,
+      form.director = null,
+      form.genre =null,
+      form.start_date = null,
+      form.end_date = null,
+      form.rating = null,
+      form.desc = null,
+      form.image = null
+  };
+
 </script>
 
 <style>
