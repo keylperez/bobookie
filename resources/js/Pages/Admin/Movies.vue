@@ -166,13 +166,13 @@
                 <div>
                     <h1 class="text-2xl m-20 text-center">ARE YOU SURE YOU WANT TO REMOVE THIS MOVIE?</h1>
 
-                    <div>
+                    <div class="flex flex-row justify-center space-x-4 mb-8 mt-8">
 
-                      <form action="" @submit.prevent="delMovie" class="flex flex-row justify-center space-x-4 mb-8 mt-8">
+                      <form id="delForm" action="" @submit.prevent="delMovie" >
                         <input type="text" :value="movieID" hidden>
-                        <button v-on:click="toggleDel()" class="btn-secondary">CANCEL</button>
-                        <button type="submit" class="btn-primary">CONFIRM</button>
                       </form>
+                        <button v-on:click="toggleDel()" class="btn-secondary">CANCEL</button>
+                        <button type="submit" form="delForm" class="btn-primary">CONFIRM</button>
 
                     </div>
                     
@@ -193,8 +193,6 @@
 
 
 
-
-
 </template>
 
 <script>
@@ -203,32 +201,28 @@ import Layout from '../../Shared/AdminLayout.vue'
 import EditIcon from '../../Shared/Edit.vue'
 import DelIcon from '../../Shared/Delete.vue'
 import { useForm } from "@inertiajs/inertia-vue3";
-
+import { ref } from '@vue/reactivity';
 
 export default {
    data() {
       return {
-        movieID: null,
-        filename: "",
-        showModal: false,
-        delModal: false,
+        // filename: "",
+        // showModal: false,
+        // delModal: false,
       }
-   },
-   setup(){
-     
    },
    methods: {
     
-    toggleModal: function(){
-      this.showModal = !this.showModal;
-    },
-    toggleDel: function(id){
-      this.delModal = !this.delModal;
-      this.movieID = id;
-    },
-    fileChoosen(event){
-          this.filename = event.target.files[0].name;
-    }
+    // toggleModal: function(){
+    //   this.showModal = !this.showModal;
+    // },
+    // toggleDel: function(id){
+    //   this.delModal = !this.delModal;
+    //   this.movieID = id;
+    // },
+    // fileChoosen(event){
+    //       this.filename = event.target.files[0].name;
+    // },
   },
   name: 'Movies',
   layout: Layout,
@@ -238,6 +232,32 @@ export default {
 
 <script setup>
 
+  const filename = ref("");
+  const showModal = ref(false);
+  const delModal = ref(false);
+  const movieID = ref(0);
+
+  const delForm = useForm({
+    id : movieID
+  });
+
+  const fileChoosen = (event) => {
+    filename.value = event.target.files[0].name;
+  };
+
+  const toggleModal = () => {
+    showModal.value = !showModal.value;
+  };
+
+  const toggleDel = (id) => {
+    delModal.value = !delModal.value;
+    movieID.value = id;
+  };
+
+  const delMovie = () => {
+    delForm.post("/admin/movies/delete",delForm,{ preserveScroll: true });
+    delModal.value = !delModal.value;
+  };
 
   const props = defineProps({
     movies: Array
@@ -255,7 +275,9 @@ export default {
   });
 
   const submit = () => {
-      form.post("/admin/movies/create");
+    form.post("/admin/movies/create");
+    filename.value = "";
+    showModal.value = !showModal.value;
       form.title = null,
       form.director = null,
       form.genre =null,

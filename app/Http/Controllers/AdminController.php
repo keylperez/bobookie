@@ -52,6 +52,11 @@ class AdminController extends Controller
         return Redirect::route('admin.movies');
     }
 
+    public function delete_movie(){
+        DB::table('movie')->where('id', '=', Request::input('id'))->delete();
+        return Redirect::route('admin.movies');
+    }
+
     public function bookings ()
     {
         return Inertia::render('Admin/Bookings');
