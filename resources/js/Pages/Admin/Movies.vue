@@ -20,13 +20,12 @@
               
                <tr v-for="movie in movies" :key="movie.id" align="center" class="text-secondary">
                       <td class="py-4" align="left">{{movie.title}}</td>
-                      <!-- <td class="py-4" align="left">{{movie.image}}</td> -->
-                      <td class="font-thin py-4"><img :src="movie.image" alt=""></td>
+                      <!-- <td class="font-thin py-4"><img :src="movie.image" alt=""></td> -->
                       
-                      <td class="font-thin py-4">DECEMBER 12, 2021</td>
-                      <td class="font-thin py-4">DECEMBER 18, 2021</td>
+                      <td class="font-thin py-4">{{movie.start_date.toUpperCase()}}</td>
+                      <td class="font-thin py-4">{{movie.end_date.toUpperCase()}}</td>
                       <td class="font-thin py-4">11:00 AM, 5:00 PM</td>
-                      <td class="font-thin py-4">PG-13</td>
+                      <td class="font-thin py-4">{{movie.rating}}</td>
                       <td class="py-4 flex flex-row justify-end items-center space-x-3" align="right">
 
                         <button v-on:click="toggleModal()"><EditIcon/></button>
@@ -75,14 +74,23 @@
                           <input type="text" v-model="form.title" class="input-primary">
                         </div>
 
-                        <div>
-                          <p>Director</p>
-                          <input type="text" v-model="form.director" class="input-primary">
+                        <div class="selectdiv">
+                          <p class="font-bold">Director</p>
+                              <select  v-model="form.director" class="focus:outline-none cursor-pointer w-52 p-2">
+                                  <option v-for="director in directors" :key="director.id"> {{ director.name }} </option>
+                              </select>
                         </div>
-
+<!-- 
                         <div>
                           <p>Genre</p>
                           <input type="text" v-model="form.genre" class="input-primary">
+                        </div> -->
+
+                        <div class="selectdiv">
+                          <p class="font-bold">Genre</p>
+                              <select  v-model="form.genre" class="focus:outline-none cursor-pointer w-52 p-2">
+                                  <option v-for="genre in genres" :key="genre.id"> {{ genre.name }} </option>
+                              </select>
                         </div>
 
                         <div>
@@ -260,7 +268,9 @@ export default {
   };
 
   const props = defineProps({
-    movies: Array
+    movies: Array,
+    genres: Array,
+    directors: Array
   });
  
   const form = useForm({
