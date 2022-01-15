@@ -25,7 +25,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('/');
+            return redirect('/users');
             // dd(Auth::check());
             // dd(Auth::user());
             // var_dump(Auth::user());

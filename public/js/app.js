@@ -610,10 +610,12 @@ var map = {
 	],
 	"./Admin/Movies": [
 		"./resources/js/Pages/Admin/Movies.vue",
+		"/js/vendor",
 		"resources_js_Pages_Admin_Movies_vue"
 	],
 	"./Admin/Movies.vue": [
 		"./resources/js/Pages/Admin/Movies.vue",
+		"/js/vendor",
 		"resources_js_Pages_Admin_Movies_vue"
 	],
 	"./Admin/Users": [
@@ -723,7 +725,7 @@ function webpackAsyncContext(req) {
 	}
 
 	var ids = map[req], id = ids[0];
-	return __webpack_require__.e(ids[1]).then(() => {
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(() => {
 		return __webpack_require__(id);
 	});
 }

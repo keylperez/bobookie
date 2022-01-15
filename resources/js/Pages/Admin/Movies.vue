@@ -17,21 +17,20 @@
                       <th align="right">ACTIONS</th>
             </thead>
 
-              
-               <tr v-for="movie in movies" :key="movie.id" align="center" class="text-secondary">
-                      <td class="py-4" align="left">{{movie.title}}</td>
-                      <!-- <td class="font-thin py-4"><img :src="movie.image" alt=""></td> -->
-                      
-                      <td class="font-thin py-4">{{movie.start_date.toUpperCase()}}</td>
-                      <td class="font-thin py-4">{{movie.end_date.toUpperCase()}}</td>
-                      <td class="font-thin py-4">11:00 AM, 5:00 PM</td>
-                      <td class="font-thin py-4">{{movie.rating}}</td>
-                      <td class="py-4 flex flex-row justify-end items-center space-x-3" align="right">
-
-                        <button v-on:click="toggleModal(movie.id)"><EditIcon/></button>
-                        <button v-on:click="toggleDel(movie.id)" ><DelIcon/></button>
-                        </td>
-              </tr>
+            <transition-group name="slide" mode="out-in">
+                 <tr v-for="movie in movies" :key="movie.id" align="center" class="text-secondary">
+                        <td class="py-4" align="left">{{movie.title}}</td>
+                        <!-- <td class="font-thin py-4"><img :src="movie.image" alt=""></td> -->
+                        <td class="font-thin py-4">{{movie.start_date.toUpperCase()}}</td>
+                        <td class="font-thin py-4">{{movie.end_date.toUpperCase()}}</td>
+                        <td class="font-thin py-4">11:00 AM, 5:00 PM</td>
+                        <td class="font-thin py-4">{{movie.rating}}</td>
+                        <td class="py-4 flex flex-row justify-end items-center space-x-3" align="right">
+                          <button v-on:click="toggleModal(movie.id)"><EditIcon/></button>
+                          <button v-on:click="toggleDel(movie.id)" ><DelIcon/></button>
+                          </td>
+                  </tr>
+            </transition-group>
 
           </table>
       </div>
@@ -299,4 +298,14 @@ export default {
 
 <style>
 
+.slide-leave-active,
+.slide-enter-active {
+  transition: 1s;
+}
+.slide-enter {
+  transform: translate(100%, 0);
+}
+.slide-leave-to {
+  transform: translate(-100%, 0);
+}
 </style>

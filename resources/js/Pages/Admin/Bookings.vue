@@ -286,19 +286,6 @@ components: { Layout,EditIcon,DelIcon },
 };
 </script>
 
-// <script setup>
-
-//   import { useForm } from "@inertiajs/inertia-vue3";
- 
-//   const form = useForm({
-//     count: 1,
-//   });
-
-//   const submit = () => {
-//       form.post("/user/discoverbookdetails");
-//   };
-
-// </script>
 
 <style>
 </style>
