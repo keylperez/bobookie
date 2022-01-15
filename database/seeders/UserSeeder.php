@@ -59,44 +59,5 @@ class UserSeeder extends Seeder
             ),
         );
         DB::table('users')->insert($data);
-        // DB::table('users')->insert(
-        //     array(
-        //         'name' => 'keyl',
-        //         'username' => 'yuutaro',
-        //         'email' => 'keyl@gmail.com',
-        //         'password' => Hash::make('ejsux'),
-        //         'type' => 'admin'
-        //     )
-        // );
-
-        // DB::table('users')->insert(
-        //     array(
-        //         'name' => 'marc',
-        //         'username' => 'marco',
-        //         'email' => 'marc@gmail.com',
-        //         'password' => Hash::make('marcawesome'),
-        //         'type' => 'admin'
-        //     )
-        // );
-
-        // DB::table('users')->insert(
-        //     array(
-        //         'name' => 'hannah',
-        //         'username' => 'draemada',
-        //         'email' => 'hannah@gmail.com',
-        //         'password' => Hash::make('keylawesome'),
-        //         'type' => 'admin'
-        //     )
-        // );
-
-        // DB::table('users')->insert(
-        //     array(
-        //         'name' => 'dumdum',
-        //         'username' => 'dummyacc',
-        //         'email' => 'dum@gmail.com',
-        //         'password' => Hash::make('thisdum'),
-        //         'type' => 'user'
-        //     )
-        // );
     }
 }

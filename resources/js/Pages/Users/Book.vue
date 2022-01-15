@@ -13,7 +13,7 @@
               </svg><p class="text-xs link-underline link-underline-black  cursor-pointer">BACK</p></Link> 
             </div>
 
-            <div class="bg-secondary p-4 my-2 h-80 w-48 mt-6 bg-cover" :style="{'background-image': `url(img/Home/eternals_poster.jpg)`}"></div>
+            <div class="bg-secondary p-4 my-2 h-80 w-48 mt-6 bg-cover" :style="{'background-image': `url(../img/Home/eternals_poster.jpg)`}"></div>
         </div>
 
         <div class="mt-6">
@@ -40,7 +40,7 @@
                 </svg>
               </button>
 
-                <p>{{form.ticketnum}}</p>
+                <p>{{form.count}}</p>
 
               <button @click="increment" class=" h-8 w-8 rounded-full overflow-hidden bg-primary flex justify-center items-center">
                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -54,9 +54,10 @@
           </div>
 
           <div class="flex flex-col mt-4">
-            <!-- <form @submit.prevent="submit" method="post"> -->
-               <Link href="/user/discoverbookdetails"><button  class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary ">PROCEED</button></Link>
-            <!-- </form> -->
+            <form @submit.prevent="submit" method="post">
+              <input type="text" name="count" v-model="form.count" hidden>
+               <button type="submit" :disabled="form.processing" class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary ">PROCEED</button>
+            </form>
           </div>
         </div>
 
@@ -67,40 +68,28 @@
 
 </template>
 
-<script>
+<script setup>
 
-import Layout from '../../Shared/Layout'
-import { reactive } from 'vue'
-import { Inertia } from '@inertiajs/inertia'
+import { useForm } from "@inertiajs/inertia-vue3";
  
-export default {
-  name: 'Book',
-  
-  setup () {
-    const form = reactive({
-      ticketnum: 1,
-    })
+  const form = useForm({
+    count: 1,
+  });
 
-    function submit() {
-      Inertia.post('/bookdata', form)
-    }
+  const submit = () => {
+      form.post("/user/discoverbookdetails");
+  };
 
-    return { form, submit }
-  },
-  layout: Layout,
-  components: { Layout },
-  methods: {
-  increment () {
-    this.form.ticketnum += 1;
-  },
-  decrement () {
-    if(this.form.ticketnum > 1){
-      this.form.ticketnum -= 1;
-    }
-
+  function increment () {
+    form.count += 1;
   }
-}
-};
+
+  function decrement (){
+    if(form.count > 1){
+      form.count -= 1;
+    }
+  }
+
 </script>
 
 <style>

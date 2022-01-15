@@ -14,7 +14,7 @@
                 <div
                     class="bg-secondary p-4 my-2 h-80 w-48 mt-6 bg-cover"
                     :style="{
-                        'background-image': `url(img/Home/eternals_poster.jpg)`,
+                        'background-image': `url(../img/Home/eternals_poster.jpg)`,
                     }"
                 ></div>
             </div>
