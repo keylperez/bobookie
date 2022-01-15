@@ -18,6 +18,7 @@ class CreateMovieTable extends Migration
             $table->string('title');
             $table->float('price', 3, 2);
             $table->string('rating');
+            $table->string('image')->default('user.png');
             // $table->string('director');
             // $table->string('stars');
             $table->year('year');
