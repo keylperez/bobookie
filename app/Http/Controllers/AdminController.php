@@ -33,6 +33,7 @@ class AdminController extends Controller
                   'id' => $movie->id,
                   'title' => $movie->title,
                   'rating' => $movie->rating,
+                  'desc' => $movie->description,
                   'image'=> asset('storage/'. $movie->img),
                   'start_date' => Carbon::parse($movie->start_date)->isoFormat('MMMM DD, YYYY'),   
                   'end_date' => Carbon::parse($movie->end_date)->isoFormat('MMMM DD, YYYY')   
@@ -59,14 +60,12 @@ class AdminController extends Controller
         $image = Request::file('image')->store('movies','public');
         $price = 1.00;
         $runtime = 120;
-        //runtime
-        //time slot
-        //price
+        $year = 2022;
 
         DB::table('movie')->insert([
             'title' => Request::input('title'),
             'price' => $price,
-            'year' => Carbon::now()->year(),
+            'year' => $year,
             'rating' => Request::input('rating'),
             'runtime' => $runtime,
             'description' => Request::input('desc'),

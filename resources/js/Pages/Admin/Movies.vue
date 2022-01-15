@@ -28,7 +28,7 @@
                       <td class="font-thin py-4">{{movie.rating}}</td>
                       <td class="py-4 flex flex-row justify-end items-center space-x-3" align="right">
 
-                        <button v-on:click="toggleModal()"><EditIcon/></button>
+                        <button v-on:click="toggleModal(movie.id)"><EditIcon/></button>
                         <button v-on:click="toggleDel(movie.id)" ><DelIcon/></button>
                         </td>
               </tr>
@@ -80,11 +80,6 @@
                                   <option v-for="director in directors" :key="director.id"> {{ director.name }} </option>
                               </select>
                         </div>
-<!-- 
-                        <div>
-                          <p>Genre</p>
-                          <input type="text" v-model="form.genre" class="input-primary">
-                        </div> -->
 
                         <div class="selectdiv">
                           <p class="font-bold">Genre</p>
@@ -212,27 +207,6 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { ref } from '@vue/reactivity';
 
 export default {
-   data() {
-      return {
-        // filename: "",
-        // showModal: false,
-        // delModal: false,
-      }
-   },
-   methods: {
-    
-    // toggleModal: function(){
-    //   this.showModal = !this.showModal;
-    // },
-    // toggleDel: function(id){
-    //   this.delModal = !this.delModal;
-    //   this.movieID = id;
-    // },
-    // fileChoosen(event){
-    //       this.filename = event.target.files[0].name;
-    // },
-  },
-  name: 'Movies',
   layout: Layout,
   components: { Layout,EditIcon,DelIcon },
 };
@@ -245,6 +219,12 @@ export default {
   const delModal = ref(false);
   const movieID = ref(0);
 
+  const props = defineProps({
+    movies: Array,
+    genres: Array,
+    directors: Array
+  });
+
   const delForm = useForm({
     id : movieID
   });
@@ -253,9 +233,27 @@ export default {
     filename.value = event.target.files[0].name;
   };
 
-  const toggleModal = () => {
+  const toggleModal = (id) => {
     showModal.value = !showModal.value;
+    setNull();
+
+    if(id){
+      let filterMovie = props.movies.filter((item) => {
+          return item.id === id;
+      });
+
+
+      console.log(filterMovie[0]);
+
+      form.title = filterMovie[0].title;
+      form.rating = filterMovie[0].rating;
+      form.genre = filterMovie[0].genre;
+      form.desc = filterMovie[0].desc;
+
+    }
+
   };
+  
 
   const toggleDel = (id) => {
     delModal.value = !delModal.value;
@@ -267,11 +265,6 @@ export default {
     delModal.value = !delModal.value;
   };
 
-  const props = defineProps({
-    movies: Array,
-    genres: Array,
-    directors: Array
-  });
  
   const form = useForm({
     title: null,
@@ -288,6 +281,10 @@ export default {
     form.post("/admin/movies/create");
     filename.value = "";
     showModal.value = !showModal.value;
+    setNull();
+  };
+
+  function setNull() {
       form.title = null,
       form.director = null,
       form.genre =null,
@@ -297,6 +294,9 @@ export default {
       form.desc = null,
       form.image = null
   };
+
+
+
 
 </script>
 
