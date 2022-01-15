@@ -242,14 +242,11 @@ export default {
           return item.id === id;
       });
 
-
       console.log(filterMovie[0]);
-
       form.title = filterMovie[0].title;
       form.rating = filterMovie[0].rating;
       form.genre = filterMovie[0].genre;
       form.desc = filterMovie[0].desc;
-
     }
 
   };

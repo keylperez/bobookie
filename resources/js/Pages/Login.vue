@@ -72,6 +72,12 @@
     </div>
 </template>
 
+<script>
+export default {
+    layout: LoginLayout
+};
+</script>
+
 <script setup>
 import LoginLayout from "../Shared/LoginLayout.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
