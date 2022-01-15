@@ -283,6 +283,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+2;
 (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.createInertiaApp)({
   resolve: function () {
     var _resolve = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(name) {
@@ -614,6 +615,14 @@ var map = {
 	"./Admin/Movies.vue": [
 		"./resources/js/Pages/Admin/Movies.vue",
 		"resources_js_Pages_Admin_Movies_vue"
+	],
+	"./Admin/Users": [
+		"./resources/js/Pages/Admin/Users.vue",
+		"resources_js_Pages_Admin_Users_vue"
+	],
+	"./Admin/Users.vue": [
+		"./resources/js/Pages/Admin/Users.vue",
+		"resources_js_Pages_Admin_Users_vue"
 	],
 	"./Home": [
 		"./resources/js/Pages/Home.vue",

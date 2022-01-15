@@ -89,6 +89,7 @@ class AdminController extends Controller
     {
         return Inertia::render('Admin/Bookings');
     }
+    
     public function users()
     {
         return Inertia::render('Admin/Users', [
