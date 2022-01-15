@@ -1,12 +1,11 @@
 <?php
 
 use Inertia\Inertia;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +18,19 @@ use App\Http\Controllers\AdminController;
 |
 */
 // Route::get('/', function () {
-    //     return view('app');
-    // });
+//     return view('app');
+// });
 
 // Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'store']);
+
+Route::get('/signup', function () {
+    return Inertia::render('SignUp');
+});
+
+// Route::middleware('auth')->group(function () {
 
 // ====================== USERS ==========================
 // Discover Tab
@@ -42,6 +48,10 @@ Route::get('/user/tickets', [UserController::class, 'tickets']);
 Route::get('/user/ticketdetails', [UserController::class, 'ticketdetails']);
 
 
+
+
+Route::get('/', [HomeController::class, 'index']);
+
 // ====================== ADMIN ==========================
 //Movies Tab
 Route::get('/admin/movies', [AdminController::class, 'movies'])->name('admin.movies');
@@ -49,20 +59,10 @@ Route::post('/admin/movies/create', [AdminController::class, 'create_movie']);
 Route::post('/admin/movies/delete', [AdminController::class, 'delete_movie']);
 
 //Bookings Tab
-Route::get('/admin/bookings', [AdminController::class, 'bookings']);
+Route::get('/bookings', [AdminController::class, 'bookings']);
 
-
-
-Route::get('/', function () {
-    return Inertia::render('Login');
-});
-
-Route::get('/login', function () {
-    return Inertia::render('Login');
-});
-
-Route::get('/signup', function () {
-    return Inertia::render('SignUp');
-});
+//User List Tab
+Route::get('/users', [AdminController::class, 'users']);
+// });
 
 

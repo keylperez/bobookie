@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
@@ -11,8 +12,8 @@ use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
 {
-    
-    public function movies ()
+
+    public function movies()
     {
         $movies = DB::table('movie')
         ->select('*')
@@ -84,10 +85,14 @@ class AdminController extends Controller
         return Redirect::route('admin.movies');
     }
 
-    public function bookings ()
+    public function bookings()
     {
         return Inertia::render('Admin/Bookings');
     }
-
-
+    public function users()
+    {
+        return Inertia::render('Admin/Users', [
+            'users' => User::all(),
+        ]);
+    }
 }
