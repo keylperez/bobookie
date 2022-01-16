@@ -64,6 +64,8 @@ var __default__ = {
         form.rating = filterMovie[0].rating;
         form.genre = filterMovie[0].genre;
         form.desc = filterMovie[0].desc;
+        form.end_date = filterMovie[0].end;
+        form.start_date = filterMovie[0].start;
       }
     };
 
@@ -499,7 +501,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
           key: movie.id,
           align: "center",
-          "class": "text-secondary"
+          "class": "text-secondary cursor-pointer hover:bg-softgray"
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(movie.title), 1
         /* TEXT */
         ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td class=\"font-thin py-4\"><img :src=\"movie.image\" alt=\"\"></td> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(movie.start_date.toUpperCase()), 1
@@ -801,6 +803,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
+  "class": "hover:",
   xmlns: "http://www.w3.org/2000/svg",
   "xmlns:xlink": "http://www.w3.org/1999/xlink",
   "aria-hidden": "true",

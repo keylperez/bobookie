@@ -91,4 +91,9 @@ body {
     background-color: #E5E5E5;
     background-image: none;
   }
+
+  svg:hover path { 
+    fill: #feb155;
+    transition: all ease 0.3s;
+  }
 }

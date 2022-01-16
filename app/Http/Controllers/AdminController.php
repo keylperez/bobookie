@@ -37,7 +37,9 @@ class AdminController extends Controller
                   'desc' => $movie->description,
                   'image'=> asset('storage/'. $movie->img),
                   'start_date' => Carbon::parse($movie->start_date)->isoFormat('MMMM DD, YYYY'),   
-                  'end_date' => Carbon::parse($movie->end_date)->isoFormat('MMMM DD, YYYY')   
+                  'end_date' => Carbon::parse($movie->end_date)->isoFormat('MMMM DD, YYYY'),   
+                  'start' => $movie->start_date,
+                  'end' => $movie->end_date,
                 ];
             }),
             'genres' => $genres->map(function($genre){
@@ -77,7 +79,10 @@ class AdminController extends Controller
             'end_date' => Request::input('end_date'),
         ]);
 
-        return Redirect::route('admin.movies');
+        // return Redirect::route('admin.movies');
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.'
+        ]);
     }
 
     public function delete_movie(){

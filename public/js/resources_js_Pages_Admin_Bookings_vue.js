@@ -155,7 +155,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_5 = {
   align: "center",
-  "class": "text-secondary"
+  "class": "text-secondary cursor-pointer hover:bg-softgray"
 };
 
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
@@ -201,7 +201,7 @@ var _hoisted_12 = {
 };
 var _hoisted_13 = {
   align: "center",
-  "class": "text-secondary"
+  "class": "text-secondary cursor-pointer hover:bg-softgray"
 };
 
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
@@ -247,7 +247,7 @@ var _hoisted_20 = {
 };
 var _hoisted_21 = {
   align: "center",
-  "class": "text-secondary"
+  "class": "text-secondary cursor-pointer hover:bg-softgray"
 };
 
 var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
@@ -293,7 +293,7 @@ var _hoisted_28 = {
 };
 var _hoisted_29 = {
   align: "center",
-  "class": "text-secondary"
+  "class": "text-secondary cursor-pointer hover:bg-softgray"
 };
 
 var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
@@ -717,6 +717,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
+  "class": "hover:",
   xmlns: "http://www.w3.org/2000/svg",
   "xmlns:xlink": "http://www.w3.org/1999/xlink",
   "aria-hidden": "true",

@@ -14,6 +14,14 @@ class LoginController extends Controller
     {
         return Inertia::render('Login');
     }
+
+    public function create(Request $request)
+    {
+        dd($request->all());
+        // return Inertia::render('Login');
+    }
+
+
     public function store(Request $request)
     {
         $credentials = $request->validate([

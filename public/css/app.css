@@ -800,6 +800,11 @@ select::-ms-expand {
   background-image: none;
 }
 
+svg:hover path {
+  fill: #feb155;
+  transition: all ease 0.3s;
+}
+
 .sr-only{
   position: absolute;
   width: 1px;

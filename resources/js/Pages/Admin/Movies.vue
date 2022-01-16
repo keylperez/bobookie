@@ -18,7 +18,7 @@
             </thead>
 
             <transition-group name="slide" mode="out-in">
-                 <tr v-for="movie in movies" :key="movie.id" align="center" class="text-secondary">
+                 <tr v-for="movie in movies" :key="movie.id" align="center" class="text-secondary cursor-pointer  hover:bg-softgray ">
                         <td class="py-4" align="left">{{movie.title}}</td>
                         <!-- <td class="font-thin py-4"><img :src="movie.image" alt=""></td> -->
                         <td class="font-thin py-4">{{movie.start_date.toUpperCase()}}</td>
@@ -246,6 +246,8 @@ export default {
       form.rating = filterMovie[0].rating;
       form.genre = filterMovie[0].genre;
       form.desc = filterMovie[0].desc;
+      form.end_date = filterMovie[0].end;
+      form.start_date = filterMovie[0].start;
     }
 
   };
