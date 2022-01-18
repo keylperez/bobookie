@@ -53,6 +53,7 @@ var __default__ = {
 
     var toggleModal = function toggleModal(id) {
       showModal.value = !showModal.value;
+      movieID.value = id;
       setNull();
 
       if (id) {
@@ -79,6 +80,7 @@ var __default__ = {
         preserveScroll: true
       });
       delModal.value = !delModal.value;
+      movieID.value = 0;
     };
 
     var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.useForm)({
@@ -93,7 +95,12 @@ var __default__ = {
     });
 
     var submit = function submit() {
-      form.post("/admin/movies/create");
+      if (movieID.value) {
+        form.post("/admin/movies/update");
+      } else {
+        form.post("/admin/movies/create");
+      }
+
       filename.value = "";
       showModal.value = !showModal.value;
       setNull();
@@ -803,7 +810,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "hover:",
   xmlns: "http://www.w3.org/2000/svg",
   "xmlns:xlink": "http://www.w3.org/1999/xlink",
   "aria-hidden": "true",

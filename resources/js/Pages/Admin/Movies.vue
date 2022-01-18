@@ -234,6 +234,7 @@ export default {
 
   const toggleModal = (id) => {
     showModal.value = !showModal.value;
+    movieID.value = id;
     setNull();
 
     if(id){
@@ -261,6 +262,7 @@ export default {
   const delMovie = () => {
     delForm.post("/admin/movies/delete",delForm,{ preserveScroll: true });
     delModal.value = !delModal.value;
+    movieID.value = 0;
   };
 
  
@@ -276,7 +278,13 @@ export default {
   });
 
   const submit = () => {
-    form.post("/admin/movies/create");
+    if(movieID.value){
+      form.post("/admin/movies/update");
+      }else{
+      form.post("/admin/movies/create");
+    }
+
+
     filename.value = "";
     showModal.value = !showModal.value;
     setNull();

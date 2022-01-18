@@ -55,6 +55,7 @@ Route::get('/user/ticketdetails', [UserController::class, 'ticketdetails']);
 //Movies Tab
 Route::get('/admin/movies', [AdminController::class, 'movies'])->name('admin.movies');
 Route::post('/admin/movies/create', [AdminController::class, 'create_movie']);
+Route::post('/admin/movies/update', [AdminController::class, 'update_movie']);
 Route::post('/admin/movies/delete', [AdminController::class, 'delete_movie']);
 
 //Bookings Tab

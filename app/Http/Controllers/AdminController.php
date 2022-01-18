@@ -85,6 +85,12 @@ class AdminController extends Controller
         ]);
     }
 
+    public function update_movie(){
+        // DB::table('movie')->where('id', '=', Request::input('id'))->delete();
+        // return Redirect::route('admin.movies');
+        return Inertia::render('Admin/Bookings');
+    }
+
     public function delete_movie(){
         DB::table('movie')->where('id', '=', Request::input('id'))->delete();
         return Redirect::route('admin.movies');
