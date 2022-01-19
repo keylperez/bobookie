@@ -17,21 +17,20 @@
                       <th align="right">ACTIONS</th>
             </thead>
 
-              
-               <tr v-for="movie in movies" :key="movie.id" align="center" class="text-secondary">
-                      <td class="py-4" align="left">{{movie.title}}</td>
-                      <!-- <td class="font-thin py-4"><img :src="movie.image" alt=""></td> -->
-                      
-                      <td class="font-thin py-4">{{movie.start_date.toUpperCase()}}</td>
-                      <td class="font-thin py-4">{{movie.end_date.toUpperCase()}}</td>
-                      <td class="font-thin py-4">11:00 AM, 5:00 PM</td>
-                      <td class="font-thin py-4">{{movie.rating}}</td>
-                      <td class="py-4 flex flex-row justify-end items-center space-x-3" align="right">
-
-                        <button v-on:click="toggleModal()"><EditIcon/></button>
-                        <button v-on:click="toggleDel(movie.id)" ><DelIcon/></button>
-                        </td>
-              </tr>
+            <transition-group name="slide" mode="out-in">
+                 <tr v-for="movie in movies" :key="movie.id" align="center" class="text-secondary cursor-pointer  hover:bg-softgray ">
+                        <td class="py-4" align="left">{{movie.title}}</td>
+                        <!-- <td class="font-thin py-4"><img :src="movie.image" alt=""></td> -->
+                        <td class="font-thin py-4">{{movie.start_date.toUpperCase()}}</td>
+                        <td class="font-thin py-4">{{movie.end_date.toUpperCase()}}</td>
+                        <td class="font-thin py-4">11:00 AM, 5:00 PM</td>
+                        <td class="font-thin py-4">{{movie.rating}}</td>
+                        <td class="py-4 flex flex-row justify-end items-center space-x-3" align="right">
+                          <button v-on:click="toggleModal(movie.id)"><EditIcon/></button>
+                          <button v-on:click="toggleDel(movie.id)" ><DelIcon/></button>
+                          </td>
+                  </tr>
+            </transition-group>
 
           </table>
       </div>
@@ -80,11 +79,6 @@
                                   <option v-for="director in directors" :key="director.id"> {{ director.name }} </option>
                               </select>
                         </div>
-<!-- 
-                        <div>
-                          <p>Genre</p>
-                          <input type="text" v-model="form.genre" class="input-primary">
-                        </div> -->
 
                         <div class="selectdiv">
                           <p class="font-bold">Genre</p>
@@ -212,27 +206,6 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { ref } from '@vue/reactivity';
 
 export default {
-   data() {
-      return {
-        // filename: "",
-        // showModal: false,
-        // delModal: false,
-      }
-   },
-   methods: {
-    
-    // toggleModal: function(){
-    //   this.showModal = !this.showModal;
-    // },
-    // toggleDel: function(id){
-    //   this.delModal = !this.delModal;
-    //   this.movieID = id;
-    // },
-    // fileChoosen(event){
-    //       this.filename = event.target.files[0].name;
-    // },
-  },
-  name: 'Movies',
   layout: Layout,
   components: { Layout,EditIcon,DelIcon },
 };
@@ -245,6 +218,12 @@ export default {
   const delModal = ref(false);
   const movieID = ref(0);
 
+  const props = defineProps({
+    movies: Array,
+    genres: Array,
+    directors: Array
+  });
+
   const delForm = useForm({
     id : movieID
   });
@@ -253,9 +232,27 @@ export default {
     filename.value = event.target.files[0].name;
   };
 
-  const toggleModal = () => {
+  const toggleModal = (id) => {
     showModal.value = !showModal.value;
+    movieID.value = id;
+    setNull();
+
+    if(id){
+      let filterMovie = props.movies.filter((item) => {
+          return item.id === id;
+      });
+
+      console.log(filterMovie[0]);
+      form.title = filterMovie[0].title;
+      form.rating = filterMovie[0].rating;
+      form.genre = filterMovie[0].genre;
+      form.desc = filterMovie[0].desc;
+      form.end_date = filterMovie[0].end;
+      form.start_date = filterMovie[0].start;
+    }
+
   };
+  
 
   const toggleDel = (id) => {
     delModal.value = !delModal.value;
@@ -265,13 +262,9 @@ export default {
   const delMovie = () => {
     delForm.post("/admin/movies/delete",delForm,{ preserveScroll: true });
     delModal.value = !delModal.value;
+    movieID.value = 0;
   };
 
-  const props = defineProps({
-    movies: Array,
-    genres: Array,
-    directors: Array
-  });
  
   const form = useForm({
     title: null,
@@ -285,9 +278,19 @@ export default {
   });
 
   const submit = () => {
-    form.post("/admin/movies/create");
+    if(movieID.value){
+      form.post("/admin/movies/update");
+      }else{
+      form.post("/admin/movies/create");
+    }
+
+
     filename.value = "";
     showModal.value = !showModal.value;
+    setNull();
+  };
+
+  function setNull() {
       form.title = null,
       form.director = null,
       form.genre =null,
@@ -298,8 +301,21 @@ export default {
       form.image = null
   };
 
+
+
+
 </script>
 
 <style>
 
+.slide-leave-active,
+.slide-enter-active {
+  transition: 1s;
+}
+.slide-enter {
+  transform: translate(100%, 0);
+}
+.slide-leave-to {
+  transform: translate(-100%, 0);
+}
 </style>

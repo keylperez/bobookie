@@ -14,6 +14,14 @@ class LoginController extends Controller
     {
         return Inertia::render('Login');
     }
+
+    public function create(Request $request)
+    {
+        dd($request->all());
+        // return Inertia::render('Login');
+    }
+
+
     public function store(Request $request)
     {
         $credentials = $request->validate([
@@ -25,7 +33,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('/');
+            return redirect('/user/discover');
             // dd(Auth::check());
             // dd(Auth::user());
             // var_dump(Auth::user());

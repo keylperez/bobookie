@@ -34,9 +34,12 @@ class AdminController extends Controller
                   'id' => $movie->id,
                   'title' => $movie->title,
                   'rating' => $movie->rating,
+                  'desc' => $movie->description,
                   'image'=> asset('storage/'. $movie->img),
                   'start_date' => Carbon::parse($movie->start_date)->isoFormat('MMMM DD, YYYY'),   
-                  'end_date' => Carbon::parse($movie->end_date)->isoFormat('MMMM DD, YYYY')   
+                  'end_date' => Carbon::parse($movie->end_date)->isoFormat('MMMM DD, YYYY'),   
+                  'start' => $movie->start_date,
+                  'end' => $movie->end_date,
                 ];
             }),
             'genres' => $genres->map(function($genre){
@@ -60,14 +63,12 @@ class AdminController extends Controller
         $image = Request::file('image')->store('movies','public');
         $price = 1.00;
         $runtime = 120;
-        //runtime
-        //time slot
-        //price
+        $year = 2022;
 
         DB::table('movie')->insert([
             'title' => Request::input('title'),
             'price' => $price,
-            'year' => Carbon::now()->year(),
+            'year' => $year,
             'rating' => Request::input('rating'),
             'runtime' => $runtime,
             'description' => Request::input('desc'),
@@ -78,7 +79,16 @@ class AdminController extends Controller
             'end_date' => Request::input('end_date'),
         ]);
 
-        return Redirect::route('admin.movies');
+        // return Redirect::route('admin.movies');
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.'
+        ]);
+    }
+
+    public function update_movie(){
+        // DB::table('movie')->where('id', '=', Request::input('id'))->delete();
+        // return Redirect::route('admin.movies');
+        return Inertia::render('Admin/Bookings');
     }
 
     public function delete_movie(){
@@ -90,6 +100,7 @@ class AdminController extends Controller
     {
         return Inertia::render('Admin/Bookings');
     }
+    
     public function users()
     {
         return Inertia::render('Admin/Users', [

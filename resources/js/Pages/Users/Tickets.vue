@@ -11,31 +11,31 @@
           
            <table class="mx-3 table-fixed">
 
-              <tr>
+              <tr class="cursor-pointer  hover:bg-softgray">
                     <td class="text-secondary py-4 px-2" width="32%">Eternals</td>
                     <td class="font-thin text-secondary py-4  text-center ">
                       <p>11 AM</p>
                       <p>DECEMBER 15, 2021</p>
                     </td>
-                    <td class="py-4 px-2 flex justify-end"><Link href="/user/ticketdetails"><button class="btn-secondary">DETAILS </button></Link></td>
+                    <td class="py-4 px-2 flex justify-end"><Link href="/user/ticketdetails"><button class=" border-2 border-white btn-secondary">DETAILS </button></Link></td>
               </tr>
 
-              <tr>
+              <tr class="cursor-pointer  hover:bg-softgray">
                     <td class="text-secondary py-4 px-2" >Venom: Let There Be Carnage</td>
                     <td class="font-thin text-secondary py-4 text-center">
                       <p>1 PM</p>
                       <p>DECEMBER 16, 2021</p>
                     </td>
-                    <td class="py-4 px-2 flex justify-end" ><Link href="/user/ticketdetails"><button class="btn-secondary">DETAILS</button></Link></td>
+                    <td class="py-4 px-2 flex justify-end" ><Link href="/user/ticketdetails"><button class=" border-2 border-white btn-secondary">DETAILS</button></Link></td>
               </tr>
 
-              <tr>
+              <tr class="cursor-pointer  hover:bg-softgray">
                     <td class="text-secondary py-4 px-2">Spiderman: No Way Home</td>
                     <td class="font-thin text-secondary py-4 text-center">
                       <p>11 AM</p>
                       <p>DECEMBER 16, 2021</p>
                     </td>
-                    <td class="py-4 px-2 flex justify-end"><Link href="/user/ticketdetails"><button class="btn-secondary">DETAILS</button></Link></td>
+                    <td class="py-4 px-2 flex justify-end"><Link href="/user/ticketdetails"><button class=" border-2 border-white btn-secondary">DETAILS</button></Link></td>
               </tr>
 
            </table>
@@ -46,21 +46,21 @@
 
             <table class="mx-3 table-fixed">
 
-              <tr>
+              <tr class="cursor-pointer  hover:bg-softgray">
                     <td class="text-secondary py-4 px-2" width="32%">Crazy Rich Asians</td>
                     <td class="font-thin text-secondary py-4 text-center">
                       <p>1 PM</p>
                       <p>DECEMBER 11, 2021</p>
                     </td>
-                    <td class="py-4 px-2 flex justify-end"><Link href="/user/ticketdetails"><button class="btn-secondary">DETAILS</button></Link></td>
+                    <td class="py-4 px-2 flex justify-end"><Link href="/user/ticketdetails"><button class="border-2 border-white btn-secondary">DETAILS</button></Link></td>
               </tr>
-              <tr>
+              <tr class="cursor-pointer  hover:bg-softgray">
                     <td class="text-secondary py-4 px-2">Shang-Chi and the Legend of the Ten Rings</td>
                     <td class="font-thin text-secondary py-4 text-center">
                       <p>1 PM</p>
                       <p>DECEMBER 11, 2021</p>
                     </td>
-                    <td class="py-4 px-2 flex justify-end"><Link href="/user/ticketdetails"><button class="btn-secondary">DETAILS</button></Link></td>
+                    <td class="py-4 px-2 flex justify-end"><Link href="/user/ticketdetails"><button class="border-2 border-white btn-secondary">DETAILS</button></Link></td>
               </tr>
 
            </table>

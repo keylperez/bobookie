@@ -22,9 +22,10 @@ use App\Http\Controllers\Auth\LoginController;
 // });
 
 // Auth::routes();
-
-Route::get('/login', [LoginController::class, 'index']);
+// Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'store']);
+Route::post('/signup', [LoginController::class, 'create']);
 
 Route::get('/signup', function () {
     return Inertia::render('SignUp');
@@ -50,16 +51,15 @@ Route::get('/user/ticketdetails', [UserController::class, 'ticketdetails']);
 
 
 
-Route::get('/', [HomeController::class, 'index']);
-
 // ====================== ADMIN ==========================
 //Movies Tab
 Route::get('/admin/movies', [AdminController::class, 'movies'])->name('admin.movies');
 Route::post('/admin/movies/create', [AdminController::class, 'create_movie']);
+Route::post('/admin/movies/update', [AdminController::class, 'update_movie']);
 Route::post('/admin/movies/delete', [AdminController::class, 'delete_movie']);
 
 //Bookings Tab
-Route::get('/bookings', [AdminController::class, 'bookings']);
+Route::get('/admin/bookings', [AdminController::class, 'bookings']);
 
 //User List Tab
 Route::get('/users', [AdminController::class, 'users']);

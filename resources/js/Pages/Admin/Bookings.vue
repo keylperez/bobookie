@@ -16,7 +16,7 @@
             </thead>
 
               
-              <tr align="center" class="text-secondary">
+              <tr align="center" class="text-secondary cursor-pointer hover:bg-softgray">
                       <td class="py-4" align="left">#1234568</td>
                       <td class="font-thin py-4">kimNamjoon</td>
                       <td class="font-thin py-4">1</td>
@@ -32,7 +32,7 @@
                         </td>
               </tr>
 
-              <tr align="center" class="text-secondary">
+              <tr align="center" class="text-secondary cursor-pointer hover:bg-softgray">
                       <td class="py-4" align="left">#1234569</td>
                       <td class="font-thin py-4">kimSeokjin</td>
                       <td class="font-thin py-4">2</td>
@@ -48,7 +48,7 @@
                       </td>
               </tr>
            
-              <tr align="center" class="text-secondary">
+              <tr align="center" class="text-secondary cursor-pointer hover:bg-softgray">
                       <td class="py-4" align="left">#1234568</td>
                       <td class="font-thin py-4">minYoongi</td>
                       <td class="font-thin py-4">5</td>
@@ -63,7 +63,7 @@
                       </td>
               </tr>
            
-              <tr align="center" class="text-secondary">
+              <tr align="center" class="text-secondary cursor-pointer hover:bg-softgray">
                       <td class="py-4" align="left">#1235558</td>
                       <td class="font-thin py-4">jungHoseok</td>
                       <td class="font-thin py-4">1</td>
@@ -152,7 +152,7 @@
                                   </thead>
 
                         
-                                  <tr align="center" class="text-secondary font-thin">
+                                  <tr align="center" class="text-secondary font-thin ">
                                           <td class="pr-4 flex flex-row items-center" align="left">Juan de la Cruz</td>
                                           <td class="font-thin ">
                                             <div class="selectdiv">
@@ -167,7 +167,7 @@
                                           </td>
                                           <td class="pl-4 flex flex-row justify-end items-center" align="right">Ticket#0000</td>
                                   </tr>
-                                  <tr align="center" class="text-secondary font-thin">
+                                  <tr align="center" class="text-secondary font-thin ">
                                           <td class="pr-4 flex flex-row items-center" align="left">Juan de la Cruz</td>
                                           <td class="font-thin ">
                                             <div class="selectdiv">
@@ -182,7 +182,7 @@
                                           </td>
                                           <td class="pl-4 flex flex-row justify-end items-center space-x-3" align="right">Ticket#0000</td>
                                   </tr>
-                                  <tr align="center" class="text-secondary font-thin">
+                                  <tr align="center" class="text-secondary font-thin ">
                                           <td class="pr-4 flex flex-row items-center" align="left">Juan de la Cruz</td>
                                           <td class="font-thin ">
                                             <div class="selectdiv">
@@ -286,19 +286,6 @@ components: { Layout,EditIcon,DelIcon },
 };
 </script>
 
-// <script setup>
-
-//   import { useForm } from "@inertiajs/inertia-vue3";
- 
-//   const form = useForm({
-//     count: 1,
-//   });
-
-//   const submit = () => {
-//       form.post("/user/discoverbookdetails");
-//   };
-
-// </script>
 
 <style>
 </style>
