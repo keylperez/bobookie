@@ -1,8 +1,9 @@
 import { createApp, h } from "vue";
 import { createInertiaApp, Link, Head } from "@inertiajs/inertia-vue3";
 import { InertiaProgress } from "@inertiajs/progress";
-import Layout from "./Shared/Layout.vue";2
-
+import { ZiggyVue } from "ziggy";
+import { Ziggy } from "./ziggy";
+import Layout from "./Shared/Layout.vue";
 
 createInertiaApp({
   resolve: async (name) => {
@@ -17,7 +18,8 @@ createInertiaApp({
       .use(plugin)
       .component("Link", Link)
       .component("Head", Head)
-      .mount(el);
+      .mount(el)
+      .use(ZiggyVue, Ziggy);
   },
   title: (title) => `${title} - Bobookie`,
 });

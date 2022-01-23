@@ -64,5 +64,3 @@ Route::get('/admin/bookings', [AdminController::class, 'bookings']);
 //User List Tab
 Route::get('/users', [AdminController::class, 'users']);
 // });
-
-
