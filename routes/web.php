@@ -53,16 +53,16 @@ Route::middleware('auth')->group(function () {
 
     // ====================== ADMIN ==========================
     //Movies Tab
-    Route::get('/movies', [AdminController::class, 'movies'])->name('admin.movies');
-    Route::post('/movies/create', [AdminController::class, 'create_movie']);
-    Route::post('/movies/update', [AdminController::class, 'update_movie']);
-    Route::post('/movies/delete', [AdminController::class, 'delete_movie']);
+    Route::get('/movies', [AdminController::class, 'movies'])->name('movies')->middleware('can:create,App\Models\User');
+    Route::post('/movies/create', [AdminController::class, 'create_movie'])->middleware('can:create,App\Models\User');
+    Route::post('/movies/update', [AdminController::class, 'update_movie'])->middleware('can:create,App\Models\User');
+    Route::post('/movies/delete', [AdminController::class, 'delete_movie'])->middleware('can:create,App\Models\User');
 
     //Bookings Tab
-    Route::get('/bookings', [AdminController::class, 'bookings']);
+    Route::get('/bookings', [AdminController::class, 'bookings'])->middleware('can:create,App\Models\User');
 
     // List Tab
-    Route::get('/users', [AdminController::class, 'users']);
+    Route::get('/users', [AdminController::class, 'users'])->middleware('can:create,App\Models\User');
 
     Route::post('/logout', [LoginController::class, 'logout']);
 });

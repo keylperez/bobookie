@@ -30,6 +30,30 @@
                     >MY TICKETS</NavLink
                 >
             </li>
+            <li>
+                <NavLink
+                    href="/movies"
+                    v-if="user.type === 'admin'"
+                    :active="$page.url.startsWith('/movies')"
+                    >MOVIES</NavLink
+                >
+            </li>
+            <li>
+                <NavLink
+                    href="/bookings"
+                    v-if="user.type === 'admin'"
+                    :active="$page.url.startsWith('/bookings')"
+                    >BOOKINGS</NavLink
+                >
+            </li>
+            <li>
+                <NavLink
+                    href="/users"
+                    v-if="user.type === 'admin'"
+                    :active="$page.url.startsWith('/users')"
+                    >USERS</NavLink
+                >
+            </li>
         </ul>
     </nav>
 </template>
