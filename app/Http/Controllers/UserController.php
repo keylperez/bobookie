@@ -28,7 +28,7 @@ class UserController extends Controller
                     'description' => $movie->description,
                     'start_date' => $movie->start_date,
                     'end_date' => $movie->end_date,
-                    'image' => asset('storage/app/public/' . $movie->img),
+                    'image' => asset('storage/' . $movie->img),
                 ];
             }),
 
