@@ -346,18 +346,12 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import EditIcon from "../../Shared/Edit.vue";
 import DelIcon from "../../Shared/Delete.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { ref } from "@vue/reactivity";
 
-export default {
-    components: { EditIcon, DelIcon },
-};
-</script>
-
-<script setup>
 const filename = ref("");
 const showModal = ref(false);
 const delModal = ref(false);

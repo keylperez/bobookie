@@ -55,7 +55,7 @@
                                     class="text-sm mt-4 space-y-2 font-bold text-secondary"
                                 >
                                     <div class="font-thin">
-                                        <p>kimNamjoon</p>
+                                        <p>{{ booking.name }}</p>
                                         <p>Transaction#0000</p>
                                     </div>
                                     <div>
@@ -102,12 +102,14 @@
                                         <tr
                                             align="center"
                                             class="text-secondary font-thin"
+                                            v-for="n in booking.quantity"
+                                            :key="n"
                                         >
                                             <td
                                                 class="pr-4 flex flex-row items-center"
                                                 align="left"
                                             >
-                                                Juan de la Cruz
+                                                {{ booking.name }}
                                             </td>
                                             <td class="font-thin">
                                                 <div class="selectdiv">
@@ -128,71 +130,7 @@
                                                 class="pl-4 flex flex-row justify-end items-center"
                                                 align="right"
                                             >
-                                                Ticket#0000
-                                            </td>
-                                        </tr>
-                                        <tr
-                                            align="center"
-                                            class="text-secondary font-thin"
-                                        >
-                                            <td
-                                                class="pr-4 flex flex-row items-center"
-                                                align="left"
-                                            >
-                                                Juan de la Cruz
-                                            </td>
-                                            <td class="font-thin">
-                                                <div class="selectdiv">
-                                                    <!-- <label> -->
-                                                    <select
-                                                        class="focus:outline-none cursor-pointer p-2"
-                                                    >
-                                                        <option selected>
-                                                            A1
-                                                        </option>
-                                                        <option>A2</option>
-                                                        <option>A3</option>
-                                                    </select>
-                                                    <!-- </label> -->
-                                                </div>
-                                            </td>
-                                            <td
-                                                class="pl-4 flex flex-row justify-end items-center space-x-3"
-                                                align="right"
-                                            >
-                                                Ticket#0000
-                                            </td>
-                                        </tr>
-                                        <tr
-                                            align="center"
-                                            class="text-secondary font-thin"
-                                        >
-                                            <td
-                                                class="pr-4 flex flex-row items-center"
-                                                align="left"
-                                            >
-                                                Juan de la Cruz
-                                            </td>
-                                            <td class="font-thin">
-                                                <div class="selectdiv">
-                                                    <!-- <label> -->
-                                                    <select
-                                                        class="focus:outline-none cursor-pointer p-2"
-                                                    >
-                                                        <option selected>
-                                                            A1
-                                                        </option>
-                                                        <option>A2</option>
-                                                        <option>A3</option>
-                                                    </select>
-                                                    <!-- </label> -->
-                                                </div>
-                                            </td>
-                                            <td
-                                                class="pl-4 flex flex-row justify-end items-center space-x-3"
-                                                align="right"
-                                            >
-                                                Ticket#0000
+                                                Ticket#{{ booking.id }}
                                             </td>
                                         </tr>
                                     </table>
@@ -224,17 +162,13 @@
     <div v-if="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            filename: "",
-            showModal: false,
-            delModal: false,
-            myDate: new Date().toISOString().slice(0, 10),
-        };
-    },
-};
+<script setup>
+import { ref } from "@vue/reactivity";
+const filename = ref("");
+const showModal = ref(false);
+const delModal = ref(false);
+const myDate = ref(new Date().toISOString().slice(0, 10));
+defineProps({ booking: Object });
 </script>
 
 <style></style>

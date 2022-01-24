@@ -1,10 +1,10 @@
 "use strict";
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_Admin_Bookings_vue"],{
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Admin/Bookings.vue?vue&type=script&lang=js":
-/*!***************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Admin/Bookings.vue?vue&type=script&lang=js ***!
-  \***************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Admin/Bookings.vue?vue&type=script&setup=true&lang=js":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Admin/Bookings.vue?vue&type=script&setup=true&lang=js ***!
+  \**************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -13,31 +13,120 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Shared_Edit_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Shared/Edit.vue */ "./resources/js/Shared/Edit.vue");
 /* harmony import */ var _Shared_Delete_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Shared/Delete.vue */ "./resources/js/Shared/Delete.vue");
+/* harmony import */ var _Shared_BookingModal_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Shared/BookingModal.vue */ "./resources/js/Shared/BookingModal.vue");
+/* harmony import */ var _vue_reactivity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @vue/reactivity */ "./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js");
+
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      filename: "",
-      showModal: false,
-      delModal: false,
-      myDate: new Date().toISOString().slice(0, 10)
-    };
-  },
-  components: {
-    EditIcon: _Shared_Edit_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    DelIcon: _Shared_Delete_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
-  },
   props: {
     bookings: Array
   },
-  methods: {
-    toggleModal: function toggleModal() {
-      this.showModal = !this.showModal;
-    },
-    toggleDel: function toggleDel() {
-      this.delModal = !this.delModal;
-    }
+  setup: function setup(__props, _ref) {
+    var expose = _ref.expose;
+    expose();
+    var props = __props;
+    var filename = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)("");
+    var showModal = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)(false);
+    var delModal = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)(false);
+    var myDate = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)(new Date().toISOString().slice(0, 10));
+    var currentModal = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.reactive)(props[0]);
+    console.log(props);
+
+    var toggleModal = function toggleModal(booking) {
+      // currentModal = booking;
+      showModal.value = !showModal.value;
+    };
+
+    var toggleDel = function toggleDel(booking) {
+      // currentModal = booking;
+      delModal.value = !delModal.value;
+    }; // export default {
+    //     data() {
+    //         return {
+    //             filename: "",
+    //             showModal: false,
+    //             delModal: false,
+    //             myDate: new Date().toISOString().slice(0, 10),
+    //             currentModal: 0,
+    //         };
+    //     },
+    //     components: { EditIcon, DelIcon, BookingModal },
+    //     props: { bookings: Array },
+    //     methods: {
+    //         toggleModal: function (bookID) {
+    //             this.currentModal = this.bookID;
+    //             this.showModal = !this.showModal;
+    //         },
+    //         toggleDel: function (bookID) {
+    //             this.currentModal = this.bookID;
+    //             this.delModal = !this.delModal;
+    //         },
+    //     },
+    // };
+
+
+    var __returned__ = {
+      filename: filename,
+      showModal: showModal,
+      delModal: delModal,
+      myDate: myDate,
+      currentModal: currentModal,
+      props: props,
+      toggleModal: toggleModal,
+      toggleDel: toggleDel,
+      EditIcon: _Shared_Edit_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+      DelIcon: _Shared_Delete_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+      BookingModal: _Shared_BookingModal_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+      ref: _vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref,
+      reactive: _vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.reactive
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/BookingModal.vue?vue&type=script&setup=true&lang=js":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/BookingModal.vue?vue&type=script&setup=true&lang=js ***!
+  \*************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vue/reactivity */ "./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    booking: Object
+  },
+  setup: function setup(__props, _ref) {
+    var expose = _ref.expose;
+    expose();
+    var filename = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.ref)("");
+    var showModal = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+    var delModal = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+    var myDate = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.ref)(new Date().toISOString().slice(0, 10));
+    var __returned__ = {
+      filename: filename,
+      showModal: showModal,
+      delModal: delModal,
+      myDate: myDate,
+      ref: _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.ref
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
   }
 });
 
@@ -134,154 +223,47 @@ var _hoisted_11 = {
   "class": "py-4 flex flex-row justify-end items-center space-x-3",
   align: "right"
 };
-var _hoisted_12 = {
+var _hoisted_12 = ["onClick"];
+var _hoisted_13 = ["onClick"];
+var _hoisted_14 = {
   key: 0,
   "class": "font-main overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex flex-wrap"
-};
-var _hoisted_13 = {
-  "class": "relative w-auto my-8 mx-auto max-w-4xl"
-};
-var _hoisted_14 = {
-  "class": "shadow-lg relative flex flex-col bg-white outline-none focus:outline-none"
 };
 var _hoisted_15 = {
-  "class": "flex items-start justify-between mt-10 ml-2 p-2"
-};
-var _hoisted_16 = {
-  "class": "text-sm font-bold mx-2 text-secondary"
-};
-
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  "class": "h-5 w-5",
-  fill: "none",
-  viewBox: "0 0 24 24",
-  stroke: "currentColor"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
-  "stroke-linecap": "round",
-  "stroke-linejoin": "round",
-  "stroke-width": "2",
-  d: "M15 19l-7-7 7-7"
-})], -1
-/* HOISTED */
-);
-
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-xs text-secondary link-underline link-underline-black cursor-pointer"
-}, " BACK ", -1
-/* HOISTED */
-);
-
-var _hoisted_19 = [_hoisted_17, _hoisted_18];
-var _hoisted_20 = {
-  "class": "p-6 flex-auto h-auto"
-};
-var _hoisted_21 = {
-  "class": "flex flex-row text-secondary font-main flex-wrap justify-end"
-};
-
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-primary text-2xl"
-}, " BOOKING DETAILS ", -1
-/* HOISTED */
-);
-
-var _hoisted_23 = {
-  "class": "flex flex-row flex-wrap space-x-8 justify-evenly"
-};
-var _hoisted_24 = {
-  "class": "text-sm mt-4 space-y-2 font-bold text-secondary"
-};
-
-var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "font-thin"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "kimNamjoon"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Transaction#0000")], -1
-/* HOISTED */
-);
-
-var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Movie"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "text",
-  placeholder: "Eternals",
-  "class": "input-primary placeholder-secondary"
-})], -1
-/* HOISTED */
-);
-
-var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Date Booked", -1
-/* HOISTED */
-);
-
-var _hoisted_28 = ["placeholder"];
-
-var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Time Booked"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "text",
-  placeholder: "11:00 AM",
-  "class": "input-primary placeholder-secondary"
-})], -1
-/* HOISTED */
-);
-
-var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"text-sm mt-4 space-y-2\"><h1 class=\"text-primary text-xl\"> TICKETS </h1><table class=\"mx-2 table-fixed mt-4\"><thead class=\"text-secondary\"><th align=\"left\">Name</th><th>Seat Location</th><th align=\"right\">Ticket ID</th></thead><tr align=\"center\" class=\"text-secondary font-thin\"><td class=\"pr-4 flex flex-row items-center\" align=\"left\"> Juan de la Cruz </td><td class=\"font-thin\"><div class=\"selectdiv\"><!-- &lt;label&gt; --><select class=\"focus:outline-none cursor-pointer p-2\"><option selected> A1 </option><option>A2</option><option>A3</option></select><!-- &lt;/label&gt; --></div></td><td class=\"pl-4 flex flex-row justify-end items-center\" align=\"right\"> Ticket#0000 </td></tr><tr align=\"center\" class=\"text-secondary font-thin\"><td class=\"pr-4 flex flex-row items-center\" align=\"left\"> Juan de la Cruz </td><td class=\"font-thin\"><div class=\"selectdiv\"><!-- &lt;label&gt; --><select class=\"focus:outline-none cursor-pointer p-2\"><option selected> A1 </option><option>A2</option><option>A3</option></select><!-- &lt;/label&gt; --></div></td><td class=\"pl-4 flex flex-row justify-end items-center space-x-3\" align=\"right\"> Ticket#0000 </td></tr><tr align=\"center\" class=\"text-secondary font-thin\"><td class=\"pr-4 flex flex-row items-center\" align=\"left\"> Juan de la Cruz </td><td class=\"font-thin\"><div class=\"selectdiv\"><!-- &lt;label&gt; --><select class=\"focus:outline-none cursor-pointer p-2\"><option selected> A1 </option><option>A2</option><option>A3</option></select><!-- &lt;/label&gt; --></div></td><td class=\"pl-4 flex flex-row justify-end items-center space-x-3\" align=\"right\"> Ticket#0000 </td></tr></table></div>", 1);
-
-var _hoisted_31 = {
-  "class": "flex flex-row justify-center space-x-4 mb-8 mt-12"
-};
-
-var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "btn-primary"
-}, " SAVE ", -1
-/* HOISTED */
-);
-
-var _hoisted_33 = {
-  key: 1,
-  "class": "opacity-25 fixed inset-0 z-40 bg-black"
-};
-var _hoisted_34 = {
-  key: 0,
-  "class": "font-main overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex flex-wrap"
-};
-var _hoisted_35 = {
   "class": "relative w-auto my-8 mx-auto max-w-3xl"
 };
-var _hoisted_36 = {
+var _hoisted_16 = {
   "class": "shadow-lg relative flex flex-col bg-white outline-none focus:outline-none"
 };
-var _hoisted_37 = {
+var _hoisted_17 = {
   "class": "p-6 flex-auto h-auto"
 };
-var _hoisted_38 = {
+var _hoisted_18 = {
   "class": "flex flex-row text-secondary font-main flex-wrap justify-end"
 };
 
-var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "text-2xl m-20 text-center"
 }, " ARE YOU SURE YOU WANT TO REMOVE THIS RECORD? ", -1
 /* HOISTED */
 );
 
-var _hoisted_40 = {
+var _hoisted_20 = {
   "class": "flex flex-row justify-center space-x-4 mb-8 mt-8"
 };
 
-var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "btn-primary"
 }, " CONFIRM ", -1
 /* HOISTED */
 );
 
-var _hoisted_42 = {
+var _hoisted_22 = {
   key: 1,
   "class": "opacity-25 fixed inset-0 z-40 bg-black"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
-
-  var _component_EditIcon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("EditIcon");
-
-  var _component_DelIcon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DelIcon");
-
-  var _component_BookingModal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BookingModal");
 
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
@@ -303,59 +285,251 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(booking.status), 1
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-      onClick: _cache[0] || (_cache[0] = function ($event) {
-        return $options.toggleModal();
-      })
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_EditIcon)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-      onClick: _cache[1] || (_cache[1] = function ($event) {
-        return $options.toggleDel();
-      })
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DelIcon)])])]);
+      onClick: function onClick($event) {
+        return $setup.toggleModal(booking);
+      }
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["EditIcon"])], 8
+    /* PROPS */
+    , _hoisted_12), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      onClick: function onClick($event) {
+        return $setup.toggleDel(booking);
+      }
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["DelIcon"])], 8
+    /* PROPS */
+    , _hoisted_13)])]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" MODAL "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BookingModal), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" MODAL HERE "), $data.showModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("content"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("header"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[2] || (_cache[2] = function ($event) {
-      return $options.toggleModal();
+  ))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" MODAL "), $setup.showModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["BookingModal"], {
+    key: 0,
+    booking: $props.bookings[0]
+  }, null, 8
+  /* PROPS */
+  , ["booking"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div>\r\n        <div\r\n            v-if=\"showModal\"\r\n            class=\"font-main overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex flex-wrap\"\r\n        >\r\n            <div class=\"relative w-auto my-8 mx-auto max-w-4xl\">\r\n                <div\r\n                    class=\"shadow-lg relative flex flex-col bg-white outline-none focus:outline-none\"\r\n                >\r\n                    <div\r\n                        class=\"flex items-start justify-between mt-10 ml-2 p-2\"\r\n                    >\r\n                        <div class=\"text-sm font-bold mx-2 text-secondary\">\r\n                            <button\r\n                                v-on:click=\"toggleModal()\"\r\n                                class=\"flex flex-row items-center space-x-1 font-bold\"\r\n                            >\r\n                                <svg\r\n                                    xmlns=\"http://www.w3.org/2000/svg\"\r\n                                    class=\"h-5 w-5\"\r\n                                    fill=\"none\"\r\n                                    viewBox=\"0 0 24 24\"\r\n                                    stroke=\"currentColor\"\r\n                                >\r\n                                    <path\r\n                                        stroke-linecap=\"round\"\r\n                                        stroke-linejoin=\"round\"\r\n                                        stroke-width=\"2\"\r\n                                        d=\"M15 19l-7-7 7-7\"\r\n                                    />\r\n                                </svg>\r\n                                <p\r\n                                    class=\"text-xs text-secondary link-underline link-underline-black cursor-pointer\"\r\n                                >\r\n                                    BACK\r\n                                </p>\r\n                            </button>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"p-6 flex-auto h-auto\">\r\n                        <div\r\n                            class=\"flex flex-row text-secondary font-main flex-wrap justify-end\"\r\n                        >\r\n                            <div>\r\n                                <h1 class=\"text-primary text-2xl\">\r\n                                    BOOKING DETAILS\r\n                                </h1>\r\n\r\n                                <div\r\n                                    class=\"flex flex-row flex-wrap space-x-8 justify-evenly\"\r\n                                >\r\n                                    <div\r\n                                        class=\"text-sm mt-4 space-y-2 font-bold text-secondary\"\r\n                                    >\r\n                                        <div class=\"font-thin\">\r\n                                            <p>kimNamjoon</p>\r\n                                            <p>Transaction#0000</p>\r\n                                        </div>\r\n                                        <div>\r\n                                            <p>Movie</p>\r\n                                            <input\r\n                                                type=\"text\"\r\n                                                placeholder=\"Eternals\"\r\n                                                class=\"input-primary placeholder-secondary\"\r\n                                            />\r\n                                        </div>\r\n\r\n                                        <div>\r\n                                            <p>Date Booked</p>\r\n                                            <input\r\n                                                type=\"date\"\r\n                                                :placeholder=\"new Date()\"\r\n                                                v-model=\"myDate\"\r\n                                                class=\"input-primary placeholder-secondary\"\r\n                                            />\r\n                                        </div>\r\n\r\n                                        <div>\r\n                                            <p>Time Booked</p>\r\n                                            <input\r\n                                                type=\"text\"\r\n                                                placeholder=\"11:00 AM\"\r\n                                                class=\"input-primary placeholder-secondary\"\r\n                                            />\r\n                                        </div>\r\n                                    </div>\r\n\r\n                                    <div class=\"text-sm mt-4 space-y-2\">\r\n                                        <h1 class=\"text-primary text-xl\">\r\n                                            TICKETS\r\n                                        </h1>\r\n\r\n                                        <table class=\"mx-2 table-fixed mt-4\">\r\n                                            <thead class=\"text-secondary\">\r\n                                                <th align=\"left\">Name</th>\r\n                                                <th>Seat Location</th>\r\n                                                <th align=\"right\">Ticket ID</th>\r\n                                            </thead>\r\n\r\n                                            <tr\r\n                                                align=\"center\"\r\n                                                class=\"text-secondary font-thin\"\r\n                                            >\r\n                                                <td\r\n                                                    class=\"pr-4 flex flex-row items-center\"\r\n                                                    align=\"left\"\r\n                                                >\r\n                                                    Juan de la Cruz\r\n                                                </td>\r\n                                                <td class=\"font-thin\">\r\n                                                    <div class=\"selectdiv\">\r\n                                                        <select\r\n                                                            class=\"focus:outline-none cursor-pointer p-2\"\r\n                                                        >\r\n                                                            <option selected>\r\n                                                                A1\r\n                                                            </option>\r\n                                                            <option>A2</option>\r\n                                                            <option>A3</option>\r\n                                                        </select>\r\n                                                    </div>\r\n                                                </td>\r\n                                                <td\r\n                                                    class=\"pl-4 flex flex-row justify-end items-center\"\r\n                                                    align=\"right\"\r\n                                                >\r\n                                                    Ticket#0000\r\n                                                </td>\r\n                                            </tr>\r\n                                            <tr\r\n                                                align=\"center\"\r\n                                                class=\"text-secondary font-thin\"\r\n                                            >\r\n                                                <td\r\n                                                    class=\"pr-4 flex flex-row items-center\"\r\n                                                    align=\"left\"\r\n                                                >\r\n                                                    Juan de la Cruz\r\n                                                </td>\r\n                                                <td class=\"font-thin\">\r\n                                                    <div class=\"selectdiv\">\r\n                                                        \r\n                                                        <select\r\n                                                            class=\"focus:outline-none cursor-pointer p-2\"\r\n                                                        >\r\n                                                            <option selected>\r\n                                                                A1\r\n                                                            </option>\r\n                                                            <option>A2</option>\r\n                                                            <option>A3</option>\r\n                                                        </select>\r\n                                                    </div>\r\n                                                </td>\r\n                                                <td\r\n                                                    class=\"pl-4 flex flex-row justify-end items-center space-x-3\"\r\n                                                    align=\"right\"\r\n                                                >\r\n                                                    Ticket#0000\r\n                                                </td>\r\n                                            </tr>\r\n                                            <tr\r\n                                                align=\"center\"\r\n                                                class=\"text-secondary font-thin\"\r\n                                            >\r\n                                                <td\r\n                                                    class=\"pr-4 flex flex-row items-center\"\r\n                                                    align=\"left\"\r\n                                                >\r\n                                                    Juan de la Cruz\r\n                                                </td>\r\n                                                <td class=\"font-thin\">\r\n                                                    <div class=\"selectdiv\">\r\n                                                        \r\n                                                        <select\r\n                                                            class=\"focus:outline-none cursor-pointer p-2\"\r\n                                                        >\r\n                                                            <option selected>\r\n                                                                A1\r\n                                                            </option>\r\n                                                            <option>A2</option>\r\n                                                            <option>A3</option>\r\n                                                        </select>\r\n                                                    </div>\r\n                                                </td>\r\n                                                <td\r\n                                                    class=\"pl-4 flex flex-row justify-end items-center space-x-3\"\r\n                                                    align=\"right\"\r\n                                                >\r\n                                                    Ticket#0000\r\n                                                </td>\r\n                                            </tr>\r\n                                        </table>\r\n                                    </div>\r\n                                </div>\r\n\r\n                                <div\r\n                                    class=\"flex flex-row justify-center space-x-4 mb-8 mt-12\"\r\n                                >\r\n                                    <button\r\n                                        v-on:click=\"toggleModal()\"\r\n                                        class=\"btn-secondary\"\r\n                                    >\r\n                                        CANCEL\r\n                                    </button>\r\n                                    <Link href=\"#\"\r\n                                        ><button class=\"btn-primary\">\r\n                                            SAVE\r\n                                        </button></Link\r\n                                    >\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div\r\n            v-if=\"showModal\"\r\n            class=\"opacity-25 fixed inset-0 z-40 bg-black\"\r\n        ></div>\r\n    </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" DELETE CONFIRMATION MODAL HERE "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" MODAL HERE "), $setup.delModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("content"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("body"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return $setup.toggleDel();
+    }),
+    "class": "btn-secondary"
+  }, " CANCEL "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    href: "#"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_21];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])])])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.delModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_22)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 64
+  /* STABLE_FRAGMENT */
+  );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/BookingModal.vue?vue&type=template&id=7ae30f30":
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/BookingModal.vue?vue&type=template&id=7ae30f30 ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  key: 0,
+  "class": "font-main overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex flex-wrap"
+};
+var _hoisted_2 = {
+  "class": "relative w-auto my-8 mx-auto max-w-4xl"
+};
+var _hoisted_3 = {
+  "class": "shadow-lg relative flex flex-col bg-white outline-none focus:outline-none"
+};
+var _hoisted_4 = {
+  "class": "flex items-start justify-between mt-10 ml-2 p-2"
+};
+var _hoisted_5 = {
+  "class": "text-sm font-bold mx-2 text-secondary"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "class": "h-5 w-5",
+  fill: "none",
+  viewBox: "0 0 24 24",
+  stroke: "currentColor"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round",
+  "stroke-width": "2",
+  d: "M15 19l-7-7 7-7"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-xs text-secondary link-underline link-underline-black cursor-pointer"
+}, " BACK ", -1
+/* HOISTED */
+);
+
+var _hoisted_8 = [_hoisted_6, _hoisted_7];
+var _hoisted_9 = {
+  "class": "p-6 flex-auto h-auto"
+};
+var _hoisted_10 = {
+  "class": "flex flex-row text-secondary font-main flex-wrap justify-end"
+};
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-primary text-2xl"
+}, " BOOKING DETAILS ", -1
+/* HOISTED */
+);
+
+var _hoisted_12 = {
+  "class": "flex flex-row flex-wrap space-x-8 justify-evenly"
+};
+var _hoisted_13 = {
+  "class": "text-sm mt-4 space-y-2 font-bold text-secondary"
+};
+var _hoisted_14 = {
+  "class": "font-thin"
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Transaction#0000", -1
+/* HOISTED */
+);
+
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Movie"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "text",
+  placeholder: "Eternals",
+  "class": "input-primary placeholder-secondary"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Date Booked", -1
+/* HOISTED */
+);
+
+var _hoisted_18 = ["placeholder"];
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Time Booked"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "text",
+  placeholder: "11:00 AM",
+  "class": "input-primary placeholder-secondary"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_20 = {
+  "class": "text-sm mt-4 space-y-2"
+};
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-primary text-xl"
+}, " TICKETS ", -1
+/* HOISTED */
+);
+
+var _hoisted_22 = {
+  "class": "mx-2 table-fixed mt-4"
+};
+
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
+  "class": "text-secondary"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  align: "left"
+}, "Name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Seat Location"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  align: "right"
+}, "Ticket ID")], -1
+/* HOISTED */
+);
+
+var _hoisted_24 = {
+  "class": "pr-4 flex flex-row items-center",
+  align: "left"
+};
+
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+  "class": "font-thin"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "selectdiv"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <label> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+  "class": "focus:outline-none cursor-pointer p-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  selected: ""
+}, " A1 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", null, "A2"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", null, "A3")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </label> ")])], -1
+/* HOISTED */
+);
+
+var _hoisted_26 = {
+  "class": "pl-4 flex flex-row justify-end items-center",
+  align: "right"
+};
+var _hoisted_27 = {
+  "class": "flex flex-row justify-center space-x-4 mb-8 mt-12"
+};
+
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "btn-primary"
+}, " SAVE ", -1
+/* HOISTED */
+);
+
+var _hoisted_29 = {
+  key: 1,
+  "class": "opacity-25 fixed inset-0 z-40 bg-black"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [$setup.showModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("content"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("header"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return _ctx.toggleModal();
     }),
     "class": "flex flex-row items-center space-x-1 font-bold"
-  }, _hoisted_19)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("body"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [_hoisted_25, _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, _hoisted_8)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("body"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.booking.name), 1
+  /* TEXT */
+  ), _hoisted_15]), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "date",
     placeholder: new Date(),
-    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
-      return $data.myDate = $event;
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $setup.myDate = $event;
     }),
     "class": "input-primary placeholder-secondary"
   }, null, 8
   /* PROPS */
-  , _hoisted_28), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.myDate]])]), _hoisted_29]), _hoisted_30]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_31, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[4] || (_cache[4] = function ($event) {
-      return $options.toggleModal();
+  , _hoisted_18), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.myDate]])]), _hoisted_19]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_22, [_hoisted_23, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.booking.quantity, function (n) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
+      align: "center",
+      "class": "text-secondary font-thin",
+      key: n
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.booking.name), 1
+    /* TEXT */
+    ), _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_26, " Ticket#" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.booking.id), 1
+    /* TEXT */
+    )]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[2] || (_cache[2] = function ($event) {
+      return _ctx.toggleModal();
     }),
     "class": "btn-secondary"
   }, " CANCEL "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     href: "#"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_32];
+      return [_hoisted_28];
     }),
     _: 1
     /* STABLE */
 
-  })])])])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_33)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" DELETE CONFIRMATION MODAL HERE "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" MODAL HERE "), $data.delModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("content"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("body"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_39, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[5] || (_cache[5] = function ($event) {
-      return $options.toggleDel();
-    }),
-    "class": "btn-secondary"
-  }, " CANCEL "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-    href: "#"
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_41];
-    }),
-    _: 1
-    /* STABLE */
-
-  })])])])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.delModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_42)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 64
+  })])])])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.showModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_29)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -447,14 +621,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Bookings_vue_vue_type_template_id_23ebb1fa__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bookings.vue?vue&type=template&id=23ebb1fa */ "./resources/js/Pages/Admin/Bookings.vue?vue&type=template&id=23ebb1fa");
-/* harmony import */ var _Bookings_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bookings.vue?vue&type=script&lang=js */ "./resources/js/Pages/Admin/Bookings.vue?vue&type=script&lang=js");
+/* harmony import */ var _Bookings_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bookings.vue?vue&type=script&setup=true&lang=js */ "./resources/js/Pages/Admin/Bookings.vue?vue&type=script&setup=true&lang=js");
 /* harmony import */ var D_Github_laravel_lookie_tookie_at_my_bookie_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_laravel_lookie_tookie_at_my_bookie_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Bookings_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Bookings_vue_vue_type_template_id_23ebb1fa__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Admin/Bookings.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Github_laravel_lookie_tookie_at_my_bookie_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Bookings_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Bookings_vue_vue_type_template_id_23ebb1fa__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Admin/Bookings.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/Shared/BookingModal.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/Shared/BookingModal.vue ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _BookingModal_vue_vue_type_template_id_7ae30f30__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BookingModal.vue?vue&type=template&id=7ae30f30 */ "./resources/js/Shared/BookingModal.vue?vue&type=template&id=7ae30f30");
+/* harmony import */ var _BookingModal_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BookingModal.vue?vue&type=script&setup=true&lang=js */ "./resources/js/Shared/BookingModal.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var D_Github_laravel_lookie_tookie_at_my_bookie_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,D_Github_laravel_lookie_tookie_at_my_bookie_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_BookingModal_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_BookingModal_vue_vue_type_template_id_7ae30f30__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Shared/BookingModal.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -517,17 +718,32 @@ if (false) {}
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Admin/Bookings.vue?vue&type=script&lang=js":
-/*!***********************************************************************!*\
-  !*** ./resources/js/Pages/Admin/Bookings.vue?vue&type=script&lang=js ***!
-  \***********************************************************************/
+/***/ "./resources/js/Pages/Admin/Bookings.vue?vue&type=script&setup=true&lang=js":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/Pages/Admin/Bookings.vue?vue&type=script&setup=true&lang=js ***!
+  \**********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Bookings_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Bookings_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Bookings_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Bookings.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Admin/Bookings.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Bookings_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Bookings.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Admin/Bookings.vue?vue&type=script&setup=true&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Shared/BookingModal.vue?vue&type=script&setup=true&lang=js":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/Shared/BookingModal.vue?vue&type=script&setup=true&lang=js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_BookingModal_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_BookingModal_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./BookingModal.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/BookingModal.vue?vue&type=script&setup=true&lang=js");
  
 
 /***/ }),
@@ -573,6 +789,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Bookings_vue_vue_type_template_id_23ebb1fa__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Bookings_vue_vue_type_template_id_23ebb1fa__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Bookings.vue?vue&type=template&id=23ebb1fa */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Admin/Bookings.vue?vue&type=template&id=23ebb1fa");
+
+
+/***/ }),
+
+/***/ "./resources/js/Shared/BookingModal.vue?vue&type=template&id=7ae30f30":
+/*!****************************************************************************!*\
+  !*** ./resources/js/Shared/BookingModal.vue?vue&type=template&id=7ae30f30 ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_BookingModal_vue_vue_type_template_id_7ae30f30__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_BookingModal_vue_vue_type_template_id_7ae30f30__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./BookingModal.vue?vue&type=template&id=7ae30f30 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/BookingModal.vue?vue&type=template&id=7ae30f30");
 
 
 /***/ }),

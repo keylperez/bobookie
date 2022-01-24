@@ -19,13 +19,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var __default__ = {
-  components: {
-    EditIcon: _Shared_Edit_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    DelIcon: _Shared_Delete_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
-  }
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/Object.assign(__default__, {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     movies: Array,
     genres: Array,
@@ -131,7 +125,7 @@ var __default__ = {
     });
     return __returned__;
   }
-}));
+});
 
 /***/ }),
 
