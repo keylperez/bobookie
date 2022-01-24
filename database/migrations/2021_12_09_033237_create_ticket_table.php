@@ -16,6 +16,7 @@ class CreateTicketTable extends Migration
         Schema::create('ticket', function (Blueprint $table) {
             $table->id();
             $table->integer('quantity')->default(1);
+            $table->enum('timeslot', ['11:00 AM', '1:00 PM', '3:00 PM']);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('movie_id');

@@ -24,6 +24,7 @@ class CreateMovieTable extends Migration
             $table->year('year');
             $table->integer('runtime');
             $table->longText('description');
+            // $table->unsignedBigInteger('genre_id');
             // $table->foreignId('genre_id')->reference('id')->on('genre');
             $table->date('start_date');
             $table->date('end_date');
