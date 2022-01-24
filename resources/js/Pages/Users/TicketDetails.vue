@@ -5,10 +5,30 @@
         <div class="grid grid-cols-2 gap-14 mx-10 my-10">
             <div class="flex flex-row flex-wrap justify-end">
                 <div class="text-sm font-bold mx-16">
-                     <Link href="/user/tickets" class="flex flex-row items-center space-x-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg><p class="text-xs link-underline link-underline-black  cursor-pointer">BACK</p></Link> 
+                    <Link
+                        href="/tickets"
+                        class="flex flex-row items-center space-x-1"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 19l-7-7 7-7"
+                            />
+                        </svg>
+                        <p
+                            class="text-xs link-underline link-underline-black cursor-pointer"
+                        >
+                            BACK
+                        </p></Link
+                    >
                 </div>
 
                 <div
@@ -64,12 +84,12 @@
 </template>
 
 <script>
-import Layout from '../../Shared/Layout';
+import Layout from "../../Shared/Layout";
 export default {
     name: "TicketDetails",
     layout: Layout,
     components: {
-        Layout
+        Layout,
     },
 };
 </script>

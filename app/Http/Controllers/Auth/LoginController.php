@@ -12,7 +12,11 @@ class LoginController extends Controller
 
     public function index()
     {
-        return Inertia::render('Login');
+        // if (Auth::check()) {
+        //     return redirect('/discover');
+        // }
+        // return Inertia::render('Login');
+        return Auth::check() ? redirect('/discover') : Inertia::render('Login');
     }
 
     public function create(Request $request)

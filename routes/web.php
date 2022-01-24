@@ -23,7 +23,7 @@ use App\Http\Controllers\Auth\LoginController;
 
 // Auth::routes();
 // Route::get('/', [HomeController::class, 'index']);
-Route::get('/', [LoginController::class, 'index']);
+Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 Route::post('/signup', [LoginController::class, 'create']);
 

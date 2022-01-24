@@ -18,15 +18,15 @@
         <ul class="m-5 mt-0 pt-0 flex space-x-6 list-inside">
             <li>
                 <NavLink
-                    href="/user/discover"
-                    :active="$page.url.startsWith('/user/discover')"
+                    href="/discover"
+                    :active="$page.url.startsWith('/discover')"
                     >DISCOVER</NavLink
                 >
             </li>
             <li>
                 <NavLink
-                    href="/user/tickets"
-                    :active="$page.url.startsWith('/user/ticket')"
+                    href="/tickets"
+                    :active="$page.url.startsWith('/ticket')"
                     >MY TICKETS</NavLink
                 >
             </li>
