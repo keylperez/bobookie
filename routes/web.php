@@ -35,33 +35,33 @@ Route::middleware('auth')->group(function () {
 
     // ====================== USERS ==========================
     // Discover Tab
-    Route::get('/user/discover', [UserController::class, 'discover']);
-    Route::get('/user/discoverbook', [UserController::class, 'discoverbook']);
-    Route::get('/user/discoverdetails', [UserController::class, 'discoverdetails']);
-    Route::get('/user/discoverpayment', [UserController::class, 'payment']);
-    Route::get('/user/discoverpaydetails', [UserController::class, 'paymentdetails']);
+    Route::get('/discover', [UserController::class, 'discover']);
+    Route::get('/discoverbook', [UserController::class, 'discoverbook']);
+    Route::get('/discoverdetails', [UserController::class, 'discoverdetails']);
+    Route::get('/discoverpayment', [UserController::class, 'payment']);
+    Route::get('/discoverpaydetails', [UserController::class, 'paymentdetails']);
 
-    Route::get('/user/discoverbookdetails', [UserController::class, 'discoverbookdetails']);
-    Route::post('/user/discoverbookdetails', [UserController::class, 'discoverbookdetails']);
+    Route::get('/discoverbookdetails', [UserController::class, 'discoverbookdetails']);
+    Route::post('/discoverbookdetails', [UserController::class, 'discoverbookdetails']);
 
     // Tickets Tab
-    Route::get('/user/tickets', [UserController::class, 'tickets']);
-    Route::get('/user/ticketdetails', [UserController::class, 'ticketdetails']);
+    Route::get('/tickets', [UserController::class, 'tickets']);
+    Route::get('/ticketdetails', [UserController::class, 'ticketdetails']);
 
 
 
 
     // ====================== ADMIN ==========================
     //Movies Tab
-    Route::get('/admin/movies', [AdminController::class, 'movies'])->name('admin.movies');
-    Route::post('/admin/movies/create', [AdminController::class, 'create_movie']);
-    Route::post('/admin/movies/update', [AdminController::class, 'update_movie']);
-    Route::post('/admin/movies/delete', [AdminController::class, 'delete_movie']);
+    Route::get('/movies', [AdminController::class, 'movies'])->name('admin.movies');
+    Route::post('/movies/create', [AdminController::class, 'create_movie']);
+    Route::post('/movies/update', [AdminController::class, 'update_movie']);
+    Route::post('/movies/delete', [AdminController::class, 'delete_movie']);
 
     //Bookings Tab
-    Route::get('/admin/bookings', [AdminController::class, 'bookings']);
+    Route::get('/bookings', [AdminController::class, 'bookings']);
 
-    //User List Tab
+    // List Tab
     Route::get('/users', [AdminController::class, 'users']);
 
     Route::post('/logout', [LoginController::class, 'logout']);
