@@ -1,8 +1,18 @@
 <template>
     <nav class="font-main">
-        <p class="flex justify-end text-secondary mx-5">
-            {{ user.user.username }}
-        </p>
+        <div class="flex justify-end">
+            <p class="flex-end justify-end text-secondary mx-5">
+                {{ user.username }}
+            </p>
+            <Link
+                href="/logout"
+                method="post"
+                as="button"
+                class="flex-end justify-end text-secondary mx-5 font-bold"
+            >
+                Log-out
+            </Link>
+        </div>
         <div class="flex-grow bg-secondary p-0.5 mx-5" />
 
         <ul class="m-5 mt-0 pt-0 flex space-x-6 list-inside">
@@ -24,19 +34,12 @@
     </nav>
 </template>
 
-<script>
+<script setup>
 import NavLink from "./NavLink";
 import { usePage } from "@inertiajs/inertia-vue3";
+import { computed } from "vue";
 
-export default {
-    name: "Nav",
-    setup() {
-        const user = computed(() => usePage().props.value.auth);
-    },
-    components: {
-        NavLink,
-    },
-};
+const user = computed(() => usePage().props.value.auth.user);
 </script>
 
 <style></style>
