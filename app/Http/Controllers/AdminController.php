@@ -90,7 +90,7 @@ class AdminController extends Controller
     {
         // DB::table('movie')->where('id', '=', Request::input('id'))->delete();
         // return Redirect::route('admin.movies');
-        return Inertia::render('Admin/Bookings');
+        return redirect('/bookings');
     }
 
     public function delete_movie()

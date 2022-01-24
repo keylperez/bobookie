@@ -7,19 +7,14 @@
     </div>
 
     <div class="flex flex-wrap justify-center">
-        <MovieCard></MovieCard>
-        <MovieCard></MovieCard>
-        <MovieCard></MovieCard>
+        <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie" />
     </div>
 </template>
 
-<script>
+<script setup>
 import MovieCard from "../../Shared/MovieCard";
 
-export default {
-    name: "Users",
-    components: { MovieCard },
-};
+defineProps({ movies: Array });
 </script>
 
 <style></style>
