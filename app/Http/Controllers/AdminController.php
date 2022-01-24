@@ -16,51 +16,52 @@ class AdminController extends Controller
     public function movies()
     {
         $movies = DB::table('movie')
-        ->select('*')
-        ->get();
+            ->select('*')
+            ->get();
 
         $genres = DB::table('genre')
-        ->select('*')
-        ->get();
-        
-        $directors =DB::table('director')
-        ->select('*')
-        ->get();
+            ->select('*')
+            ->get();
 
-        return Inertia::render('Admin/Movies',[
+        $directors = DB::table('director')
+            ->select('*')
+            ->get();
 
-            'movies' => $movies->map(function($movie){
+        return Inertia::render('Admin/Movies', [
+
+            'movies' => $movies->map(function ($movie) {
                 return [
-                  'id' => $movie->id,
-                  'title' => $movie->title,
-                  'rating' => $movie->rating,
-                  'desc' => $movie->description,
-                  'image'=> asset('storage/'. $movie->img),
-                  'start_date' => Carbon::parse($movie->start_date)->isoFormat('MMMM DD, YYYY'),   
-                  'end_date' => Carbon::parse($movie->end_date)->isoFormat('MMMM DD, YYYY'),   
-                  'start' => $movie->start_date,
-                  'end' => $movie->end_date,
+                    'id' => $movie->id,
+                    'title' => $movie->title,
+                    'rating' => $movie->rating,
+                    'desc' => $movie->description,
+                    'image' => asset('storage/' . $movie->img),
+                    'start_date' => Carbon::parse($movie->start_date)->isoFormat('MMMM DD, YYYY'),
+                    'end_date' => Carbon::parse($movie->end_date)->isoFormat('MMMM DD, YYYY'),
+                    'start' => $movie->start_date,
+                    'end' => $movie->end_date,
                 ];
             }),
-            'genres' => $genres->map(function($genre){
+            'genres' => $genres->map(function ($genre) {
                 return [
-                  'id' => $genre->id,
-                  'name' => $genre->name
+                    'id' => $genre->id,
+                    'name' => $genre->name
                 ];
             }),
 
-            'directors' => $directors->map(function($director){
+            'directors' => $directors->map(function ($director) {
                 return [
-                  'id' => $director->id,
-                  'name' => $director->name
+                    'id' => $director->id,
+                    'name' => $director->name
                 ];
             })
 
         ]);
     }
 
-    public function create_movie(){
-        $image = Request::file('image')->store('movies','public');
+    public function create_movie()
+    {
+        $image = Request::file('image')->store('movies', 'public');
         $price = 1.00;
         $runtime = 120;
         $year = 2022;
@@ -85,22 +86,30 @@ class AdminController extends Controller
         ]);
     }
 
-    public function update_movie(){
+    public function update_movie()
+    {
         // DB::table('movie')->where('id', '=', Request::input('id'))->delete();
         // return Redirect::route('admin.movies');
         return Inertia::render('Admin/Bookings');
     }
 
-    public function delete_movie(){
+    public function delete_movie()
+    {
         DB::table('movie')->where('id', '=', Request::input('id'))->delete();
         return Redirect::route('admin.movies');
     }
 
     public function bookings()
     {
-        return Inertia::render('Admin/Bookings');
+        $bookings = DB::table('ticket')
+            ->join('users', 'users.id', '=',  'ticket.user_id')
+            ->join('movie', 'movie.id', '=',  'ticket.movie_id')
+            ->select('ticket.*', 'users.name', 'users.email', 'movie.title')
+            ->get();
+        // dd($bookings);
+        return Inertia::render('Admin/Bookings', ['bookings' => $bookings]);
     }
-    
+
     public function users()
     {
         return Inertia::render('Admin/Users', [

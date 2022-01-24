@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             GenreSeeder::class,
             MovieSeeder::class,
             UserSeeder::class,
+            TicketSeeder::class,
         ]);
     }
 }

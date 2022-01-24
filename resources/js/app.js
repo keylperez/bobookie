@@ -6,27 +6,27 @@ import { Ziggy } from "./ziggy";
 import Layout from "./Shared/Layout.vue";
 
 createInertiaApp({
-    resolve: async (name) => {
-      let page = (await import(`./Pages/${name}`)).default;
+  resolve: async (name) => {
+    let page = (await import(`./Pages/${name}`)).default;
 
-      page.layout ??= Layout;
+    page.layout ??= Layout;
 
-      return page;
-    },
-    setup({ el, App, props, plugin }) {
-      createApp({ render: () => h(App, props) })
-        .use(plugin)
-        .component("Link", Link)
-        .component("Head", Head)
-        .mount(el)
-        .use(ZiggyVue, Ziggy);
-    },
+    return page;
+  },
+  setup({ el, App, props, plugin }) {
+    createApp({ render: () => h(App, props) })
+      .use(plugin)
+      .component("Link", Link)
+      .component("Head", Head)
+      .mount(el)
+      .use(ZiggyVue, Ziggy);
+  },
 
-    title: (title) => `${title} - Bobookie`,
+  title: (title) => `${title} - Bobookie`,
 });
 
 InertiaProgress.init({
-  delay: 250,
+  delay: 100,
   color: "#FEB155",
   includeCSS: true,
   showSpinner: true,

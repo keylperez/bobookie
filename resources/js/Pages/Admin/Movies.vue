@@ -347,15 +347,13 @@
 </template>
 
 <script>
-import Layout from "../../Shared/AdminLayout.vue";
 import EditIcon from "../../Shared/Edit.vue";
 import DelIcon from "../../Shared/Delete.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { ref } from "@vue/reactivity";
 
 export default {
-    layout: Layout,
-    components: { Layout, EditIcon, DelIcon },
+    components: { EditIcon, DelIcon },
 };
 </script>
 

@@ -4,11 +4,9 @@
         <h1 class="text-3xl">Users List</h1>
         <div>
             <ul>
-                <li
-                    v-for="user in users"
-                    :key="user.id"
-                    v-text="user.name"
-                ></li>
+                <li v-for="user in users" :key="user.id">
+                    {{ user.name }} - {{ user.id }}
+                </li>
             </ul>
         </div>
     </div>

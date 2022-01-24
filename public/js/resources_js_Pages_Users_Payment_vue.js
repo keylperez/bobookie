@@ -72,7 +72,7 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-xs link-underline link-underline-black cursor-pointer"
-}, "BACK", -1
+}, " BACK ", -1
 /* HOISTED */
 );
 
@@ -80,7 +80,7 @@ var _hoisted_7 = {
   "class": "mt-6"
 };
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<h1 class=\"text-primary text-2xl\">ETERNALS</h1><h1 class=\"text-secondary font-bold\">PAYMENT DETAILS</h1><div class=\"text-sm space-y-4\"><div class=\"my-2\"><p class=\"font-bold text-secondary\">Card number</p><input type=\"text\" class=\"bg-softgray form-input p-1 shadow-md focus:outline-none w-52\"></div><div class=\"my-2\"><p class=\"font-bold text-secondary\">Cardholder’s name</p><input type=\"text\" class=\"bg-softgray form-input p-1 shadow-md focus:outline-none w-52\"></div><div class=\"my-2\"><p class=\"font-bold text-secondary\">Expiry Date</p><input type=\"date\" class=\"bg-softgray form-input p-1 shadow-md focus:outline-none w-52\"></div><div class=\"my-2\"><p class=\"font-bold text-secondary\">Security Code</p><input type=\"password\" class=\"bg-softgray form-input p-1 shadow-md focus:outline-none w-52\"></div></div>", 3);
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<h1 class=\"text-primary text-2xl\">ETERNALS</h1><h1 class=\"text-secondary font-bold\">PAYMENT DETAILS</h1><div class=\"text-sm space-y-4\"><div class=\"my-2\"><p class=\"font-bold text-secondary\">Card number</p><input type=\"text\" class=\"bg-softgray form-input p-1 shadow-md focus:outline-none w-52\"></div><div class=\"my-2\"><p class=\"font-bold text-secondary\"> Cardholder’s name </p><input type=\"text\" class=\"bg-softgray form-input p-1 shadow-md focus:outline-none w-52\"></div><div class=\"my-2\"><p class=\"font-bold text-secondary\">Expiry Date</p><input type=\"date\" class=\"bg-softgray form-input p-1 shadow-md focus:outline-none w-52\"></div><div class=\"my-2\"><p class=\"font-bold text-secondary\">Security Code</p><input type=\"password\" class=\"bg-softgray form-input p-1 shadow-md focus:outline-none w-52\"></div></div>", 3);
 
 var _hoisted_11 = {
   "class": "flex flex-col mt-4"
@@ -88,7 +88,7 @@ var _hoisted_11 = {
 
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary"
-}, "PROCEED", -1
+}, " PROCEED ", -1
 /* HOISTED */
 );
 
@@ -100,7 +100,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
     title: "Payment"
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-    href: "/user/discoverbookdetails",
+    href: "/discoverbookdetails",
     "class": "flex flex-row items-center space-x-1"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -117,7 +117,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 4
   /* STYLE */
   )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <form @submit.prevent=\"submit\" method=\"post\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-    href: "/user/discoverpaydetails"
+    href: "/discoverpaydetails"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_12];
@@ -144,13 +144,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Payment_vue_vue_type_template_id_63b5f2f4__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Payment.vue?vue&type=template&id=63b5f2f4 */ "./resources/js/Pages/Users/Payment.vue?vue&type=template&id=63b5f2f4");
 /* harmony import */ var _Payment_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Payment.vue?vue&type=script&lang=js */ "./resources/js/Pages/Users/Payment.vue?vue&type=script&lang=js");
-/* harmony import */ var C_Users_Marc_Desktop_WEBDEV_FINAL_PROJECT_bobookie_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_Github_laravel_lookie_tookie_at_my_bookie_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_Marc_Desktop_WEBDEV_FINAL_PROJECT_bobookie_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Payment_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Payment_vue_vue_type_template_id_63b5f2f4__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Users/Payment.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Github_laravel_lookie_tookie_at_my_bookie_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Payment_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Payment_vue_vue_type_template_id_63b5f2f4__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Users/Payment.vue"]])
 /* hot reload */
 if (false) {}
 

@@ -15,6 +15,12 @@ class CreateTicketTable extends Migration
     {
         Schema::create('ticket', function (Blueprint $table) {
             $table->id();
+            $table->integer('quantity')->default(1);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('movie_id');
+            $table->foreign('movie_id')->references('id')->on('movie');
+            $table->enum('status', ['Confirmed', 'Cancelled'])->default('Confirmed');
             $table->timestamps();
         });
     }
