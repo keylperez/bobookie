@@ -1,6 +1,5 @@
 <template>
     <div
-        v-if="showModal"
         class="font-main overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex flex-wrap"
     >
         <div class="relative w-auto my-8 mx-auto max-w-4xl">
@@ -165,10 +164,10 @@
 <script setup>
 import { ref } from "@vue/reactivity";
 const filename = ref("");
-const showModal = ref(false);
-const delModal = ref(false);
+const showModal = ref(true);
 const myDate = ref(new Date().toISOString().slice(0, 10));
 defineProps({ booking: Object });
+const hideModal = this.$emit("showModal", "false");
 </script>
 
 <style></style>

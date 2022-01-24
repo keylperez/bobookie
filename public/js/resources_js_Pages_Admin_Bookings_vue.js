@@ -14,7 +14,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Edit_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Shared/Edit.vue */ "./resources/js/Shared/Edit.vue");
 /* harmony import */ var _Shared_Delete_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Shared/Delete.vue */ "./resources/js/Shared/Delete.vue");
 /* harmony import */ var _Shared_BookingModal_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Shared/BookingModal.vue */ "./resources/js/Shared/BookingModal.vue");
-/* harmony import */ var _vue_reactivity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @vue/reactivity */ "./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js");
+/* harmony import */ var _vue_reactivity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @vue/reactivity */ "./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+
 
 
 
@@ -27,12 +29,17 @@ __webpack_require__.r(__webpack_exports__);
     var expose = _ref.expose;
     expose();
     var props = __props;
-    var filename = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)("");
-    var showModal = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)(false);
-    var delModal = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)(false);
-    var myDate = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)(new Date().toISOString().slice(0, 10));
-    var currentModal = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.reactive)(props[0]);
+    var filename = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_4__.ref)("");
+    var showModal = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_4__.ref)(false);
+    var delModal = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_4__.ref)(false);
+    var myDate = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_4__.ref)(new Date().toISOString().slice(0, 10));
+    var currentModal = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_4__.reactive)(props[0]);
     console.log(props);
+    var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.useForm)({
+      movie: null,
+      date: null,
+      time: null
+    });
 
     var toggleModal = function toggleModal(booking) {
       // currentModal = booking;
@@ -74,13 +81,15 @@ __webpack_require__.r(__webpack_exports__);
       myDate: myDate,
       currentModal: currentModal,
       props: props,
+      form: form,
       toggleModal: toggleModal,
       toggleDel: toggleDel,
       EditIcon: _Shared_Edit_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
       DelIcon: _Shared_Delete_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
       BookingModal: _Shared_BookingModal_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-      ref: _vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref,
-      reactive: _vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.reactive
+      ref: _vue_reactivity__WEBPACK_IMPORTED_MODULE_4__.ref,
+      reactive: _vue_reactivity__WEBPACK_IMPORTED_MODULE_4__.reactive,
+      useForm: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.useForm
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -112,14 +121,14 @@ __webpack_require__.r(__webpack_exports__);
     var expose = _ref.expose;
     expose();
     var filename = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.ref)("");
-    var showModal = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
-    var delModal = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+    var showModal = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.ref)(true);
     var myDate = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.ref)(new Date().toISOString().slice(0, 10));
+    var hideModal = this.$emit("showModal", "false");
     var __returned__ = {
       filename: filename,
       showModal: showModal,
-      delModal: delModal,
       myDate: myDate,
+      hideModal: hideModal,
       ref: _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.ref
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
@@ -230,35 +239,138 @@ var _hoisted_14 = {
   "class": "font-main overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex flex-wrap"
 };
 var _hoisted_15 = {
-  "class": "relative w-auto my-8 mx-auto max-w-3xl"
+  "class": "relative w-auto my-8 mx-auto max-w-4xl"
 };
 var _hoisted_16 = {
   "class": "shadow-lg relative flex flex-col bg-white outline-none focus:outline-none"
 };
 var _hoisted_17 = {
-  "class": "p-6 flex-auto h-auto"
+  "class": "flex items-start justify-between mt-10 ml-2 p-2"
 };
 var _hoisted_18 = {
+  "class": "text-sm font-bold mx-2 text-secondary"
+};
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "class": "h-5 w-5",
+  fill: "none",
+  viewBox: "0 0 24 24",
+  stroke: "currentColor"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round",
+  "stroke-width": "2",
+  d: "M15 19l-7-7 7-7"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-xs text-secondary link-underline link-underline-black cursor-pointer"
+}, " BACK ", -1
+/* HOISTED */
+);
+
+var _hoisted_21 = [_hoisted_19, _hoisted_20];
+var _hoisted_22 = {
+  "class": "p-6 flex-auto h-auto"
+};
+var _hoisted_23 = {
   "class": "flex flex-row text-secondary font-main flex-wrap justify-end"
 };
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-primary text-2xl"
+}, " BOOKING DETAILS ", -1
+/* HOISTED */
+);
+
+var _hoisted_25 = {
+  "class": "flex flex-row flex-wrap space-x-8 justify-evenly"
+};
+var _hoisted_26 = {
+  "class": "text-sm mt-4 space-y-2 font-bold text-secondary"
+};
+
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "font-thin"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "kimNamjoon"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Transaction#0000")], -1
+/* HOISTED */
+);
+
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Movie"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "text",
+  placeholder: "Eternals",
+  "class": "input-primary placeholder-secondary"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Date Booked", -1
+/* HOISTED */
+);
+
+var _hoisted_30 = ["placeholder"];
+
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Time Booked"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "text",
+  placeholder: "11:00 AM",
+  "class": "input-primary placeholder-secondary"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"text-sm mt-4 space-y-2\"><h1 class=\"text-primary text-xl\"> TICKETS </h1><table class=\"mx-2 table-fixed mt-4\"><thead class=\"text-secondary\"><th align=\"left\">Name</th><th>Seat Location</th><th align=\"right\">Ticket ID</th></thead><tr align=\"center\" class=\"text-secondary font-thin\"><td class=\"pr-4 flex flex-row items-center\" align=\"left\"> Juan de la Cruz </td><td class=\"font-thin\"><div class=\"selectdiv\"><!-- &lt;label&gt; --><select class=\"focus:outline-none cursor-pointer p-2\"><option selected> A1 </option><option>A2</option><option>A3</option></select><!-- &lt;/label&gt; --></div></td><td class=\"pl-4 flex flex-row justify-end items-center\" align=\"right\"> Ticket#0000 </td></tr><tr align=\"center\" class=\"text-secondary font-thin\"><td class=\"pr-4 flex flex-row items-center\" align=\"left\"> Juan de la Cruz </td><td class=\"font-thin\"><div class=\"selectdiv\"><!-- &lt;label&gt; --><select class=\"focus:outline-none cursor-pointer p-2\"><option selected> A1 </option><option>A2</option><option>A3</option></select><!-- &lt;/label&gt; --></div></td><td class=\"pl-4 flex flex-row justify-end items-center space-x-3\" align=\"right\"> Ticket#0000 </td></tr><tr align=\"center\" class=\"text-secondary font-thin\"><td class=\"pr-4 flex flex-row items-center\" align=\"left\"> Juan de la Cruz </td><td class=\"font-thin\"><div class=\"selectdiv\"><!-- &lt;label&gt; --><select class=\"focus:outline-none cursor-pointer p-2\"><option selected> A1 </option><option>A2</option><option>A3</option></select><!-- &lt;/label&gt; --></div></td><td class=\"pl-4 flex flex-row justify-end items-center space-x-3\" align=\"right\"> Ticket#0000 </td></tr></table></div>", 1);
+
+var _hoisted_33 = {
+  "class": "flex flex-row justify-center space-x-4 mb-8 mt-12"
+};
+
+var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "btn-primary"
+}, " SAVE ", -1
+/* HOISTED */
+);
+
+var _hoisted_35 = {
+  key: 1,
+  "class": "opacity-25 fixed inset-0 z-40 bg-black"
+};
+var _hoisted_36 = {
+  key: 0,
+  "class": "font-main overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex flex-wrap"
+};
+var _hoisted_37 = {
+  "class": "relative w-auto my-8 mx-auto max-w-3xl"
+};
+var _hoisted_38 = {
+  "class": "shadow-lg relative flex flex-col bg-white outline-none focus:outline-none"
+};
+var _hoisted_39 = {
+  "class": "p-6 flex-auto h-auto"
+};
+var _hoisted_40 = {
+  "class": "flex flex-row text-secondary font-main flex-wrap justify-end"
+};
+
+var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "text-2xl m-20 text-center"
 }, " ARE YOU SURE YOU WANT TO REMOVE THIS RECORD? ", -1
 /* HOISTED */
 );
 
-var _hoisted_20 = {
+var _hoisted_42 = {
   "class": "flex flex-row justify-center space-x-4 mb-8 mt-8"
 };
 
-var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "btn-primary"
 }, " CONFIRM ", -1
 /* HOISTED */
 );
 
-var _hoisted_22 = {
+var _hoisted_44 = {
   key: 1,
   "class": "opacity-25 fixed inset-0 z-40 bg-black"
 };
@@ -299,13 +411,36 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , _hoisted_13)])]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" MODAL "), $setup.showModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["BookingModal"], {
-    key: 0,
-    booking: $props.bookings[0]
+  ))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" MODAL "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <BookingModal v-if=\"showModal\" :booking=\"bookings[0]\" /> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [$setup.showModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("content"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("header"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return $setup.toggleModal();
+    }),
+    "class": "flex flex-row items-center space-x-1 font-bold"
+  }, _hoisted_21)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("body"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "date",
+    placeholder: new Date(),
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $setup.myDate = $event;
+    }),
+    "class": "input-primary placeholder-secondary"
   }, null, 8
   /* PROPS */
-  , ["booking"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div>\r\n        <div\r\n            v-if=\"showModal\"\r\n            class=\"font-main overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex flex-wrap\"\r\n        >\r\n            <div class=\"relative w-auto my-8 mx-auto max-w-4xl\">\r\n                <div\r\n                    class=\"shadow-lg relative flex flex-col bg-white outline-none focus:outline-none\"\r\n                >\r\n                    <div\r\n                        class=\"flex items-start justify-between mt-10 ml-2 p-2\"\r\n                    >\r\n                        <div class=\"text-sm font-bold mx-2 text-secondary\">\r\n                            <button\r\n                                v-on:click=\"toggleModal()\"\r\n                                class=\"flex flex-row items-center space-x-1 font-bold\"\r\n                            >\r\n                                <svg\r\n                                    xmlns=\"http://www.w3.org/2000/svg\"\r\n                                    class=\"h-5 w-5\"\r\n                                    fill=\"none\"\r\n                                    viewBox=\"0 0 24 24\"\r\n                                    stroke=\"currentColor\"\r\n                                >\r\n                                    <path\r\n                                        stroke-linecap=\"round\"\r\n                                        stroke-linejoin=\"round\"\r\n                                        stroke-width=\"2\"\r\n                                        d=\"M15 19l-7-7 7-7\"\r\n                                    />\r\n                                </svg>\r\n                                <p\r\n                                    class=\"text-xs text-secondary link-underline link-underline-black cursor-pointer\"\r\n                                >\r\n                                    BACK\r\n                                </p>\r\n                            </button>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"p-6 flex-auto h-auto\">\r\n                        <div\r\n                            class=\"flex flex-row text-secondary font-main flex-wrap justify-end\"\r\n                        >\r\n                            <div>\r\n                                <h1 class=\"text-primary text-2xl\">\r\n                                    BOOKING DETAILS\r\n                                </h1>\r\n\r\n                                <div\r\n                                    class=\"flex flex-row flex-wrap space-x-8 justify-evenly\"\r\n                                >\r\n                                    <div\r\n                                        class=\"text-sm mt-4 space-y-2 font-bold text-secondary\"\r\n                                    >\r\n                                        <div class=\"font-thin\">\r\n                                            <p>kimNamjoon</p>\r\n                                            <p>Transaction#0000</p>\r\n                                        </div>\r\n                                        <div>\r\n                                            <p>Movie</p>\r\n                                            <input\r\n                                                type=\"text\"\r\n                                                placeholder=\"Eternals\"\r\n                                                class=\"input-primary placeholder-secondary\"\r\n                                            />\r\n                                        </div>\r\n\r\n                                        <div>\r\n                                            <p>Date Booked</p>\r\n                                            <input\r\n                                                type=\"date\"\r\n                                                :placeholder=\"new Date()\"\r\n                                                v-model=\"myDate\"\r\n                                                class=\"input-primary placeholder-secondary\"\r\n                                            />\r\n                                        </div>\r\n\r\n                                        <div>\r\n                                            <p>Time Booked</p>\r\n                                            <input\r\n                                                type=\"text\"\r\n                                                placeholder=\"11:00 AM\"\r\n                                                class=\"input-primary placeholder-secondary\"\r\n                                            />\r\n                                        </div>\r\n                                    </div>\r\n\r\n                                    <div class=\"text-sm mt-4 space-y-2\">\r\n                                        <h1 class=\"text-primary text-xl\">\r\n                                            TICKETS\r\n                                        </h1>\r\n\r\n                                        <table class=\"mx-2 table-fixed mt-4\">\r\n                                            <thead class=\"text-secondary\">\r\n                                                <th align=\"left\">Name</th>\r\n                                                <th>Seat Location</th>\r\n                                                <th align=\"right\">Ticket ID</th>\r\n                                            </thead>\r\n\r\n                                            <tr\r\n                                                align=\"center\"\r\n                                                class=\"text-secondary font-thin\"\r\n                                            >\r\n                                                <td\r\n                                                    class=\"pr-4 flex flex-row items-center\"\r\n                                                    align=\"left\"\r\n                                                >\r\n                                                    Juan de la Cruz\r\n                                                </td>\r\n                                                <td class=\"font-thin\">\r\n                                                    <div class=\"selectdiv\">\r\n                                                        <select\r\n                                                            class=\"focus:outline-none cursor-pointer p-2\"\r\n                                                        >\r\n                                                            <option selected>\r\n                                                                A1\r\n                                                            </option>\r\n                                                            <option>A2</option>\r\n                                                            <option>A3</option>\r\n                                                        </select>\r\n                                                    </div>\r\n                                                </td>\r\n                                                <td\r\n                                                    class=\"pl-4 flex flex-row justify-end items-center\"\r\n                                                    align=\"right\"\r\n                                                >\r\n                                                    Ticket#0000\r\n                                                </td>\r\n                                            </tr>\r\n                                            <tr\r\n                                                align=\"center\"\r\n                                                class=\"text-secondary font-thin\"\r\n                                            >\r\n                                                <td\r\n                                                    class=\"pr-4 flex flex-row items-center\"\r\n                                                    align=\"left\"\r\n                                                >\r\n                                                    Juan de la Cruz\r\n                                                </td>\r\n                                                <td class=\"font-thin\">\r\n                                                    <div class=\"selectdiv\">\r\n                                                        \r\n                                                        <select\r\n                                                            class=\"focus:outline-none cursor-pointer p-2\"\r\n                                                        >\r\n                                                            <option selected>\r\n                                                                A1\r\n                                                            </option>\r\n                                                            <option>A2</option>\r\n                                                            <option>A3</option>\r\n                                                        </select>\r\n                                                    </div>\r\n                                                </td>\r\n                                                <td\r\n                                                    class=\"pl-4 flex flex-row justify-end items-center space-x-3\"\r\n                                                    align=\"right\"\r\n                                                >\r\n                                                    Ticket#0000\r\n                                                </td>\r\n                                            </tr>\r\n                                            <tr\r\n                                                align=\"center\"\r\n                                                class=\"text-secondary font-thin\"\r\n                                            >\r\n                                                <td\r\n                                                    class=\"pr-4 flex flex-row items-center\"\r\n                                                    align=\"left\"\r\n                                                >\r\n                                                    Juan de la Cruz\r\n                                                </td>\r\n                                                <td class=\"font-thin\">\r\n                                                    <div class=\"selectdiv\">\r\n                                                        \r\n                                                        <select\r\n                                                            class=\"focus:outline-none cursor-pointer p-2\"\r\n                                                        >\r\n                                                            <option selected>\r\n                                                                A1\r\n                                                            </option>\r\n                                                            <option>A2</option>\r\n                                                            <option>A3</option>\r\n                                                        </select>\r\n                                                    </div>\r\n                                                </td>\r\n                                                <td\r\n                                                    class=\"pl-4 flex flex-row justify-end items-center space-x-3\"\r\n                                                    align=\"right\"\r\n                                                >\r\n                                                    Ticket#0000\r\n                                                </td>\r\n                                            </tr>\r\n                                        </table>\r\n                                    </div>\r\n                                </div>\r\n\r\n                                <div\r\n                                    class=\"flex flex-row justify-center space-x-4 mb-8 mt-12\"\r\n                                >\r\n                                    <button\r\n                                        v-on:click=\"toggleModal()\"\r\n                                        class=\"btn-secondary\"\r\n                                    >\r\n                                        CANCEL\r\n                                    </button>\r\n                                    <Link href=\"#\"\r\n                                        ><button class=\"btn-primary\">\r\n                                            SAVE\r\n                                        </button></Link\r\n                                    >\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div\r\n            v-if=\"showModal\"\r\n            class=\"opacity-25 fixed inset-0 z-40 bg-black\"\r\n        ></div>\r\n    </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" DELETE CONFIRMATION MODAL HERE "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" MODAL HERE "), $setup.delModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("content"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("body"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[0] || (_cache[0] = function ($event) {
+  , _hoisted_30), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.myDate]])]), _hoisted_31]), _hoisted_32]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[2] || (_cache[2] = function ($event) {
+      return $setup.toggleModal();
+    }),
+    "class": "btn-secondary"
+  }, " CANCEL "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    href: "#"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_34];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])])])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.showModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_35)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" DELETE CONFIRMATION MODAL HERE "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" MODAL HERE "), $setup.delModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("content"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("body"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_41, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[3] || (_cache[3] = function ($event) {
       return $setup.toggleDel();
     }),
     "class": "btn-secondary"
@@ -313,12 +448,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     href: "#"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_21];
+      return [_hoisted_43];
     }),
     _: 1
     /* STABLE */
 
-  })])])])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.delModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_22)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 64
+  })])])])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.delModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_44)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -338,7 +473,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  key: 0,
   "class": "font-main overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex flex-wrap"
 };
 var _hoisted_2 = {
@@ -481,13 +615,13 @@ var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_29 = {
-  key: 1,
+  key: 0,
   "class": "opacity-25 fixed inset-0 z-40 bg-black"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [$setup.showModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("content"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("header"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("content"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("header"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return _ctx.toggleModal();
     }),
@@ -529,7 +663,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })])])])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.showModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_29)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
+  })])])])])])])]), $setup.showModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_29)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
   /* STABLE_FRAGMENT */
   );
 }

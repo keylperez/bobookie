@@ -44,16 +44,19 @@
     </div>
 
     <!-- MODAL -->
-    <BookingModal v-if="showModal" :booking="bookings[0]" />
-    <!-- <div>
+    <!-- <BookingModal v-if="showModal" :booking="bookings[0]" /> -->
+    <!-- <div> -->
+    <div>
         <div
             v-if="showModal"
             class="font-main overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex flex-wrap"
         >
             <div class="relative w-auto my-8 mx-auto max-w-4xl">
+                <!--content-->
                 <div
                     class="shadow-lg relative flex flex-col bg-white outline-none focus:outline-none"
                 >
+                    <!--header-->
                     <div
                         class="flex items-start justify-between mt-10 ml-2 p-2"
                     >
@@ -85,6 +88,7 @@
                         </div>
                     </div>
 
+                    <!--body-->
                     <div class="p-6 flex-auto h-auto">
                         <div
                             class="flex flex-row text-secondary font-main flex-wrap justify-end"
@@ -157,6 +161,7 @@
                                                 </td>
                                                 <td class="font-thin">
                                                     <div class="selectdiv">
+                                                        <!-- <label> -->
                                                         <select
                                                             class="focus:outline-none cursor-pointer p-2"
                                                         >
@@ -166,6 +171,7 @@
                                                             <option>A2</option>
                                                             <option>A3</option>
                                                         </select>
+                                                        <!-- </label> -->
                                                     </div>
                                                 </td>
                                                 <td
@@ -187,7 +193,7 @@
                                                 </td>
                                                 <td class="font-thin">
                                                     <div class="selectdiv">
-                                                        
+                                                        <!-- <label> -->
                                                         <select
                                                             class="focus:outline-none cursor-pointer p-2"
                                                         >
@@ -197,6 +203,7 @@
                                                             <option>A2</option>
                                                             <option>A3</option>
                                                         </select>
+                                                        <!-- </label> -->
                                                     </div>
                                                 </td>
                                                 <td
@@ -218,7 +225,7 @@
                                                 </td>
                                                 <td class="font-thin">
                                                     <div class="selectdiv">
-                                                        
+                                                        <!-- <label> -->
                                                         <select
                                                             class="focus:outline-none cursor-pointer p-2"
                                                         >
@@ -228,6 +235,7 @@
                                                             <option>A2</option>
                                                             <option>A3</option>
                                                         </select>
+                                                        <!-- </label> -->
                                                     </div>
                                                 </td>
                                                 <td
@@ -267,8 +275,7 @@
             v-if="showModal"
             class="opacity-25 fixed inset-0 z-40 bg-black"
         ></div>
-    </div> -->
-
+    </div>
     <!-- DELETE CONFIRMATION MODAL HERE -->
     <div>
         <!-- MODAL HERE -->
@@ -325,6 +332,7 @@ import EditIcon from "../../Shared/Edit.vue";
 import DelIcon from "../../Shared/Delete.vue";
 import BookingModal from "../../Shared/BookingModal.vue";
 import { ref, reactive } from "@vue/reactivity";
+import { useForm } from "@inertiajs/inertia-vue3";
 
 const filename = ref("");
 const showModal = ref(false);
@@ -333,6 +341,11 @@ const myDate = ref(new Date().toISOString().slice(0, 10));
 const currentModal = reactive(props[0]);
 const props = defineProps({ bookings: Array });
 console.log(props);
+const form = useForm({
+    movie: null,
+    date: null,
+    time: null,
+});
 
 const toggleModal = (booking) => {
     // currentModal = booking;
