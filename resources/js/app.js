@@ -18,8 +18,8 @@ createInertiaApp({
       .use(plugin)
       .component("Link", Link)
       .component("Head", Head)
-      .mount(el)
-      .use(ZiggyVue, Ziggy);
+      .use(ZiggyVue, Ziggy)
+      .mount(el);
   },
 
   title: (title) => `${title} - Bobookie`,
