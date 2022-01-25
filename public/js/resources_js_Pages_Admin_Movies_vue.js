@@ -34,7 +34,8 @@ __webpack_require__.r(__webpack_exports__);
     var delModal = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)(false);
     var movieID = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.ref)(0);
     var delForm = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.useForm)({
-      id: movieID
+      id: null,
+      img_path: null
     });
 
     var fileChoosen = function fileChoosen(event) {
@@ -49,8 +50,8 @@ __webpack_require__.r(__webpack_exports__);
       if (id) {
         var filterMovie = props.movies.filter(function (item) {
           return item.id === id;
-        });
-        console.log(filterMovie[0]);
+        }); // console.log(filterMovie[0]);
+
         form.title = filterMovie[0].title;
         form.rating = filterMovie[0].rating;
         form.genre = filterMovie[0].genre;
@@ -62,7 +63,14 @@ __webpack_require__.r(__webpack_exports__);
 
     var toggleDel = function toggleDel(id) {
       delModal.value = !delModal.value;
-      movieID.value = id;
+
+      if (id) {
+        var delfilter = props.movies.filter(function (item) {
+          return item.id === id;
+        });
+        delForm.id = id;
+        delForm.img_path = delfilter[0].image;
+      }
     };
 
     var delMovie = function delMovie() {

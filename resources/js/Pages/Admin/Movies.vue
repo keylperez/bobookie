@@ -364,7 +364,8 @@ const props = defineProps({
 });
 
 const delForm = useForm({
-    id: movieID,
+    id: null,
+    img_path: null
 });
 
 const fileChoosen = (event) => {
@@ -381,7 +382,7 @@ const toggleModal = (id) => {
             return item.id === id;
         });
 
-        console.log(filterMovie[0]);
+        // console.log(filterMovie[0]);
         form.title = filterMovie[0].title;
         form.rating = filterMovie[0].rating;
         form.genre = filterMovie[0].genre;
@@ -393,7 +394,16 @@ const toggleModal = (id) => {
 
 const toggleDel = (id) => {
     delModal.value = !delModal.value;
-    movieID.value = id;
+
+    if (id) {
+
+        let delfilter = props.movies.filter((item) => {
+                return item.id === id;
+        });
+        
+        delForm.id = id;
+        delForm.img_path = delfilter[0].image;
+    }
 };
 
 const delMovie = () => {

@@ -6,9 +6,9 @@ use Carbon\Carbon;
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
 {
@@ -95,10 +95,17 @@ class AdminController extends Controller
 
     public function delete_movie()
     {
+        $url = Request::input('img_path');
+        $pathinfo = pathinfo($url);
+        $filename =  $pathinfo['filename'].'.'.$pathinfo['extension'];
+
+        if(Storage::exists('movies/'.$filename)){
+            Storage::delete('movies/'.$filename);
+        }
+
         DB::table('ticket')->where('movie_id', '=', Request::input('id'))->delete();
         DB::table('movie')->where('id', '=', Request::input('id'))->delete();
 
-        // return Inertia::render('Admin/Movies');
         return redirect('/movies');
     }
 
