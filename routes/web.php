@@ -35,9 +35,9 @@ Route::middleware('auth')->group(function () {
 
     // ====================== USERS ==========================
     // Discover Tab
-    Route::get('/discover', [UserController::class, 'discover']);
-    Route::get('/discoverbook', [UserController::class, 'discoverbook']);
-    Route::get('/discoverdetails', [UserController::class, 'discoverdetails']);
+    Route::get('/discover', [UserController::class, 'discover'])->name('home');
+    Route::get('/book/{id}', [UserController::class, 'discoverbook'])->name('book');
+    Route::get('/details/{movie}', [UserController::class, 'discoverdetails'])->name('details');
     Route::get('/discoverpayment', [UserController::class, 'payment']);
     Route::get('/discoverpaydetails', [UserController::class, 'paymentdetails']);
 

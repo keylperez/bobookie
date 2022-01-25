@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -36,14 +37,42 @@ class UserController extends Controller
     }
 
 
-    public function discoverbook()
+    public function discoverbook($id)
     {
-        return Inertia::render('Users/Book');
+        $item = DB::table('movie')->select('*')->where('id', '=', $id)->get();
+        return Inertia::render('Users/Book', [
+            'item' => $item->map(function ($movie) {
+                return [
+                    'id' => $movie->id,
+                    'title' => $movie->title,
+                    'rating' => $movie->rating,
+                    'description' => $movie->description,
+                    'img' => asset('storage/' . $movie->img),
+                    'start_date' => Carbon::parse($movie->start_date)->isoFormat('MMMM DD, YYYY'),
+                    'end_date' => Carbon::parse($movie->end_date)->isoFormat('MMMM DD, YYYY'),
+                    'start' => $movie->start_date,
+                    'end' => $movie->end_date,
+                ];
+        }),]);
     }
 
-    public function discoverdetails()
+    public function discoverdetails(Request $request, $movie)
     {
-        return Inertia::render('Users/DiscoverDetails');
+        $item = DB::table('movie')->select('*')->where('id', '=', $movie)->get();
+        return Inertia::render('Users/DiscoverDetails', [
+            'item' => $item->map(function ($movie) {
+                return [
+                    'id' => $movie->id,
+                    'title' => $movie->title,
+                    'rating' => $movie->rating,
+                    'description' => $movie->description,
+                    'img' => asset('storage/' . $movie->img),
+                    'start_date' => Carbon::parse($movie->start_date)->isoFormat('MMMM DD, YYYY'),
+                    'end_date' => Carbon::parse($movie->end_date)->isoFormat('MMMM DD, YYYY'),
+                    'start' => $movie->start_date,
+                    'end' => $movie->end_date,
+                ];
+        }),]);
     }
 
     public function discoverbookdetails(Request $request)
