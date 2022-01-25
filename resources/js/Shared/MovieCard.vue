@@ -12,7 +12,17 @@
             <p>EVERY 1PM</p>
             <p>EVERY 6PM</p>
         </div>
-        <Link :href="route('book', { movie: movie })">
+        <Link
+            :href="
+                route('book', {
+                    id: movie.id,
+                    _query: {
+                        title: movie.title,
+                        price: movie.price,
+                    },
+                })
+            "
+        >
             <button class="btn-primary w-32">BOOK</button>
         </Link>
         <Link :href="route('details', { movie: movie })">
