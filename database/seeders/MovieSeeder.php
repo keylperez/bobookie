@@ -35,7 +35,7 @@ class MovieSeeder extends Seeder
                 'rating' => 'R',
                 'year' => 2021,
                 'runtime' => 97,
-                'img' => 'movies/venom_poster.jpg',
+                'img' => '/movies/venom_poster.jpg',
                 'description' => 'Eddie Brock is still struggling to coexist with the shape-shifting extraterrestrial Venom. When deranged serial killer Cletus Kasady also becomes host to an alien symbiote, Brock and Venom must put aside their differences to stop his reign of terror.',
                 'start_date' => Carbon::parse('2021-12-8'),
                 'end_date' => Carbon::parse('2022-01-8'),

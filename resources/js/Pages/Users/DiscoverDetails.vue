@@ -34,17 +34,17 @@
                 <div
                     class="bg-secondary p-4 my-2 h-80 w-48 mt-6 bg-cover"
                     :style="{
-                        'background-image': `url(${movie.img})`,
+                        'background-image': `url(../img/Home/eternals_poster.jpg)`,
                     }"
                 ></div>
             </div>
 
             <div class="mt-6">
-                <h1 class="text-primary text-2xl">{{movie.title}}</h1>
+                <h1 class="text-primary text-2xl">ETERNALS</h1>
 
                 <div class="text-sm my-2">
                     <p class="font-bold">
-                        Rating: <span class="font-thin">{{movie.rating}}</span>
+                        Rating: <span class="font-thin">PG-13</span>
                     </p>
                     <p class="font-bold">
                         Genre: <span class="font-thin">Adventure, Action</span>
@@ -61,17 +61,20 @@
                     <p class="font-bold w-2/3">
                         Description:
                         <span class="font-thin"
-                            >{{movie.description}}</span
+                            >Marvel Studios' Eternals features an exciting new
+                            team of Super Heroes in the Marvel Cinematic
+                            Universe, ancient aliens who have been living on
+                            Earth in secret for thousands of years. Following
+                            the events of Avengers: Endgame, an unexpected
+                            tragedy forces them out of the shadows to reunite
+                            against mankind's most ancient enemy, the
+                            Deviants.</span
                         >
                     </p>
                 </div>
 
                 <div class="flex flex-col">
-                    <Link :href="
-                        route('book', {
-                            id: movie.id,
-                        })
-                    "
+                    <Link href="/discoverbook"
                         ><button class="btn-primary">BOOK</button></Link
                     >
                 </div>
@@ -80,9 +83,14 @@
     </div>
 </template>
 
-<script setup>
-const props = defineProps({ item: Object });
-const movie = props.item[0];
+<script>
+import Layout from "../../Shared/Layout";
+
+export default {
+    name: "DiscoverDetails",
+    layout: Layout,
+    components: { Layout },
+};
 </script>
 
 <style></style>
