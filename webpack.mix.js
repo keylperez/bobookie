@@ -15,9 +15,9 @@ const path = require("path");
 
 mix
   .js("resources/js/app.js", "public/js")
-  .alias({ ziggy: path.resolve("vendor/tightenco/ziggy/dist/vue") })
   .vue()
   .extract()
   .copyDirectory("resources/img", "public/img")
   .postCss("resources/css/app.css", "public/css", [require("tailwindcss")])
-  .version();
+  .version()
+  .alias({ ziggy: path.resolve("vendor/tightenco/ziggy/dist/vue") });

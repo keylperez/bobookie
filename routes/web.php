@@ -35,9 +35,15 @@ Route::middleware('auth')->group(function () {
 
     // ====================== USERS ==========================
     // Discover Tab
+<<<<<<< HEAD
     Route::get('/discover', [UserController::class, 'discover'])->name('home');
     Route::get('/book/{movie}', [UserController::class, 'discoverbook'])->name('book');
     Route::get('/details/{movie}', [UserController::class, 'discoverdetails'])->name('details');
+=======
+    Route::get('/discover', [UserController::class, 'discover']);
+    Route::get('/discoverbook', [UserController::class, 'discoverbook']);
+    Route::get('/discoverdetails', [UserController::class, 'discoverdetails']);
+>>>>>>> parent of d4f86a3 (Merge branch 'main' of https://github.com/keylperez/bobookie)
     Route::get('/discoverpayment', [UserController::class, 'payment']);
     Route::get('/discoverpaydetails', [UserController::class, 'paymentdetails']);
 

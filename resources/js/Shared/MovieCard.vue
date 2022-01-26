@@ -12,22 +12,32 @@
             <p>EVERY 1PM</p>
             <p>EVERY 6PM</p>
         </div>
+<<<<<<< HEAD
         <Link :href="route('book', { movie: movie })">
             <button class="btn-primary w-32">BOOK</button>
         </Link>
         <Link :href="route('details', { movie: movie })">
             <button
+=======
+        <Link href="/discoverbook"
+            ><button class="btn-primary w-32">BOOK</button></Link
+        >
+        <Link href="/discoverdetails"
+            ><button
+>>>>>>> parent of d4f86a3 (Merge branch 'main' of https://github.com/keylperez/bobookie)
                 class="bg-softgray text-primary p-2 my-1 font-bold w-32 hover:bg-secondary hover:text-softgray"
             >
                 DETAILS
-            </button>
-        </Link>
+            </button></Link
+        >
     </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 
+const movie_img = ref("../../img/Home/eternals_poster.jpg");
 defineProps({ movie: Object });
-console.log(Ziggy);
 </script>
+
+<style></style>
