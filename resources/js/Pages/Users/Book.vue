@@ -2,7 +2,11 @@
     <Head title="Book Movie" />
 
     <div class="font-main text-secondary">
-        <div class="grid grid-cols-2 gap-14 mx-10 my-10">
+        <form
+            @submit.prevent="submit"
+            method="post"
+            class="grid grid-cols-2 gap-14 mx-10 my-10"
+        >
             <div class="flex flex-row flex-wrap justify-end">
                 <div class="text-sm font-bold mx-16">
                     <Link
@@ -34,13 +38,13 @@
                 <div
                     class="bg-secondary p-4 my-2 h-80 w-48 mt-6 bg-cover"
                     :style="{
-                        'background-image': `url(../img/Home/eternals_poster.jpg)`,
+                        'background-image': `url(${movie.img})`,
                     }"
                 ></div>
             </div>
 
             <div class="mt-6">
-                <h1 class="text-primary text-2xl">ETERNALS</h1>
+                <h1 class="text-primary text-2xl">{{movie.title}}</h1>
 
                 <div class="text-sm my-2 space-y-4">
                     <p class="font-bold">Date</p>
@@ -125,12 +129,15 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </template>
 
 <script setup>
 import { useForm } from "@inertiajs/inertia-vue3";
+
+const props = defineProps({item: Object});
+const movie = props.item[0];
 
 const form = useForm({
     count: 1,

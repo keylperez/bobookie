@@ -403,7 +403,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       render: function render() {
         return (0,vue__WEBPACK_IMPORTED_MODULE_1__.h)(App, props);
       }
-    }).use(plugin).component("Link", _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Link).component("Head", _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Head).mount(el).use(ziggy__WEBPACK_IMPORTED_MODULE_4__.ZiggyVue, _ziggy__WEBPACK_IMPORTED_MODULE_5__.Ziggy);
+    }).use(plugin).component("Link", _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Link).component("Head", _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Head).use(ziggy__WEBPACK_IMPORTED_MODULE_4__.ZiggyVue, _ziggy__WEBPACK_IMPORTED_MODULE_5__.Ziggy).mount(el);
   },
   title: function title(_title) {
     return "".concat(_title, " - Bobookie");
@@ -430,12 +430,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Ziggy": () => (/* binding */ Ziggy)
 /* harmony export */ });
 var Ziggy = {
-  url: "http://localhost",
+  url: "http://localhost:8000",
   port: null,
   defaults: {},
   routes: {
-    "admin.movies": {
-      uri: "admin/movies",
+    login: {
+      uri: "/",
+      methods: ["GET", "HEAD"]
+    },
+    home: {
+      uri: "discover",
+      methods: ["GET", "HEAD"]
+    },
+    book: {
+      uri: "book/{id}",
+      methods: ["GET", "HEAD"]
+    },
+    details: {
+      uri: "details/{movie}",
+      methods: ["GET", "HEAD"]
+    },
+    movies: {
+      uri: "movies",
       methods: ["GET", "HEAD"]
     }
   }
