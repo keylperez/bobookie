@@ -111,9 +111,7 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     function setNull() {
-      form.title = null, form.director = null, form.genre = null, form.start_date = null, form.end_date = null, form.rating = null, form.desc = null, form.image = null, form.timeslot = [], form.price = null;
-      form.hour = null;
-      form.min = null;
+      form.title = null, form.director = null, form.genre = null, form.start_date = null, form.end_date = null, form.rating = null, form.desc = null, form.image = null, form.timeslot = [], form.price = null, form.hour = null, form.min = null, filename.value = null;
     }
 
     var __returned__ = {

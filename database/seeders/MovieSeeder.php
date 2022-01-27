@@ -19,9 +19,9 @@ class MovieSeeder extends Seeder
             array(
                 'title' => 'The Eternals',
                 'price' => 125.00,
-                'rating' => 'R',
+                'rating' => 'PG-13',
                 'year' => 2021,
-                'runtime' => 128,
+                'runtime' => '1hr 58min',
                 'img' => 'movies/eternals_poster.jpg',
                 'description' => 'The Eternals, a race of immortal beings with superhuman powers who have secretly lived on Earth for thousands of years, reunite to battle the evil Deviants.',
                 'start_date' => Carbon::parse('2021-12-20'),
@@ -32,9 +32,9 @@ class MovieSeeder extends Seeder
             array(
                 'title' => 'Venom',
                 'price' => 230.00,
-                'rating' => 'R',
+                'rating' => 'PG-13',
                 'year' => 2021,
-                'runtime' => 97,
+                'runtime' => '2hr 53min',
                 'img' => 'movies/venom_poster.jpg',
                 'description' => 'Eddie Brock is still struggling to coexist with the shape-shifting extraterrestrial Venom. When deranged serial killer Cletus Kasady also becomes host to an alien symbiote, Brock and Venom must put aside their differences to stop his reign of terror.',
                 'start_date' => Carbon::parse('2021-12-8'),

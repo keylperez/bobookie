@@ -510,9 +510,10 @@ function setNull() {
        form.desc = null,
        form.image = null,
        form.timeslot = [],
-       form.price = null
-       form.hour = null
-       form.min = null
+       form.price = null,
+       form.hour = null,
+       form.min = null,
+       filename.value = null
 }
 </script>
 
