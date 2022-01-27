@@ -13,10 +13,11 @@ class CreateMovieTimeslotsTable extends Migration
      */
     public function up()
     {
-        Schema::create('movie_timeslots', function (Blueprint $table) {
-            $table->unsignedBigInteger('movies_id');
+        Schema::create('movie_timeslot', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('movie_id');
             $table->unsignedBigInteger('timeslot_id');
-            $table->foreign('movies_id')->references('id')->on('movies')->onDelete('cascade');
+            $table->foreign('movie_id')->references('id')->on('movies')->onDelete('cascade');
             $table->foreign('timeslot_id')->references('id')->on('timeslots')->onDelete('cascade');
         });
     }

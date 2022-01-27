@@ -38,7 +38,13 @@
                         <td class="font-thin py-4">
                             {{ movie.end_date.toUpperCase() }}
                         </td>
-                        <td class="font-thin py-4">11:00 AM, 5:00 PM</td>
+                        <td class="font-thin py-4">
+                            <ul class="flex flex-col space-y-1">
+                                <li v-for="time in movie.timeslot" :key="time.id">
+                                    {{ time.timeslot }}
+                                </li>
+                            </ul>
+                        </td>
                         <td class="font-thin py-4">{{ movie.rating }}</td>
                         <td
                             class="py-4 flex flex-row justify-end items-center space-x-3"
@@ -156,23 +162,23 @@
                                                 <div class="font-thin flex flex-row justify-between">
                                                     <div class="flex flex-col">
                                                         <div class="space-x-2">
-                                                            <input type="checkbox" id="ts-11" value="11 AM" v-model="form.timeslot">
+                                                            <input type="checkbox" id="ts-11" value="1" v-model="form.timeslot">
                                                             <label for="ts-11">11:00 AM</label>
                                                         </div>
                                                     
                                                         <div class="space-x-2">
-                                                            <input type="checkbox" id="ts-1" value="1 PM" v-model="form.timeslot">
+                                                            <input type="checkbox" id="ts-1" value="2" v-model="form.timeslot">
                                                             <label for="ts-1">01:00 PM</label>
                                                         </div>
                                                     </div>
                                                     <div class="flex flex-col">
                                                         <div class="space-x-2">
-                                                            <input type="checkbox" id="ts-3" value="3 PM" v-model="form.timeslot">
+                                                            <input type="checkbox" id="ts-3" value="3" v-model="form.timeslot">
                                                             <label for="ts-3">03:00 PM</label>
                                                         </div>
                                                     
                                                         <div class="space-x-2">
-                                                            <input type="checkbox" id="ts-6" value="6 PM" v-model="form.timeslot">
+                                                            <input type="checkbox" id="ts-6" value="4" v-model="form.timeslot">
                                                             <label for="ts-6">06:00 PM</label>
                                                         </div>
                                                     </div>
@@ -437,11 +443,13 @@ const toggleModal = (id) => {
 
         // console.log(filterMovie[0]);
         form.title = filterMovie[0].title;
+        form.price = filterMovie[0].price;
         form.rating = filterMovie[0].rating;
         form.genre = filterMovie[0].genre;
         form.desc = filterMovie[0].desc;
         form.end_date = filterMovie[0].end;
         form.start_date = filterMovie[0].start;
+        filename.value = filterMovie[0].filename;
     }
 };
 

@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class MovieTimeslot extends Model
 {
     use HasFactory;
+    protected $fillable = ['movie_id','timeslot_id'];
 }

@@ -16,7 +16,7 @@ class UserController extends Controller
 
     public function discover()
     {
-        $movies = DB::table('movie')->select('*')->get();
+        $movies = DB::table('movies')->select('*')->get();
         return Inertia::render('Users/Discover', [
             'movies' => $movies->map(function ($movie) {
                 return [
@@ -39,7 +39,7 @@ class UserController extends Controller
 
     public function discoverbook($id)
     {
-        $item = DB::table('movie')->select('*')->where('id', '=', $id)->get();
+        $item = DB::table('movies')->select('*')->where('id', '=', $id)->get();
         return Inertia::render('Users/Book', [
             'item' => $item->map(function ($movie) {
                 return [
@@ -58,7 +58,7 @@ class UserController extends Controller
 
     public function discoverdetails(Request $request, $movie)
     {
-        $item = DB::table('movie')->select('*')->where('id', '=', $movie)->get();
+        $item = DB::table('movies')->select('*')->where('id', '=', $movie)->get();
         return Inertia::render('Users/DiscoverDetails', [
             'item' => $item->map(function ($movie) {
                 return [

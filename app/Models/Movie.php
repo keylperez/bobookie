@@ -10,6 +10,7 @@ class Movie extends Model
     use HasFactory;
     
     public function timeslots(){
+
         return $this->belongsToMany(Timeslot::class);
     }
 }
