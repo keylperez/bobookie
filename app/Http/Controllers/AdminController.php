@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
 use Carbon\Carbon;
 use App\Models\User;
 use Inertia\Inertia;
@@ -15,7 +16,8 @@ class AdminController extends Controller
 
     public function movies()
     {
-        $movies = DB::table('movie')
+
+        $movies = DB::table('movies')
             ->select('*')
             ->get();
 
@@ -26,6 +28,8 @@ class AdminController extends Controller
         $directors = DB::table('director')
             ->select('*')
             ->get();
+
+        
 
         return Inertia::render('Admin/Movies', [
 
@@ -40,6 +44,7 @@ class AdminController extends Controller
                     'end_date' => Carbon::parse($movie->end_date)->isoFormat('MMMM DD, YYYY'),
                     'start' => $movie->start_date,
                     'end' => $movie->end_date,
+                    'timeslot' => Movie::find($movie->id)->timeslots
                 ];
             }),
             'genres' => $genres->map(function ($genre) {
@@ -62,16 +67,14 @@ class AdminController extends Controller
     public function create_movie()
     {
         $image = Request::file('image')->store('movies', 'public');
-        $price = 1.00;
-        $runtime = 120;
-        $year = 2022;
+        $runtime = Request::input('hour').'hr'.' '.Request::input('hour').'min';
 
-        DB::table('movie')->insert([
+        DB::table('movies')->insert([
             'title' => Request::input('title'),
-            'price' => $price,
-            'year' => $year,
-            'rating' => Request::input('rating'),
+            'price' => Request::input('price'),
+            'year' => Carbon::now()->year,
             'runtime' => $runtime,
+            'rating' => Request::input('rating'),
             'description' => Request::input('desc'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),

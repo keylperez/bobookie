@@ -44,6 +44,6 @@ class MovieSeeder extends Seeder
             ),
         );
 
-        DB::table('movie')->insert($data);
+        DB::table('movies')->insert($data);
     }
 }

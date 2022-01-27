@@ -800,7 +800,7 @@ select::-ms-expand {
   background-image: none;
 }
 
-svg:hover path {
+.action-icon:hover path {
   fill: #feb155;
   transition: all ease 0.3s;
 }

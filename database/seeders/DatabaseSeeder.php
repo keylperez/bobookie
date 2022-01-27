@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             MovieSeeder::class,
             UserSeeder::class,
             TicketSeeder::class,
+            TimeslotSeeder::class,
         ]);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMovieTable extends Migration
+class CreateMoviesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMovieTable extends Migration
      */
     public function up()
     {
-        Schema::create('movie', function (Blueprint $table) {
+        Schema::create('movies', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->float('price', 5, 2);
@@ -25,14 +25,10 @@ class CreateMovieTable extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();
-            // $table->enum('timeslot', ['11:00 AM', '1:00 PM', '3:00 PM','6:00 PM']);
-            // $table->unsignedBigInteger('genre_id');
-            // $table->foreignId('genre_id')->reference('id')->on('genre');
-            // $table->string('director');
-            // $table->string('stars');
         });
     }
 
+    
     /**
      * Reverse the migrations.
      *
@@ -40,6 +36,6 @@ class CreateMovieTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('movie');
+        Schema::dropIfExists('movies');
     }
 }

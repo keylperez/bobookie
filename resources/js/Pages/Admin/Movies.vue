@@ -70,7 +70,7 @@
                 >
                     <!--header-->
                     <div
-                        class="flex items-start justify-between mt-10 ml-2 p-2"
+                        class="flex items-start justify-between mt-4 ml-2 p-2"
                     >
                         <div class="text-sm font-bold mx-2 text-secondary">
                             <button
@@ -129,6 +129,57 @@
                                                     class="input-primary"
                                                 />
                                             </div>
+                                            <div>
+                                                <p>Price</p>
+                                                <input
+                                                    type="number"
+                                                    v-model="form.price"
+                                                    class="input-primary"
+                                                />
+                                            </div>
+
+
+                                            <div>
+                                                <p>Runtime</p>
+
+                                                <div class="space-x-2">
+                                                    <input class="bg-softgray pl-2 shadow-md focus:outline-none" id='h' name='h' type='number' min='0' max='24' v-model="form.hour">
+                                                    <label for='h'>hr</label>
+                                                    <input class="bg-softgray pl-2 shadow-md focus:outline-none" id='m' name='m' type='number' min='0' max='59' v-model="form.min">
+                                                    <label for='m'>min</label>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <p>Timeslot</p>
+
+                                                <div class="font-thin flex flex-row justify-between">
+                                                    <div class="flex flex-col">
+                                                        <div class="space-x-2">
+                                                            <input type="checkbox" id="ts-11" value="11 AM" v-model="form.timeslot">
+                                                            <label for="ts-11">11:00 AM</label>
+                                                        </div>
+                                                    
+                                                        <div class="space-x-2">
+                                                            <input type="checkbox" id="ts-1" value="1 PM" v-model="form.timeslot">
+                                                            <label for="ts-1">01:00 PM</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex flex-col">
+                                                        <div class="space-x-2">
+                                                            <input type="checkbox" id="ts-3" value="3 PM" v-model="form.timeslot">
+                                                            <label for="ts-3">03:00 PM</label>
+                                                        </div>
+                                                    
+                                                        <div class="space-x-2">
+                                                            <input type="checkbox" id="ts-6" value="6 PM" v-model="form.timeslot">
+                                                            <label for="ts-6">06:00 PM</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                           
 
                                             <div class="selectdiv">
                                                 <p class="font-bold">
@@ -162,6 +213,11 @@
                                                 </select>
                                             </div>
 
+                                           
+
+                                        </div>
+
+                                        <div class="text-sm mt-4 space-y-8">
                                             <div>
                                                 <p>Start Date</p>
                                                 <input
@@ -179,9 +235,6 @@
                                                     class="input-primary"
                                                 />
                                             </div>
-                                        </div>
-
-                                        <div class="text-sm mt-4 space-y-8">
                                             <div>
                                                 <p
                                                     class="font-bold text-secondary"
@@ -243,7 +296,7 @@
                                                 <textarea
                                                     name="movie-desc"
                                                     cols="30"
-                                                    rows="9"
+                                                    rows="5"
                                                     v-model="form.desc"
                                                     class="input-primary"
                                                 ></textarea>
@@ -253,7 +306,7 @@
                                 </div>
 
                                 <div
-                                    class="flex flex-row justify-center space-x-4 mb-8 mt-12"
+                                    class="flex flex-row justify-center space-x-4 mb-4 mt-4"
                                 >
                                     <button
                                         v-on:click="toggleModal()"
@@ -305,7 +358,7 @@
                                 </h1>
 
                                 <div
-                                    class="flex flex-row justify-center space-x-4 mb-8 mt-8"
+                                    class="flex flex-row justify-center space-x-4 mb-2 mt-8"
                                 >
                                     <form
                                         id="delForm"
@@ -421,6 +474,10 @@ const form = useForm({
     rating: null,
     desc: null,
     image: null,
+    timeslot: [],
+    price: null,
+    hour: null,
+    min: null
 });
 
 const submit = () => {
@@ -436,14 +493,18 @@ const submit = () => {
 };
 
 function setNull() {
-    (form.title = null),
-        (form.director = null),
-        (form.genre = null),
-        (form.start_date = null),
-        (form.end_date = null),
-        (form.rating = null),
-        (form.desc = null),
-        (form.image = null);
+       form.title = null,
+       form.director = null,
+       form.genre = null,
+       form.start_date = null,
+       form.end_date = null,
+       form.rating = null,
+       form.desc = null,
+       form.image = null,
+       form.timeslot = [],
+       form.price = null
+       form.hour = null
+       form.min = null
 }
 </script>
 
