@@ -41,28 +41,6 @@ class UserController extends Controller
     }
 
 
-    public function discoverbook($id)
-    {
-        $item = DB::table('movies')->select('*')->where('id', '=', $id)->get();
-        return Inertia::render('Users/Book', [
-            'item' => $item->map(function ($movie) {
-                return [
-                    'id' => $movie->id,
-                    'director' => $movie->director,
-                    'genre' => $movie->genre,
-                    'title' => $movie->title,
-                    'rating' => $movie->rating,
-                    'description' => $movie->description,
-                    'img' => asset('storage/' . $movie->img),
-                    'start_date' => Carbon::parse($movie->start_date)->isoFormat('MMMM DD, YYYY'),
-                    'end_date' => Carbon::parse($movie->end_date)->isoFormat('MMMM DD, YYYY'),
-                    'runtime' => $movie->runtime,
-                    'price' => $movie->price,
-                    'start' => $movie->start_date,
-                    'end' => $movie->end_date,
-                ];
-        }),]);  
-    }
 
     public function discoverdetails(Request $request, $movie)
     {
@@ -84,14 +62,8 @@ class UserController extends Controller
                     'start' => $movie->start_date,
                     'end' => $movie->end_date,
                 ];
-        }),]);
-    }
-
-    public function discoverbookdetails()
-    {
-
-        return Inertia::render('Users/BookDetails', [
-            'count' => 1
+            }),
+            'movie' => $movie
         ]);
     }
 

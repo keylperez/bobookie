@@ -19,10 +19,6 @@
             :href="
                 route('book', {
                     id: movie.id,
-                    _query: {
-                        title: movie.title,
-                        price: movie.price,
-                    },
                 })
             "
         >

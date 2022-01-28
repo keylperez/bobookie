@@ -8,6 +8,7 @@ const Ziggy = {
     signup: { uri: "signup", methods: ["GET", "HEAD"] },
     book: { uri: "book/{id}", methods: ["GET", "HEAD"] },
     details: { uri: "details/{movie}", methods: ["GET", "HEAD"] },
+    discoverbookdetails: { uri: "discoverbookdetails", methods: ["POST"] },
     movies: { uri: "movies", methods: ["GET", "HEAD"] },
   },
 };

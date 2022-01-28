@@ -17,18 +17,18 @@ class TicketSeeder extends Seeder
     {
         $data = array(
             array(
-                'quantity' => 3,
-                'user_id' => 1,
+                'user_id' => 4,
                 'movie_id' => 1,
                 'timeslot' => '11:00 AM',
+                'date' => '2021-12-22',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
             array(
-                'quantity' => 1,
-                'user_id' => 2,
+                'user_id' => 4,
                 'movie_id' => 2,
                 'timeslot' => '1:00 PM',
+                'date' => '2021-12-25',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),

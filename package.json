@@ -30,6 +30,7 @@
         "@inertiajs/inertia": "^0.10.1",
         "@inertiajs/inertia-vue3": "^0.5.2",
         "@inertiajs/progress": "^0.2.6",
+        "moment": "^2.29.1",
         "vue-loader": "^16.8.3",
         "vuex": "^4.0.2",
         "ziggy-js": "^1.4.2"

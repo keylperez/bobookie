@@ -15,12 +15,12 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->integer('quantity')->default(1);
-            $table->enum('timeslot', ['11:00 AM', '1:00 PM', '3:00 PM']);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('movie_id');
             $table->foreign('movie_id')->references('id')->on('movies');
+            $table->date('date');
+            $table->enum('timeslot', ['11:00 AM', '1:00 PM', '3:00 PM']);
             $table->enum('status', ['Confirmed', 'Cancelled'])->default('Confirmed');
             $table->timestamps();
         });

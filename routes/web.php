@@ -2,6 +2,7 @@
 
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
@@ -21,13 +22,14 @@ Route::middleware('auth')->group(function () {
 
     // ====================== USERS ==========================
     // Discover Tab
-    Route::get('/book/{id}', [UserController::class, 'discoverbook'])->name('book');
+    Route::get('/book/{id}', [BookController::class, 'index'])->name('book');
+    Route::get('/book/ticket/{id}', [BookController::class, 'details'])->name('book.ticket');
     Route::get('/details/{movie}', [UserController::class, 'discoverdetails'])->name('details');
     Route::get('/discoverpayment', [UserController::class, 'payment']);
     Route::get('/discoverpaydetails', [UserController::class, 'paymentdetails']);
 
     Route::get('/discoverbookdetails', [UserController::class, 'discoverbookdetails']);
-    Route::post('/discoverbookdetails', [UserController::class, 'discoverbookdetails']);
+    Route::post('/discoverbookdetails', [BookController::class, 'store'])->name('discoverbookdetails');
 
     // Tickets Tab
     Route::get('/tickets', [UserController::class, 'tickets']);

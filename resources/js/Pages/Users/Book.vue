@@ -2,17 +2,11 @@
     <Head title="Book Movie" />
 
     <div class="font-main text-secondary">
-        <form
-            @submit.prevent="submit"
-            method="post"
-            class="grid grid-cols-2 gap-14 mx-10 my-10"
-        >
+        <div class="grid grid-cols-2 gap-14 mx-10 my-10">
             <div class="flex flex-row flex-wrap justify-end">
                 <div class="text-sm font-bold mx-16">
                     <Link
-                        :href="
-                            route('home')
-                        "
+                        :href="route('home')"
                         class="flex flex-row items-center space-x-1"
                     >
                         <svg
@@ -45,26 +39,29 @@
                 ></div>
             </div>
 
-            <div class="mt-6">
+            <form @submit.prevent="submit" method="post" class="mt-6">
                 <h1 class="text-primary text-2xl">{{ movie.title }}</h1>
 
                 <div class="text-sm my-2 space-y-4">
                     <p class="font-bold">Date</p>
                     <input
                         type="date"
-                        max="{{ movie.start }}"
-                        min="{{ movie.end }}"
+                        v-model="form.date"
+                        :min="movie.start"
+                        :max="movie.end"
                         class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52"
                     />
 
                     <p class="font-bold">Time Slot</p>
                     <select
+                        v-model="form.timeslot"
                         class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52"
                     >
-                        <option value="1">11:00 AM</option>
-                        <option value="2">1:00 PM</option>
-                        <option value="3">3:00 PM</option>
-                        <option value="4">6:00 PM</option>
+                        <option
+                            v-for="time in timeslots"
+                            :key="time.id"
+                            v-text="time.timeslot"
+                        ></option>
                     </select>
 
                     <p class="font-bold mb-0">Number of Tickets</p>
@@ -73,6 +70,7 @@
                         class="flex flex-row justify-between items-center w-24"
                     >
                         <button
+                            type="button"
                             @click="decrement"
                             class="h-8 w-8 rounded-full overflow-hidden bg-primary flex justify-center items-center"
                         >
@@ -92,9 +90,10 @@
                             </svg>
                         </button>
 
-                        <p>{{ form.count }}</p>
+                        <p>{{ form.quantity }}</p>
 
                         <button
+                            type="button"
                             @click="increment"
                             class="h-8 w-8 rounded-full overflow-hidden bg-primary flex justify-center items-center"
                         >
@@ -117,35 +116,29 @@
                 </div>
 
                 <div class="flex flex-col mt-4">
-                    <form @submit.prevent="submit" method="post">
-                        <input
-                            type="text"
-                            name="count"
-                            v-model="form.count"
-                            hidden
-                        />
-                        <Link
-                        :href="
-                            route('ticket')
-                        "><button
-                            type="submit"
-                            :disabled="form.processing"
-                            class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary"
-                        >
-                            PROCEED
-                        </button></Link>
-                    </form>
+                    <button
+                        v-if="form.time != null && form.date != null"
+                        type="submit"
+                        :disabled="form.processing"
+                        class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary"
+                    >
+                        PROCEED
+                    </button>
+                    <!-- </form> -->
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </template>
 
 <script setup>
-import { useForm } from "@inertiajs/inertia-vue3";
-import { ref } from "@vue/reactivity";
+import { useForm, usePage } from "@inertiajs/inertia-vue3";
+import moment from "moment";
 
-const props = defineProps({ item: Object });
+const props = defineProps({
+    item: Object,
+    timeslots: Array,
+});
 const movie = props.item[0];
 
 const filename = ref("");
@@ -154,20 +147,24 @@ const delModal = ref(false);
 const movieID = ref(0);
 
 const form = useForm({
-    count: 1,
+    timeslot: null,
+    date: null,
+    quantity: 1,
+    movie_id: movie.id,
+    user_id: usePage().props.value.auth.user.id,
 });
 
-// const submit = () => {
-    // form.post("/discoverbookdetails");
-// };
+const submit = () => {
+    form.post(route("discoverbookdetails"));
+};
 
 function increment() {
-    form.count += 1;
+    form.quantity++;
 }
 
 function decrement() {
-    if (form.count > 1) {
-        form.count -= 1;
+    if (form.quantity > 1) {
+        form.quantity--;
     }
 }
 </script>
