@@ -91,7 +91,7 @@ class UserController extends Controller
     {
 
         return Inertia::render('Users/BookDetails', [
-            'count' => 5
+            'count' => 1
         ]);
     }
 

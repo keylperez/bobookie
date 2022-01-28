@@ -42,6 +42,8 @@ class AdminController extends Controller
                     'runtime' => $movie->runtime,
                     'rating' => $movie->rating,
                     'desc' => $movie->description,
+                    'director' => $movie->director,
+                    'genre' => $movie->genre,
                     'image' => asset('storage/' . $movie->img),
                     'filename' => $movie->img,
                     'start' => $movie->start_date,

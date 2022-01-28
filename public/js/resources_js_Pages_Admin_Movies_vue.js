@@ -58,6 +58,8 @@ __webpack_require__.r(__webpack_exports__);
         form.rating = filterMovie[0].rating;
         form.genre = filterMovie[0].genre;
         form.desc = filterMovie[0].desc;
+        form.director = filterMovie[0].director;
+        form.genre = filterMovie[0].genre;
         form.end_date = filterMovie[0].end;
         form.start_date = filterMovie[0].start;
       }
