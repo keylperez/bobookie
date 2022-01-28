@@ -15,6 +15,7 @@
                     <th align="right">ACTIONS</th>
                 </thead>
 
+                <transition-group name="slide" mode="out-in">
                 <tr
                     align="center"
                     class="text-secondary cursor-pointer hover:bg-softgray"
@@ -31,14 +32,15 @@
                         class="py-4 flex flex-row justify-end items-center space-x-3"
                         align="right"
                     >
-                        <button v-on:click="toggleModal(booking)">
+                        <button v-on:click="toggleModal(booking.id)">
                             <EditIcon />
                         </button>
-                        <button v-on:click="toggleDel(booking)">
+                        <button v-on:click="toggleDel(booking.id)">
                             <DelIcon />
                         </button>
                     </td>
                 </tr>
+                </transition-group>
             </table>
         </div>
     </div>
@@ -301,17 +303,26 @@
                                 <div
                                     class="flex flex-row justify-center space-x-4 mb-8 mt-8"
                                 >
+                                    <form
+                                        id="delForm"
+                                        action=""
+                                        @submit.prevent="delMovie"
+                                    >
+                                    </form>
                                     <button
                                         v-on:click="toggleDel()"
                                         class="btn-secondary"
                                     >
                                         CANCEL
                                     </button>
-                                    <Link href="#"
-                                        ><button class="btn-primary">
-                                            CONFIRM
-                                        </button></Link
+                                    <button
+                                        type="submit"
+                                        form="delForm"
+                                        class="btn-primary"
                                     >
+                                        CONFIRM
+                                    </button>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -334,51 +345,53 @@ import BookingModal from "../../Shared/BookingModal.vue";
 import { ref, reactive } from "@vue/reactivity";
 import { useForm } from "@inertiajs/inertia-vue3";
 
-const filename = ref("");
 const showModal = ref(false);
 const delModal = ref(false);
 const myDate = ref(new Date().toISOString().slice(0, 10));
-const currentModal = reactive(props[0]);
+// const currentModal = reactive(props[0]);
 const props = defineProps({ bookings: Array });
-console.log(props);
+
+
 const form = useForm({
     movie: null,
     date: null,
     time: null,
 });
 
+
 const toggleModal = (booking) => {
     // currentModal = booking;
     showModal.value = !showModal.value;
 };
-const toggleDel = (booking) => {
-    // currentModal = booking;
+
+const toggleDel = (id) => {
     delModal.value = !delModal.value;
+
+    if (id) {
+        delForm.id = id;
+    }
 };
 
-// export default {
-//     data() {
-//         return {
-//             filename: "",
-//             showModal: false,
-//             delModal: false,
-//             myDate: new Date().toISOString().slice(0, 10),
-//             currentModal: 0,
-//         };
-//     },
-//     components: { EditIcon, DelIcon, BookingModal },
-//     props: { bookings: Array },
-//     methods: {
-//         toggleModal: function (bookID) {
-//             this.currentModal = this.bookID;
-//             this.showModal = !this.showModal;
-//         },
-//         toggleDel: function (bookID) {
-//             this.currentModal = this.bookID;
-//             this.delModal = !this.delModal;
-//         },
-//     },
-// };
+
+const delForm = useForm({
+    id: null,
+});
+    
+const delMovie = () => {
+    delForm.post("/bookings/delete", delForm);
+    delModal.value = !delModal.value;
+};
 </script>
 
-<style></style>
+<style>
+.slide-leave-active,
+.slide-enter-active {
+    transition: 1s;
+}
+.slide-enter {
+    transform: translate(100%, 0);
+}
+.slide-leave-to {
+    transform: translate(-100%, 0);
+}
+</style>

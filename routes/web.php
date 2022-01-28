@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
 
     //Bookings Tab
     Route::get('/bookings', [AdminController::class, 'bookings'])->middleware('can:create,App\Models\User');
+    Route::post('/bookings/delete', [AdminController::class, 'bookings_delete'])->middleware('can:create,App\Models\User');
 
     // List Tab
     Route::get('/users', [AdminController::class, 'users'])->middleware('can:create,App\Models\User');

@@ -159,7 +159,7 @@ class AdminController extends Controller
 
         return redirect('/movies');
     }
-
+    
     public function bookings()
     {
         $bookings = DB::table('tickets')
@@ -167,9 +167,15 @@ class AdminController extends Controller
             ->join('movies', 'movies.id', '=',  'tickets.movie_id')
             ->select('tickets.*', 'users.name', 'users.email', 'movies.title')
             ->get();
-        // dd($bookings);
-        return Inertia::render('Admin/Bookings', ['bookings' => $bookings]);
+            // dd($bookings);
+            return Inertia::render('Admin/Bookings', ['bookings' => $bookings]);
+        }
+        
+        public function bookings_delete(){
+            DB::table('tickets')->where('id', '=', Request::input('id'))->delete();
+            return redirect('/bookings');
     }
+
 
     public function users()
     {
