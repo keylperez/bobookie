@@ -46,7 +46,7 @@ class BookController extends Controller
     }
     public function store(Request $request)
     {
-        // dd($request);
+        // dd($request);z
         $inserted = false;
         $validated = $request->validate([
             'timeslot' => 'required',

@@ -6,11 +6,12 @@
         >
             <table class="mx-2 table-fixed mt-4">
                 <thead class="border-b-4 border-secondary text-secondary">
-                    <th align="left">USER ID</th>
+                    <th align="left">TICKET ID</th>
+                    <th>USER ID</th>
                     <th>USERNAME</th>
-                    <th>TICKETS</th>
                     <th>MOVIE</th>
                     <th>DATE</th>
+                    <th>TIMESLOT</th>
                     <th>STATUS</th>
                     <th align="right">ACTIONS</th>
                 </thead>
@@ -22,11 +23,12 @@
                     v-for="booking in bookings"
                     :key="booking.id"
                 >
-                    <td class="py-4" align="left">#{{ booking.user_id }}</td>
+                    <td class="py-4" align="left">#{{ booking.id }}</td>
+                    <td class="font-thin py-4">{{ booking.user_id }}</td>
                     <td class="font-thin py-4">{{ booking.name }}</td>
-                    <td class="font-thin py-4">{{ booking.quantity }}</td>
                     <td class="font-thin py-4">{{ booking.title }}</td>
-                    <td class="font-thin py-4">December 15, 2021</td>
+                    <td class="font-thin py-4">{{ booking.date }}</td>
+                    <td class="font-thin py-4">{{ booking.timeslot }}</td>
                     <td class="font-thin py-4">{{ booking.status }}</td>
                     <td
                         class="py-4 flex flex-row justify-end items-center space-x-3"

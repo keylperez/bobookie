@@ -446,8 +446,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Ziggy": () => (/* binding */ Ziggy)
 /* harmony export */ });
 var Ziggy = {
-  // url: "http://localhost:8000",
   url: "http://127.0.0.1:8000",
+  // url: "http://localhost:8000",
   port: null,
   defaults: {},
   routes: {
@@ -463,12 +463,24 @@ var Ziggy = {
       uri: "signup",
       methods: ["GET", "HEAD"]
     },
+    details: {
+      uri: "details/{movie}",
+      methods: ["GET", "HEAD"]
+    },
     book: {
       uri: "book/{id}",
       methods: ["GET", "HEAD"]
     },
-    details: {
-      uri: "details/{movie}",
+    "book.ticket": {
+      uri: "book/ticket/{id}",
+      methods: ["GET", "HEAD"]
+    },
+    discoverbookdetails: {
+      uri: "discoverbookdetails",
+      methods: ["POST"]
+    },
+    ticketdetails: {
+      uri: "ticketdetails/{id}",
       methods: ["GET", "HEAD"]
     },
     movies: {
@@ -2162,10 +2174,12 @@ __webpack_require__.r(__webpack_exports__);
 var map = {
 	"./Admin/Bookings": [
 		"./resources/js/Pages/Admin/Bookings.vue",
+		"/js/vendor",
 		"resources_js_Pages_Admin_Bookings_vue"
 	],
 	"./Admin/Bookings.vue": [
 		"./resources/js/Pages/Admin/Bookings.vue",
+		"/js/vendor",
 		"resources_js_Pages_Admin_Bookings_vue"
 	],
 	"./Admin/Movies": [
