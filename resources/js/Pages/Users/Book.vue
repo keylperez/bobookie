@@ -117,7 +117,7 @@
 
                 <div class="flex flex-col mt-4">
                     <button
-                        v-if="form.time != null && form.date != null"
+                        v-if="form.timeslot != null && form.date != null"
                         type="submit"
                         :disabled="form.processing"
                         class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary"

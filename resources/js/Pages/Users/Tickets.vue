@@ -10,54 +10,22 @@
             <div class="bg-secondary mx-3 p-0.5" />
 
             <table class="mx-3 table-fixed">
-                <tr class="cursor-pointer hover:bg-softgray">
+                <tr
+                    v-for="ticket in tickets"
+                    :key="ticket.id"
+                    class="cursor-pointer hover:bg-softgray"
+                >
                     <td class="text-secondary py-4 px-2" width="32%">
-                        Eternals
+                        {{ ticket.title }}
                     </td>
                     <td class="font-thin text-secondary py-4 text-center">
-                        <p>11 AM</p>
-                        <p>DECEMBER 15, 2021</p>
+                        <p>{{ ticket.timeslot }}</p>
+                        <p>
+                            {{ ticket.date }}
+                        </p>
                     </td>
                     <td class="py-4 px-2 flex justify-end">
-                        <Link href="/ticketdetails"
-                            ><button
-                                class="border-2 border-white btn-secondary"
-                            >
-                                DETAILS
-                            </button></Link
-                        >
-                    </td>
-                </tr>
-
-                <tr class="cursor-pointer hover:bg-softgray">
-                    <td class="text-secondary py-4 px-2">
-                        Venom: Let There Be Carnage
-                    </td>
-                    <td class="font-thin text-secondary py-4 text-center">
-                        <p>1 PM</p>
-                        <p>DECEMBER 16, 2021</p>
-                    </td>
-                    <td class="py-4 px-2 flex justify-end">
-                        <Link href="/ticketdetails"
-                            ><button
-                                class="border-2 border-white btn-secondary"
-                            >
-                                DETAILS
-                            </button></Link
-                        >
-                    </td>
-                </tr>
-
-                <tr class="cursor-pointer hover:bg-softgray">
-                    <td class="text-secondary py-4 px-2">
-                        Spiderman: No Way Home
-                    </td>
-                    <td class="font-thin text-secondary py-4 text-center">
-                        <p>11 AM</p>
-                        <p>DECEMBER 16, 2021</p>
-                    </td>
-                    <td class="py-4 px-2 flex justify-end">
-                        <Link href="/ticketdetails"
+                        <Link :href="route('ticketdetails', { id: ticket.id })"
                             ><button
                                 class="border-2 border-white btn-secondary"
                             >
@@ -113,14 +81,19 @@
     </div>
 </template>
 
-<script>
-import Layout from "../../Shared/Layout";
+<script setup>
+import { ref, computed } from "vue";
+const filtered = ref([]);
+const props = defineProps({ tickets: Array });
 
-export default {
-    name: "Tickets",
-    layout: Layout,
-    components: { Layout },
-};
+const filter = computed((filtered) => {
+    this.props.tickets.forEach((e, i, a) => {
+        console.log(e);
+        // if (e.date !== a[i + 1].date && e.timeslot !== a[i].timeslot) {
+        //     filtered.push(e);
+        // }
+    });
+});
 </script>
 
 <style></style>
