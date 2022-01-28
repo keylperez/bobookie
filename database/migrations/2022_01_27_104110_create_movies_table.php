@@ -21,7 +21,7 @@ class CreateMoviesTable extends Migration
             $table->string('rating');
             $table->string('director');
             $table->string('genre');
-            $table->string('img')->default('app/public/movies/placeholder.png');
+            $table->string('img')->default('movies/placeholder.png');
             $table->year('year');
             $table->longText('description');
             $table->date('start_date');
@@ -30,7 +30,7 @@ class CreateMoviesTable extends Migration
         });
     }
 
-    
+
     /**
      * Reverse the migrations.
      *

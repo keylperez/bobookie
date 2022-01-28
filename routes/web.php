@@ -17,6 +17,7 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/signup', [RegisterController::class, 'index'])->name('signup');
 Route::post('/signup', [RegisterController::class, 'create']);
 
+Route::get('/details/{movie}', [UserController::class, 'discoverdetails'])->name('details');
 
 Route::middleware('auth')->group(function () {
 
@@ -24,7 +25,9 @@ Route::middleware('auth')->group(function () {
     // Discover Tab
     Route::get('/book/{id}', [BookController::class, 'index'])->name('book');
     Route::get('/book/ticket/{id}', [BookController::class, 'details'])->name('book.ticket');
-    Route::get('/details/{movie}', [UserController::class, 'discoverdetails'])->name('details');
+    Route::post('/book/ticket/proceed', [BookController::class, 'book']);
+
+
     Route::get('/discoverpayment', [UserController::class, 'payment']);
     Route::get('/discoverpaydetails', [UserController::class, 'paymentdetails']);
 
@@ -33,7 +36,7 @@ Route::middleware('auth')->group(function () {
 
     // Tickets Tab
     Route::get('/tickets', [UserController::class, 'tickets']);
-    Route::get('/ticketdetails', [UserController::class, 'ticketdetails']);
+    Route::get('/ticketdetails/{id}', [UserController::class, 'ticketdetails'])->name('ticketdetails');
 
 
 

@@ -20,7 +20,7 @@
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="2"
-                                d="M15 19l-7-7 7-7"  
+                                d="M15 19l-7-7 7-7"
                             />
                         </svg>
                         <p
@@ -32,38 +32,29 @@
                 </div>
 
                 <div
-                    class="bg-secondary p-4 my-2 h-80 w-48 mt-6 bg-cover"
+                    class="bg-secondary p-4 my-2 h-80 w-48 mt-6 bg-cover bg-center"
                     :style="{
-                        'background-image': `url(../img/Home/eternals_poster.jpg)`,
+                        'background-image': `url(${ticket[0].image})`,
                     }"
                 ></div>
             </div>
 
             <div class="mt-6">
-                <h1 class="text-primary text-2xl">ETERNALS</h1>
+                <h1 class="text-primary text-2xl">{{ ticket[0].title }}</h1>
                 <h4 class="text-secondary text-xl">RECEIPT</h4>
 
                 <div class="font-thin text-secondary text-sm">
-                    <p>Transaction#0000</p>
-                    <p>11AM December 15, 2021</p>
+                    <p>Transaction#{{ ticket[0].id }}</p>
+                    <p>{{ ticket[0].created_at }}</p>
                 </div>
 
                 <div class="text-sm my-2">
-                    <p class="font-bold">Juan de la Cruz</p>
-                    <p class="font-thin">Seat A1</p>
-                    <p class="font-thin">Ticket#0000</p>
-                </div>
-
-                <div class="text-sm my-2">
-                    <p class="font-bold">Juan de la Cruz</p>
-                    <p class="font-thin">Seat A2</p>
-                    <p class="font-thin">Ticket#0000</p>
-                </div>
-
-                <div class="text-sm my-2">
-                    <p class="font-bold">Juan de la Cruz</p>
-                    <p class="font-thin">Seat A3</p>
-                    <p class="font-thin">Ticket#0000</p>
+                    <p
+                        class="font-bold"
+                        v-text="ticket[0].name ? ticket[0].name : 'No name'"
+                    ></p>
+                    <p class="font-thin">{{ ticket[0].timeslot }}</p>
+                    <p class="font-thin">Ticket#{{ ticket[0].id }}</p>
                 </div>
 
                 <div class="flex flex-col">
@@ -83,15 +74,6 @@
     </div>
 </template>
 
-<script>
-import Layout from "../../Shared/Layout";
-export default {
-    name: "TicketDetails",
-    layout: Layout,
-    components: {
-        Layout,
-    },
-};
+<script setup>
+defineProps({ ticket: Array });
 </script>
-
-<style></style>

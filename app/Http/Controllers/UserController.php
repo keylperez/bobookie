@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -80,11 +81,42 @@ class UserController extends Controller
 
     public function tickets()
     {
-        return Inertia::render('Users/Tickets');
+        $query = DB::table('tickets')
+            ->select('tickets.*', 'movies.id as movie_id', 'movies.title')
+            ->join('movies', 'movies.id', '=', 'tickets.movie_id')
+            ->where('tickets.user_id', '=', Auth::id())
+            ->get();
+        return Inertia::render('Users/Tickets', ['tickets' => $query]);
     }
 
-    public function ticketdetails()
+    public function ticketdetails($id)
     {
-        return Inertia::render('Users/TicketDetails');
+        $query = DB::table('tickets')
+            ->select('tickets.*', 'movies.id as movie_id', 'movies.title', 'users.username', 'users.email')
+            ->join('movies', 'movies.id', '=', 'tickets.movie_id')
+            ->join('users', 'users.id', '=', 'tickets.user_id')
+            ->where('tickets.id', '=', $id)
+            ->get();
+        return Inertia::render('Users/TicketDetails', [
+            // 'ticket' => $query
+            'ticket' => $query->map(function ($ticket) {
+                return [
+
+                    'image' => asset('storage/' . $ticket->img),
+                    "created_at" => $ticket->created_at,
+                    "date" => $ticket->date,
+                    "email" => $ticket->email,
+                    "id" => $ticket->id,
+                    "movie_id" => $ticket->movie_id,
+                    "name" => $ticket->name,
+                    "status" => $ticket->status,
+                    "timeslot" => $ticket->timeslot,
+                    "title" => $ticket->title,
+                    "updated_at" => $ticket->updated_at,
+                    "user_id" => $ticket->user_id,
+                    "username" => $ticket->username,
+                ];
+            })
+        ]);
     }
 }

@@ -16,13 +16,16 @@ class CreateTicketsTable extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('name')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('movie_id');
             $table->foreign('movie_id')->references('id')->on('movies');
             $table->date('date');
             $table->enum('timeslot', ['11:00 AM', '1:00 PM', '3:00 PM']);
-            $table->enum('status', ['Confirmed', 'Cancelled'])->default('Confirmed');
-            $table->timestamps();
+            $table->enum('status', ['Confirmed', 'Cancelled', 'Pending'])->default('Pending');
+            $table->string('img')->default('movies/placeholder.png');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 
