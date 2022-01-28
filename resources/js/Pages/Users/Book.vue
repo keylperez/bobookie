@@ -133,7 +133,7 @@
 
 <script setup>
 import { useForm, usePage } from "@inertiajs/inertia-vue3";
-import moment from "moment";
+import { ref } from "@vue/reactivity";
 
 const props = defineProps({
     item: Object,
@@ -141,10 +141,10 @@ const props = defineProps({
 });
 const movie = props.item[0];
 
-const filename = ref("");
-const showModal = ref(false);
-const delModal = ref(false);
-const movieID = ref(0);
+// const filename = ref("");
+// const showModal = ref(false);
+// const delModal = ref(false);
+// const movieID = ref(0);
 
 const form = useForm({
     timeslot: null,
