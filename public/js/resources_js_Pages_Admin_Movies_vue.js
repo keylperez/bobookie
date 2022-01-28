@@ -52,6 +52,7 @@ __webpack_require__.r(__webpack_exports__);
           return item.id === id;
         }); // console.log(filterMovie[0]);
 
+        form.id = id;
         form.title = filterMovie[0].title;
         form.price = filterMovie[0].price;
         form.rating = filterMovie[0].rating;
@@ -59,7 +60,6 @@ __webpack_require__.r(__webpack_exports__);
         form.desc = filterMovie[0].desc;
         form.end_date = filterMovie[0].end;
         form.start_date = filterMovie[0].start;
-        filename.value = filterMovie[0].filename;
       }
     };
 
@@ -84,6 +84,7 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.useForm)({
+      id: null,
       title: null,
       director: null,
       genre: null,
@@ -111,7 +112,7 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     function setNull() {
-      form.title = null, form.director = null, form.genre = null, form.start_date = null, form.end_date = null, form.rating = null, form.desc = null, form.image = null, form.timeslot = [], form.price = null, form.hour = null, form.min = null, filename.value = null;
+      form.id = null, form.title = null, form.director = null, form.genre = null, form.start_date = null, form.end_date = null, form.rating = null, form.desc = null, form.image = null, form.timeslot = [], form.price = null, form.hour = null, form.min = null;
     }
 
     var __returned__ = {

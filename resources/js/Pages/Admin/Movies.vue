@@ -442,6 +442,7 @@ const toggleModal = (id) => {
         });
 
         // console.log(filterMovie[0]);
+        form.id = id;
         form.title = filterMovie[0].title;
         form.price = filterMovie[0].price;
         form.rating = filterMovie[0].rating;
@@ -449,7 +450,7 @@ const toggleModal = (id) => {
         form.desc = filterMovie[0].desc;
         form.end_date = filterMovie[0].end;
         form.start_date = filterMovie[0].start;
-        filename.value = filterMovie[0].filename;
+        
     }
 };
 
@@ -474,6 +475,7 @@ const delMovie = () => {
 };
 
 const form = useForm({
+    id:null,
     title: null,
     director: null,
     genre: null,
@@ -501,6 +503,7 @@ const submit = () => {
 };
 
 function setNull() {
+       form.id = null,
        form.title = null,
        form.director = null,
        form.genre = null,
@@ -512,8 +515,7 @@ function setNull() {
        form.timeslot = [],
        form.price = null,
        form.hour = null,
-       form.min = null,
-       filename.value = null
+       form.min = null
 }
 </script>
 

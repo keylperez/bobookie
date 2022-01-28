@@ -9,8 +9,11 @@
         <p>{{ movie.title }}</p>
         <div>{{ movie.rating }}</div>
         <div class="font-normal my-2">
-            <p>EVERY 1PM</p>
-            <p>EVERY 6PM</p>
+             <ul class="flex flex-row space-x-2">
+                                <li v-for="time in movie.timeslot" :key="time.id">
+                                    {{ time.timeslot }}
+                                </li>
+            </ul>
         </div>
         <Link
             :href="

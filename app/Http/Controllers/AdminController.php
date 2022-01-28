@@ -17,21 +17,7 @@ class AdminController extends Controller
     public function movies()
     {
         
-        // $movies = Movie::all();
-        // dd($movies);
-        // foreach ($movies as $movie) {
-            // foreach ($movie->timeslots as $timeslot) {
-            //     echo $timeslot->timeslot;
-            // }
-            
-            // echo ($movie->timeslots()->get());
-            // echo "<br>";
-        // }
-
-            
-
-        $movies = Movie::find(2)->timeslots;
-
+    
         $movies = DB::table('movies')
             ->select('*')
             ->get();
@@ -90,11 +76,9 @@ class AdminController extends Controller
             $stringArray
         );
 
-        // dd($intArray);
         
         $image = Request::file('image')->store('movies', 'public');
         $runtime = Request::input('hour').'hr'.' '.Request::input('min').'min';
-        $timeslots = Request::input('timeslot');
 
         $id = DB::table('movies')->insertGetId([
             'title' => Request::input('title'),
@@ -112,7 +96,6 @@ class AdminController extends Controller
 
         Movie::find($id)->timeslots()->attach($intArray);
 
-        // return Redirect::route('admin.movies');
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.'
         ]);
@@ -120,7 +103,45 @@ class AdminController extends Controller
 
     public function update_movie()
     {
-        return redirect('/bookings');
+        
+       
+            
+            if( Request::input('hour') != null &&  Request::input('min') != null){
+                $runtime = Request::input('hour').'hr'.' '.Request::input('min').'min';
+                DB::table('movies')->where('id', '=', Request::input('id'))->update([
+                    'runtime' => $runtime,
+                ]);
+            }
+            
+            
+            if(Request::file('image') != null){
+                $image = Request::file('image')->store('movies', 'public');
+                DB::table('movies')->where('id', '=', Request::input('id'))->update([
+                    'img' => $image,
+                ]);
+            }
+
+            DB::table('movies')->where('id', '=', Request::input('id'))->update([
+                'title' => Request::input('title'),
+                'price' => Request::input('price'),
+                'year' => Carbon::now()->year,
+                'rating' => Request::input('rating'),
+                'description' => Request::input('desc'),
+                'start_date' => Request::input('start_date'),
+                'end_date' => Request::input('end_date'),
+            ]);
+
+            if(Request::input('timeslot') != null){
+                $stringArray = Request::input('timeslot');
+                $intArray = array_map(
+                    function($value) { return (int)$value; },
+                        $stringArray
+                    );
+                //update timeslot (detach and attach)
+                Movie::find(Request::input('id'))->timeslots()->detach();
+                Movie::find(Request::input('id'))->timeslots()->attach($intArray);
+            }
+            return redirect('/movies');
     }
 
     public function delete_movie()

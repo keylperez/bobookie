@@ -53,6 +53,12 @@
                         Director: <span class="font-thin">Chloé Zhao</span>
                     </p>
                     <p class="font-bold">
+                        Runtime: <span class="font-thin">{{ movie.runtime }}</span>
+                    </p>
+                    <p class="font-bold">
+                        Price: <span class="font-thin">₱{{ movie.price }}.00</span>
+                    </p>
+                    <p class="font-bold">
                         Stars:
                         <span class="font-thin"
                             >Gemma Chan, Richard Madden, Angelina Jolie</span
