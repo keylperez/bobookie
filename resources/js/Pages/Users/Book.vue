@@ -10,7 +10,9 @@
             <div class="flex flex-row flex-wrap justify-end">
                 <div class="text-sm font-bold mx-16">
                     <Link
-                        href="/discover"
+                        :href="
+                            route('home')
+                        "
                         class="flex flex-row items-center space-x-1"
                     >
                         <svg
@@ -50,6 +52,8 @@
                     <p class="font-bold">Date</p>
                     <input
                         type="date"
+                        max="{{ movie.start }}"
+                        min="{{ movie.end }}"
                         class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52"
                     />
 
@@ -57,9 +61,10 @@
                     <select
                         class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52"
                     >
-                        <option>11:00 AM</option>
-                        <option>1:00 PM</option>
-                        <option>3:00 PM</option>
+                        <option value="1">11:00 AM</option>
+                        <option value="2">1:00 PM</option>
+                        <option value="3">3:00 PM</option>
+                        <option value="4">6:00 PM</option>
                     </select>
 
                     <p class="font-bold mb-0">Number of Tickets</p>
@@ -119,13 +124,16 @@
                             v-model="form.count"
                             hidden
                         />
-                        <button
+                        <Link
+                        :href="
+                            route('ticket')
+                        "><button
                             type="submit"
                             :disabled="form.processing"
                             class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary"
                         >
                             PROCEED
-                        </button>
+                        </button></Link>
                     </form>
                 </div>
             </div>
@@ -135,17 +143,23 @@
 
 <script setup>
 import { useForm } from "@inertiajs/inertia-vue3";
+import { ref } from "@vue/reactivity";
 
 const props = defineProps({ item: Object });
 const movie = props.item[0];
+
+const filename = ref("");
+const showModal = ref(false);
+const delModal = ref(false);
+const movieID = ref(0);
 
 const form = useForm({
     count: 1,
 });
 
-const submit = () => {
-    form.post("/discoverbookdetails");
-};
+// const submit = () => {
+    // form.post("/discoverbookdetails");
+// };
 
 function increment() {
     form.count += 1;

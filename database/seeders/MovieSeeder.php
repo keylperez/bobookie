@@ -18,6 +18,8 @@ class MovieSeeder extends Seeder
         $data = array(
             array(
                 'title' => 'The Eternals',
+                'director' => 'Chloé Zhao',
+                'genre' => 'Superhero',
                 'price' => 125.00,
                 'rating' => 'PG-13',
                 'year' => 2021,
@@ -31,6 +33,8 @@ class MovieSeeder extends Seeder
             ),
             array(
                 'title' => 'Venom',
+                'director' => 'Ruben Fleischer',
+                'genre' => 'Horror',
                 'price' => 230.00,
                 'rating' => 'PG-13',
                 'year' => 2021,
@@ -44,6 +48,8 @@ class MovieSeeder extends Seeder
             ),
             array(
                 'title' => 'Moon Knight',
+                'director' => 'Mohamed Diab',
+                'genre' => 'Superhero',
                 'price' => 230.00,
                 'rating' => 'PG-13',
                 'year' => 2022,
@@ -57,6 +63,8 @@ class MovieSeeder extends Seeder
             ),
             array(
                 'title' => 'Spiderman: No Way Home',
+                'director' => 'Jon Watts',
+                'genre' => 'Superhero',
                 'price' => 300.00,
                 'rating' => 'PG-13',
                 'year' => 2022,
@@ -69,7 +77,9 @@ class MovieSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
             array(
-                'title' => 'Matrix',
+                'title' => 'The Matrix Resurrections',
+                'director' => 'Lana Wachowski',
+                'genre' => 'Fantasy',
                 'price' => 500.00,
                 'rating' => 'PG-13',
                 'year' => 2022,
@@ -83,6 +93,8 @@ class MovieSeeder extends Seeder
             ),
             array(
                 'title' => 'Shang-Chi',
+                'director' => 'Destin Daniel Cretton',
+                'genre' => 'Action',
                 'price' => 500.00,
                 'rating' => 'PG-13',
                 'year' => 2022,
@@ -96,6 +108,8 @@ class MovieSeeder extends Seeder
             ),
             array(
                 'title' => 'Avatar 2',
+                'director' => 'James Cameron',
+                'genre' => 'Sci-fi',
                 'price' => 600.00,
                 'rating' => 'PG-13',
                 'year' => 2022,
@@ -109,6 +123,8 @@ class MovieSeeder extends Seeder
             ),
             array(
                 'title' => 'Encanto',
+                'director' => 'Jared Bush',
+                'genre' => 'Animation',
                 'price' => 299.00,
                 'rating' => 'PG-13',
                 'year' => 2022,

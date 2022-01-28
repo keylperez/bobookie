@@ -21,8 +21,10 @@ class UserController extends Controller
         return Inertia::render('Users/Discover', [
             'movies' => $movies->map(function ($movie) {
                 return [
-                    'title' => $movie->title,
                     'id' => $movie->id,
+                    'director' => $movie->director,
+                    'genre' => $movie->genre,
+                    'title' => $movie->title,
                     'price' => $movie->price,
                     'rating' => $movie->rating,
                     'year' => $movie->year,
@@ -46,6 +48,8 @@ class UserController extends Controller
             'item' => $item->map(function ($movie) {
                 return [
                     'id' => $movie->id,
+                    'director' => $movie->director,
+                    'genre' => $movie->genre,
                     'title' => $movie->title,
                     'rating' => $movie->rating,
                     'description' => $movie->description,
@@ -57,7 +61,7 @@ class UserController extends Controller
                     'start' => $movie->start_date,
                     'end' => $movie->end_date,
                 ];
-        }),]);
+        }),]);  
     }
 
     public function discoverdetails(Request $request, $movie)
@@ -67,6 +71,8 @@ class UserController extends Controller
             'item' => $item->map(function ($movie) {
                 return [
                     'id' => $movie->id,
+                    'director' => $movie->director,
+                    'genre' => $movie->genre,
                     'title' => $movie->title,
                     'rating' => $movie->rating,
                     'description' => $movie->description,
@@ -81,11 +87,11 @@ class UserController extends Controller
         }),]);
     }
 
-    public function discoverbookdetails(Request $request)
+    public function discoverbookdetails()
     {
 
         return Inertia::render('Users/BookDetails', [
-            'count' => $request->count
+            'count' => 5
         ]);
     }
 

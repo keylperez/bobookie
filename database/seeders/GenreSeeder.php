@@ -22,12 +22,16 @@ class GenreSeeder extends Seeder
             array('name' => 'Comedy'),
             array('name' => 'Crime'),
             array('name' => 'Drama'),
+            array('name' => 'Fantasy'),
             array('name' => 'Horror'),
             array('name' => 'Music'),
             array('name' => 'Mystery'),
             array('name' => 'Romance'),
+            array('name' => 'Sci-fi'),
+            array('name' => 'Superhero'),
+            array('name' => 'Romance'),
             array('name' => 'Thriller'),
-            array('name' => 'War'),
+            array('name' => 'War')
         );
 
         DB::table('genre')->insert($data);

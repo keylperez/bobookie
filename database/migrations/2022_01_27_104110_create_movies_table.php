@@ -19,6 +19,8 @@ class CreateMoviesTable extends Migration
             $table->float('price', 5, 2);
             $table->string('runtime');
             $table->string('rating');
+            $table->string('director');
+            $table->string('genre');
             $table->string('img')->default('app/public/movies/placeholder.png');
             $table->year('year');
             $table->longText('description');

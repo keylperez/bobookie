@@ -104,8 +104,6 @@ class AdminController extends Controller
     public function update_movie()
     {
         
-       
-            
             if( Request::input('hour') != null &&  Request::input('min') != null){
                 $runtime = Request::input('hour').'hr'.' '.Request::input('min').'min';
                 DB::table('movies')->where('id', '=', Request::input('id'))->update([

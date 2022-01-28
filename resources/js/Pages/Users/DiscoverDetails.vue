@@ -6,7 +6,8 @@
             <div class="flex flex-row flex-wrap justify-end">
                 <div class="text-sm font-bold mx-16">
                     <Link
-                        href="/discover"
+                        :href="
+                            route('home')"
                         class="flex flex-row items-center space-x-1"
                     >
                         <svg
@@ -48,10 +49,10 @@
                         <span class="font-thin">{{ movie.rating }}</span>
                     </p>
                     <p class="font-bold">
-                        Genre: <span class="font-thin">Adventure, Action</span>
+                        Genre: <span class="font-thin">{{ movie.genre }}</span>
                     </p>
                     <p class="font-bold">
-                        Director: <span class="font-thin">Chloé Zhao</span>
+                        Director: <span class="font-thin">{{ movie.director }}</span>
                     </p>
                     <p class="font-bold">
                         Runtime:
