@@ -1,12 +1,8 @@
 <template>
-    <Head title="Book Movie" />
+    <Head title="Discover New Movies" />
 
     <div class="font-main text-secondary">
-        <form
-            @submit.prevent="submit"
-            method="post"
-            class="grid grid-cols-2 gap-14 mx-10 my-10"
-        >
+        <div class="grid grid-cols-2 gap-14 mx-10 my-10">
             <div class="flex flex-row flex-wrap justify-end">
                 <div class="text-sm font-bold mx-16">
                     <Link
@@ -27,24 +23,20 @@
                                 d="M15 19l-7-7 7-7"
                             />
                         </svg>
-                        <p
-                            class="text-xs link-underline link-underline-black cursor-pointer"
-                        >
-                            BACK
-                        </p></Link
+                        <p class="text-xs">BACK</p></Link
                     >
                 </div>
 
                 <div
-                    class="bg-secondary p-4 my-2 h-80 w-48 mt-6 bg-cover bg-center"
+                    class="bg-secondary p-4 my-2 h-80 w-48 mt-6 bg-cover"
                     :style="{
-                        'background-image': `url(${movie.img})`,
+                        'background-image': `url(img/Home/eternals_poster.jpg)`,
                     }"
                 ></div>
             </div>
 
             <div class="mt-6">
-                <h1 class="text-primary text-2xl">{{ movie.title }}</h1>
+                <h1 class="text-primary text-2xl">ETERNALS</h1>
 
                 <div class="text-sm my-2 space-y-4">
                     <p class="font-bold">Date</p>
@@ -87,7 +79,7 @@
                             </svg>
                         </button>
 
-                        <p>{{ form.count }}</p>
+                        <p>{{ form.ticketnum }}</p>
 
                         <button
                             @click="increment"
@@ -112,50 +104,52 @@
                 </div>
 
                 <div class="flex flex-col mt-4">
-                    <form @submit.prevent="submit" method="post">
-                        <input
-                            type="text"
-                            name="count"
-                            v-model="form.count"
-                            hidden
-                        />
-                        <button
-                            type="submit"
-                            :disabled="form.processing"
+                    <!-- <form @submit.prevent="submit" method="post"> -->
+                    <Link href="/discoverbookdetails"
+                        ><button
                             class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary"
                         >
                             PROCEED
-                        </button>
-                    </form>
+                        </button></Link
+                    >
+                    <!-- </form> -->
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </template>
 
-<script setup>
-import { useForm } from "@inertiajs/inertia-vue3";
+<script>
+import { reactive } from "vue";
+import { Inertia } from "@inertiajs/inertia";
 
-const props = defineProps({ item: Object });
-const movie = props.item[0];
+export default {
+    name: "Book",
 
-const form = useForm({
-    count: 1,
-});
+    setup() {
+        const form = reactive({
+            ticketnum: 1,
+        });
 
-const submit = () => {
-    form.post("/discoverbookdetails");
+        function submit() {
+            Inertia.post("/bookdata", form);
+        }
+
+        return { form, submit };
+    },
+    layout: Layout,
+    components: { Head },
+    methods: {
+        increment() {
+            this.form.ticketnum += 1;
+        },
+        decrement() {
+            if (this.form.ticketnum > 1) {
+                this.form.ticketnum -= 1;
+            }
+        },
+    },
 };
-
-function increment() {
-    form.count += 1;
-}
-
-function decrement() {
-    if (form.count > 1) {
-        form.count -= 1;
-    }
-}
 </script>
 
 <style></style>

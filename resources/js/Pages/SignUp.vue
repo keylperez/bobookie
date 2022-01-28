@@ -12,6 +12,13 @@
                 placeholder="Email"
                 class="border-b-4 border-secondary flex-1 my-6 outline-none"
             />
+            <div class="h-4">
+                <p
+                    v-if="form.errors.email"
+                    v-text="form.errors.email"
+                    class="text-red-400 text-sm"
+                ></p>
+            </div>
 
             <input
                 type="text"
@@ -21,6 +28,13 @@
                 placeholder="Username"
                 class="border-b-4 border-secondary flex-1 my-6 outline-none"
             />
+            <div class="h-4">
+                <p
+                    v-if="form.errors.email"
+                    v-text="form.errors.email"
+                    class="text-red-400 text-sm"
+                ></p>
+            </div>
 
             <input
                 type="password"
@@ -30,10 +44,17 @@
                 placeholder="Password"
                 class="border-b-4 border-secondary flex-1 my-6 outline-none"
             />
+            <div class="h-4">
+                <p
+                    v-if="form.errors.password"
+                    v-text="form.errors.password"
+                    class="text-red-400 text-sm"
+                ></p>
+            </div>
             <input
                 type="password"
-                name="confirm_password"
-                v-model="form.confirm_password"
+                name="password_confirmation"
+                v-model="form.password_confirmation"
                 maxlength="255"
                 placeholder="Confirm Password"
                 class="border-b-4 border-secondary flex-1 my-6 outline-none"
@@ -75,9 +96,8 @@
 </template>
 
 <script>
-
 export default {
-    layout: LPLayout
+    layout: LPLayout,
 };
 </script>
 
@@ -89,11 +109,9 @@ const form = useForm({
     email: "",
     username: "",
     password: "",
-    confirm_password: "",
+    password_confirmation: "",
 });
 const submit = () => {
     form.post("/signup");
 };
 </script>
-
-<style></style>

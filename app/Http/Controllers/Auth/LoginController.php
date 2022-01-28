@@ -16,12 +16,12 @@ class LoginController extends Controller
         //     return redirect('/discover');
         // }
         // return Inertia::render('Login');
-        return Auth::check() ? redirect('/discover') : Inertia::render('Login');
+        return Auth::check() ? redirect('/') : Inertia::render('Login');
     }
 
     public function create(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         // return Inertia::render('Login');
     }
 
@@ -37,7 +37,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('/discover');
+            return redirect('/');
             // dd(Auth::check());
             // dd(Auth::user());
             // var_dump(Auth::user());

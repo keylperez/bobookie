@@ -1,11 +1,11 @@
 const Ziggy = {
-  // url: "http://localhost:8000",
-  url: "http://127.0.0.1:8000",
+  url: "http://localhost:8000",
   port: null,
   defaults: {},
   routes: {
-    login: { uri: "/", methods: ["GET", "HEAD"] },
-    home: { uri: "discover", methods: ["GET", "HEAD"] },
+    home: { uri: "/", methods: ["GET", "HEAD"] },
+    login: { uri: "login", methods: ["GET", "HEAD"] },
+    signup: { uri: "signup", methods: ["GET", "HEAD"] },
     book: { uri: "book/{id}", methods: ["GET", "HEAD"] },
     details: { uri: "details/{movie}", methods: ["GET", "HEAD"] },
     movies: { uri: "movies", methods: ["GET", "HEAD"] },

@@ -32,7 +32,7 @@
                 </div>
 
                 <div
-                    class="bg-secondary p-4 my-2 h-80 w-48 mt-6 bg-cover"
+                    class="bg-secondary p-4 my-2 h-80 w-48 mt-6 bg-cover bg-center"
                     :style="{
                         'background-image': `url(../img/Home/eternals_poster.jpg)`,
                     }"

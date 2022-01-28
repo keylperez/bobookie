@@ -48,7 +48,7 @@ class MovieSeeder extends Seeder
                 'rating' => 'PG-13',
                 'year' => 2022,
                 'runtime' => '2hr 12min',
-                'img' => 'movies/moonknight_poster.jpeg',
+                'img' => 'movies/moonknight_poster.jpg',
                 'description' => 'Moon Knight is a fictional character appearing in American comic books published by Marvel Comics. Created by writer Doug Moench and artist Don Perlin, the character first appeared in Werewolf by Night #32.',
                 'start_date' => Carbon::parse('2021-12-8'),
                 'end_date' => Carbon::parse('2022-01-8'),

@@ -1,9 +1,9 @@
 <template>
     <nav class="font-main">
-        <div class="flex justify-end">
-            <p class="flex-end justify-end text-secondary mx-5">
-                {{ user.username }}
-            </p>
+        <div class="flex justify-end" v-if="$page.props.auth">
+            <Link href="/user" class="flex-end justify-end text-secondary mx-5">
+                {{ $page.props.auth.user.username }}
+            </Link>
             <Link
                 href="/logout"
                 method="post"
@@ -17,9 +17,7 @@
 
         <ul class="m-5 mt-0 pt-0 flex space-x-6 list-inside">
             <li>
-                <NavLink
-                    href="/discover"
-                    :active="$page.url.startsWith('/discover')"
+                <NavLink href="/" :active="$page.url.startsWith('/discover')"
                     >DISCOVER</NavLink
                 >
             </li>
@@ -30,26 +28,26 @@
                     >MY TICKETS</NavLink
                 >
             </li>
-            <li>
+            <li v-if="$page.props.auth">
                 <NavLink
                     href="/movies"
-                    v-if="user.type === 'admin'"
+                    v-if="$page.props.auth.user.type === 'admin'"
                     :active="$page.url.startsWith('/movies')"
                     >MOVIES</NavLink
                 >
             </li>
-            <li>
+            <li v-if="$page.props.auth">
                 <NavLink
                     href="/bookings"
-                    v-if="user.type === 'admin'"
+                    v-if="$page.props.auth.user.type === 'admin'"
                     :active="$page.url.startsWith('/bookings')"
                     >BOOKINGS</NavLink
                 >
             </li>
-            <li>
+            <li v-if="$page.props.auth">
                 <NavLink
                     href="/users"
-                    v-if="user.type === 'admin'"
+                    v-if="$page.props.auth.user.type === 'admin'"
                     :active="$page.url.startsWith('/users')"
                     >USERS</NavLink
                 >
@@ -62,8 +60,6 @@
 import NavLink from "./NavLink";
 import { usePage } from "@inertiajs/inertia-vue3";
 import { computed } from "vue";
-
-const user = computed(() => usePage().props.value.auth.user);
 </script>
 
 <style></style>

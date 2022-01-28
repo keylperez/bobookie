@@ -63,18 +63,18 @@
                 </svg>
             </button>
 
-            <Link href="/signup"
-                ><button class="text-left text-primary font-bold text-lg btn">
+            <Link :href="route('signup')">
+                <button class="text-left text-primary font-bold text-lg btn">
                     Create an Account
-                </button></Link
-            >
+                </button>
+            </Link>
         </form>
     </div>
 </template>
 
 <script>
 export default {
-    layout: LoginLayout
+    layout: LoginLayout,
 };
 </script>
 
