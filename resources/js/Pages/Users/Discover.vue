@@ -2,7 +2,7 @@
     <Head title="Discover New Movies" />
     <div class="flex justify-center top-0">
         <h1 class="font-bold text-primary text-xl font-main mx">
-            NOW SHOWING
+            MOVIES THIS WEEK
         </h1>
     </div>
 
