@@ -72,14 +72,6 @@ class MovieTimeslotSeeder extends Seeder
                 'movie_id' => '7',
                 'timeslot_id' => '3',
             ),
-            array(
-                'movie_id' => '8',
-                'timeslot_id' => '4',
-            ),
-            array(
-                'movie_id' => '8',
-                'timeslot_id' => '3',
-            ),
         );
         DB::table('movie_timeslot')->insert($data);
         //

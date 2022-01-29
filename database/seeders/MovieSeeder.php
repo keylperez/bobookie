@@ -121,21 +121,6 @@ class MovieSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ),
-            array(
-                'title' => 'Encanto',
-                'director' => 'Jared Bush',
-                'genre' => 'Animation',
-                'price' => 299.00,
-                'rating' => 'PG-13',
-                'year' => 2022,
-                'runtime' => '2hr 30min',
-                'img' => 'movies/encanto_poster.jpeg',
-                'description' => "Encanto tells the tale of an extraordinary family, the Madrigals, who live hidden in the mountains of Colombia, in a magical house, in a vibrant town, in a wondrous, charmed place called an Encanto.",
-                'start_date' => Carbon::parse('2021-12-8'),
-                'end_date' => Carbon::parse('2022-01-8'),
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            )
         );
 
         DB::table('movies')->insert($data);

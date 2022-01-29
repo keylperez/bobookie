@@ -100,7 +100,7 @@
                     <div class="my-2">
                         <p class="font-bold text-secondary">Security Code</p>
                         <input
-                            type="text"
+                            type="password"
                             v-model="form.security_code"
                             minmax="3"
                             autocomplete="false"

@@ -15,6 +15,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Delete_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Shared/Delete.vue */ "./resources/js/Shared/Delete.vue");
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var _vue_reactivity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @vue/reactivity */ "./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -26,6 +28,8 @@ __webpack_require__.r(__webpack_exports__);
     directors: Array
   },
   setup: function setup(__props, _ref) {
+    var _useForm;
+
     var expose = _ref.expose;
     expose();
     var props = __props;
@@ -85,7 +89,7 @@ __webpack_require__.r(__webpack_exports__);
       movieID.value = 0;
     };
 
-    var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.useForm)({
+    var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.useForm)((_useForm = {
       id: null,
       title: null,
       director: null,
@@ -99,7 +103,7 @@ __webpack_require__.r(__webpack_exports__);
       price: null,
       hour: null,
       min: null
-    });
+    }, _defineProperty(_useForm, "director", null), _defineProperty(_useForm, "genre", null), _useForm));
 
     var submit = function submit() {
       if (movieID.value) {

@@ -76,4 +76,5 @@
 
 <script setup>
 defineProps({ ticket: Array });
+    
 </script>

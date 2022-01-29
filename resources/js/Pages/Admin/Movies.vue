@@ -489,7 +489,9 @@ const form = useForm({
     timeslot: [],
     price: null,
     hour: null,
-    min: null
+    min: null,
+    director: null,
+    genre: null
 });
 
 const submit = () => {

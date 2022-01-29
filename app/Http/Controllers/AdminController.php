@@ -85,6 +85,8 @@ class AdminController extends Controller
         $id = DB::table('movies')->insertGetId([
             'title' => Request::input('title'),
             'price' => Request::input('price'),
+            'director' => Request::input('director'),
+            'genre' => Request::input('genre'),
             'year' => Carbon::now()->year,
             'runtime' => $runtime,
             'rating' => Request::input('rating'),
@@ -172,6 +174,7 @@ class AdminController extends Controller
         }
         
         public function bookings_delete(){
+            DB::table('payments')->where('ticket_id', '=', Request::input('id'))->delete();
             DB::table('tickets')->where('id', '=', Request::input('id'))->delete();
             return redirect('/bookings');
     }
@@ -186,6 +189,8 @@ class AdminController extends Controller
 
     public function users_delete()
     {
+        DB::table('payments')->where('user_id', '=', Request::input('id'))->delete();
+        DB::table('tickets')->where('user_id', '=', Request::input('id'))->delete();
         DB::table('users')->where('id', '=', Request::input('id'))->delete();
         return redirect('/users');
     }
