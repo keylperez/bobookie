@@ -133,6 +133,7 @@ const props = defineProps({
 });
 const form = useForm({
     user_id: usePage().props.value.auth.user.id,
+    ticket_id: props.tickets[0].id,
     method: "",
     card_number: "",
     card_name: "",

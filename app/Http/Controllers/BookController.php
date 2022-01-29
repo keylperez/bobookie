@@ -158,6 +158,7 @@ class BookController extends Controller
     {
         $this->validate($request, [
             'user_id' => 'required',
+            'ticket_id' => 'required',
             'card_name' => "required",
             'card_number' => "required",
             'expiry_date' => "required",
@@ -167,8 +168,14 @@ class BookController extends Controller
         ]);
 
         $input = $request->all();
+        // dd($request->ticket_id);
         Payment::create($input);
-        return Inertia::render('Users/PaymentDetails');
+        Ticket::where('id', '=', $request->ticket_id)->update(['status' => 'Confirmed']);
+
+        $ticket = Ticket::find(1);
+        $ticket->status = 'Confirmed';
+        $ticket->save();
+        return redirect()->route('ticketdetails', ['id' => $request->ticket_id]);
     }
 
     public function paymentdetails()

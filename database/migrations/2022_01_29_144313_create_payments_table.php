@@ -18,6 +18,8 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('ticket_id');
+            $table->foreign('ticket_id')->references('id')->on('tickets');
             $table->string('card_name');
             $table->string('card_number', 16);
             $table->date('expiry_date');
