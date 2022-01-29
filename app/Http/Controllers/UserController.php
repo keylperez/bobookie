@@ -82,7 +82,7 @@ class UserController extends Controller
     public function ticketdetails($id)
     {
         $query = DB::table('tickets')
-            ->select('tickets.*', 'movies.id as movie_id', 'movies.title', 'users.username', 'users.email')
+            ->select('tickets.*', 'movies.id as movie_id', 'movies.title', 'movies.img', 'users.username', 'users.email')
             ->join('movies', 'movies.id', '=', 'tickets.movie_id')
             ->join('users', 'users.id', '=', 'tickets.user_id')
             ->where('tickets.id', '=', $id)
