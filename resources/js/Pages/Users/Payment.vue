@@ -88,7 +88,7 @@
                     <div class="my-2">
                         <p class="font-bold text-secondary">Expiry Date</p>
                         <input
-                            type="text"
+                            type="date"
                             v-model="form.expiry_date"
                             minmax="4"
                             autocomplete="false"

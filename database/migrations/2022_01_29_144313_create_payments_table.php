@@ -20,7 +20,7 @@ class CreatePaymentsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('card_name');
             $table->string('card_number', 16);
-            $table->string('expiry_date', 5);
+            $table->date('expiry_date');
             $table->string('security_code', 3);
             $table->float('total', 8, 2);
             $table->enum('method', ['Credit', 'Debit'])->nullable();

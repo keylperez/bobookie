@@ -17,7 +17,6 @@ class CreateTicketsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->string('name')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('movie_id');
             $table->foreign('movie_id')->references('id')->on('movies');

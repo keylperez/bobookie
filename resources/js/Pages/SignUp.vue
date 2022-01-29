@@ -28,6 +28,14 @@
                 placeholder="Username"
                 class="border-b-4 border-secondary flex-1 my-6 outline-none"
             />
+            <input
+                type="text"
+                name="name"
+                v-model="form.name"
+                maxlength="255"
+                placeholder="Name"
+                class="border-b-4 border-secondary flex-1 my-6 outline-none"
+            />
             <div class="h-4">
                 <p
                     v-if="form.errors.email"
@@ -108,6 +116,7 @@ import { useForm } from "@inertiajs/inertia-vue3";
 const form = useForm({
     email: "",
     username: "",
+    name:"",
     password: "",
     password_confirmation: "",
 });
