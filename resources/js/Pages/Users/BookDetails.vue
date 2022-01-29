@@ -39,12 +39,7 @@
                 ></div>
             </div>
 
-            <form
-                @submit.prevent="submit"
-                enctype="multipart/form-data"
-                method="post"
-                class="mt-6"
-            >
+            <form @submit.prevent="submit" method="post" class="mt-6">
                 <h1 class="text-primary text-2xl">{{ movie[0].title }}</h1>
 
                 <div
@@ -64,6 +59,7 @@
                         <input
                             name="name"
                             v-model="ticket.name"
+                            required
                             type="text"
                             class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52"
                         />
@@ -71,33 +67,15 @@
 
                     <div class="mt-6">
                         <p class="font-bold text-secondary">
-                            COVID-19 Vaccination Certificate (Vaxcert)
+                            COVID-19 Vaccination ID (Vaxcert)
                         </p>
-                        <label for="actual-btn">
-                            <input
-                                v-on:change="fileChoosen"
-                                name="image"
-                                @input="
-                                    ticket.image = $event.target.files[index]
-                                "
-                                type="file"
-                                id="actual-btn"
-                                hidden
-                            />
-                            <div
-                                class="flex justify-between items-stretch shadow-md mt-2 w-64 text-base font-normal text-gray-700 bg-softgray bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-softgray"
-                            >
-                                <span
-                                    class="flex flex-wrap flex-col p-2 overflow-x-hidden"
-                                    >{{ ticket.image }}</span
-                                >
-                                <p
-                                    class="flex items-center justify-center bg-primary hover:bg-secondary p-1.5 px-4 m-0 text-sm text-white font-semibold cursor-pointer"
-                                >
-                                    UPLOAD
-                                </p>
-                            </div>
-                        </label>
+                        <input
+                            name="vax_id"
+                            v-model="ticket.vax_id"
+                            required
+                            type="text"
+                            class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52"
+                        />
                     </div>
                 </div>
 
@@ -138,8 +116,4 @@ const submit = () => {
     form.post("/book/ticket/proceed");
 };
 
-const fileChoosen = (event) => {
-    // form.inputs.value = event.target.files[0].name;
-    console.log(form);
-};
 </script>

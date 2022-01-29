@@ -68,16 +68,6 @@ class UserController extends Controller
         ]);
     }
 
-    public function payment()
-    {
-        return Inertia::render('Users/Payment');
-    }
-
-    public function paymentdetails()
-    {
-        return Inertia::render('Users/PaymentDetails');
-    }
-
 
     public function tickets()
     {

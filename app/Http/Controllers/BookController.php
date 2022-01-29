@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Inertia\Inertia;
 use App\Models\Movie;
+use App\Models\Ticket;
+use App\Models\Payment;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
@@ -48,6 +51,7 @@ class BookController extends Controller
     {
         // dd($request);z
         $inserted = false;
+        // dd($request);
         $validated = $request->validate([
             'timeslot' => 'required',
             'date' => 'required',
@@ -103,9 +107,72 @@ class BookController extends Controller
     }
     public function book(Request $request)
     {
-        // $image = Request::file('image')->store('name', 'public');
-        dd($request);
-        // $attributes = $request->validate([]);
-        DB::table('tickets')->where('id', '=', $request->inputs);
+        foreach ($request->inputs as $ticket) {
+            Ticket::findOrFail($ticket['id'])->update([
+                'name' => $ticket['name'],
+                'vax_id' => $ticket['vax_id'],
+            ]);
+        }
+
+        return redirect()->route('ticket.payment', ['id' => Auth::id()]);
+    }
+
+
+    public function payment($id)
+    {
+        $query = DB::table('tickets')
+            ->select('tickets.*', 'movies.id as movie_id', 'movies.title', 'movies.price')
+            ->join('movies', 'movies.id', '=', 'tickets.movie_id')
+            ->where('tickets.user_id', '=', Auth::id())
+            ->where('tickets.status', '=', 'Pending')
+            ->orderBy('tickets.id')
+            ->get();
+
+        $movie = DB::table('movies')
+            ->select('*')
+            ->where('id', '=', $query[0]->movie_id)
+            ->get();
+        return Inertia::render('Users/Payment', [
+            'tickets' => $query,
+            'movie' => $movie->map(function ($movie) {
+                return [
+                    'id' => $movie->id,
+                    'director' => $movie->director,
+                    'genre' => $movie->genre,
+                    'title' => $movie->title,
+                    'price' => $movie->price,
+                    'rating' => $movie->rating,
+                    'year' => $movie->year,
+                    'runtime' => $movie->runtime,
+                    'description' => $movie->description,
+                    'start_date' => $movie->start_date,
+                    'end_date' => $movie->end_date,
+                    'image' => asset('storage/' . $movie->img),
+                    'timeslot' => Movie::find($movie->id)->timeslots()->get()
+                ];
+            }),
+        ]);
+    }
+
+    public function card(Request $request)
+    {
+        $this->validate($request, [
+            'user_id' => 'required',
+            'card_name' => "required",
+            'card_number' => "required",
+            'expiry_date' => "required",
+            'security_code' => "required",
+            'total' => "required",
+            'method' => 'required',
+        ]);
+
+        $input = $request->all();
+        Payment::create($input);
+        return Inertia::render('Users/PaymentDetails');
+    }
+
+    public function paymentdetails()
+    {
+        return Inertia::render('Users/PaymentDetails');
     }
 }

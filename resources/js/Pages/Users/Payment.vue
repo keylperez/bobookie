@@ -32,22 +32,42 @@
                 </div>
 
                 <div
-                    class="bg-secondary p-4 my-2 h-80 w-48 mt-6 bg-cover"
+                    class="bg-secondary p-4 my-2 h-80 w-48 mt-6 bg-cover bg-center"
                     :style="{
-                        'background-image': `url(../img/Home/eternals_poster.jpg)`,
+                        'background-image': `url(${movie[0].image})`,
                     }"
                 ></div>
             </div>
 
-            <div class="mt-6">
-                <h1 class="text-primary text-2xl">ETERNALS</h1>
+            <form @submit.prevent="submit" method="post" class="mt-6">
+                <h1 class="text-primary text-2xl">{{ movie[0].title }}</h1>
                 <h1 class="text-secondary font-bold">PAYMENT DETAILS</h1>
+                <h1 class="text-secondary text-lg">
+                    Total: ₱{{ tickets.length * movie[0].price }}
+                </h1>
 
                 <div class="text-sm space-y-4">
                     <div class="my-2">
                         <p class="font-bold text-secondary">Card number</p>
+                        <select
+                            type="text"
+                            v-model="form.method"
+                            autocomplete="false"
+                            required
+                            class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52"
+                        >
+                            <option value="Debit">Debit Card</option>
+                            <option value="Credit">Credit Card</option>
+                        </select>
+                    </div>
+                    <div class="my-2">
+                        <p class="font-bold text-secondary">Card number</p>
                         <input
                             type="text"
+                            v-model="form.card_number"
+                            minmax="16"
+                            autocomplete="false"
+                            required
                             class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52"
                         />
                     </div>
@@ -58,6 +78,9 @@
                         </p>
                         <input
                             type="text"
+                            v-model="form.card_name"
+                            autocomplete="false"
+                            required
                             class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52"
                         />
                     </div>
@@ -65,7 +88,11 @@
                     <div class="my-2">
                         <p class="font-bold text-secondary">Expiry Date</p>
                         <input
-                            type="date"
+                            type="text"
+                            v-model="form.expiry_date"
+                            minmax="4"
+                            autocomplete="false"
+                            required
                             class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52"
                         />
                     </div>
@@ -73,44 +100,49 @@
                     <div class="my-2">
                         <p class="font-bold text-secondary">Security Code</p>
                         <input
-                            type="password"
+                            type="text"
+                            v-model="form.security_code"
+                            minmax="3"
+                            autocomplete="false"
+                            required
                             class="bg-softgray form-input p-1 shadow-md focus:outline-none w-52"
                         />
                     </div>
                 </div>
 
                 <div class="flex flex-col mt-4">
-                    <!-- <form @submit.prevent="submit" method="post"> -->
-                    <Link href="/discoverpaydetails"
-                        ><button
-                            class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary"
-                        >
-                            PROCEED
-                        </button></Link
+                    <button
+                        type="submit"
+                        :disabled="form.processing"
+                        autocomplete="false"
+                        class="bg-primary text-white p-2 my-1 font-bold w-40 hover:bg-secondary"
                     >
-                    <!-- </form> -->
+                        PROCEED
+                    </button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </template>
 
-<script>
-import Layout from "../../Shared/Layout";
+<script setup>
+import { useForm, usePage } from "@inertiajs/inertia-vue3";
+const props = defineProps({
+    tickets: Array,
+    movie: Object,
+});
+const form = useForm({
+    user_id: usePage().props.value.auth.user.id,
+    method: "",
+    card_number: "",
+    card_name: "",
+    expiry_date: "",
+    security_code: "",
+    total: props.tickets.length * props.movie[0].price,
+});
 
-export default {
-    data() {
-        return {
-            filename: "",
-            ticketnum: 1,
-        };
-    },
-    layout: Layout,
-    methods: {
-        fileChoosen(event) {
-            this.filename = event.target.files[0].name;
-        },
-    },
+const submit = () => {
+    form.post("/payment");
 };
 </script>
 

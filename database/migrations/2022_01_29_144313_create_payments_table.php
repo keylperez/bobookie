@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTicketsTable extends Migration
+class CreatePaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,17 @@ class CreateTicketsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tickets', function (Blueprint $table) {
+        Schema::create('Payments', function (Blueprint $table) {
+
             $table->id();
-            $table->string('name')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->string('name')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('movie_id');
-            $table->foreign('movie_id')->references('id')->on('movies');
-            $table->date('date');
-            $table->enum('timeslot', ['11:00 AM', '1:00 PM', '3:00 PM']);
-            $table->enum('status', ['Confirmed', 'Cancelled', 'Pending'])->default('Pending');
-            $table->string('vax_id')->nullable();
+            $table->string('card_name');
+            $table->string('card_number', 16);
+            $table->string('expiry_date', 5);
+            $table->string('security_code', 3);
+            $table->float('total', 8, 2);
+            $table->enum('method', ['Credit', 'Debit'])->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
@@ -37,6 +36,6 @@ class CreateTicketsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tickets');
+        Schema::dropIfExists('Payments');
     }
 }

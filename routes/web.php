@@ -26,11 +26,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/book/{id}', [BookController::class, 'index'])->name('book');
     Route::get('/book/ticket/{id}', [BookController::class, 'details'])->name('book.ticket');
     Route::post('/book/ticket/proceed', [BookController::class, 'book']);
-    
 
 
-    Route::get('/discoverpayment', [UserController::class, 'payment']);
-    Route::get('/discoverpaydetails', [UserController::class, 'paymentdetails']);
+    Route::get('/book/ticket/{id}/payment', [BookController::class, 'payment'])->name('ticket.payment');
+    Route::post('/payment', [BookController::class, 'card']);
+    Route::get('/discoverpaydetails', [BookController::class, 'paymentdetails']);
 
     Route::get('/discoverbookdetails', [UserController::class, 'discoverbookdetails']);
     Route::post('/discoverbookdetails', [BookController::class, 'store'])->name('discoverbookdetails');

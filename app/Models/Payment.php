@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ticket extends Model
+class Payment extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'vax_id',
-        'timeslots',
-        'date',
-        'status'
+        'user_id',
+        'card_name',
+        'card_number',
+        'expiry_date',
+        'security_code',
+        'total',
+        'method',
     ];
 }
