@@ -447,7 +447,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var Ziggy = {
   url: "http://127.0.0.1:8000",
-  // url: "http://localhost:8000",
   port: null,
   defaults: {},
   routes: {
@@ -2194,10 +2193,12 @@ var map = {
 	],
 	"./Admin/Users": [
 		"./resources/js/Pages/Admin/Users.vue",
+		"/js/vendor",
 		"resources_js_Pages_Admin_Users_vue"
 	],
 	"./Admin/Users.vue": [
 		"./resources/js/Pages/Admin/Users.vue",
+		"/js/vendor",
 		"resources_js_Pages_Admin_Users_vue"
 	],
 	"./Book": [

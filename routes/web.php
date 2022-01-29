@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/book/{id}', [BookController::class, 'index'])->name('book');
     Route::get('/book/ticket/{id}', [BookController::class, 'details'])->name('book.ticket');
     Route::post('/book/ticket/proceed', [BookController::class, 'book']);
+    
 
 
     Route::get('/discoverpayment', [UserController::class, 'payment']);
@@ -54,6 +55,7 @@ Route::middleware('auth')->group(function () {
 
     // List Tab
     Route::get('/users', [AdminController::class, 'users'])->middleware('can:create,App\Models\User');
+    Route::post('/users/delete', [AdminController::class, 'users_delete'])->middleware('can:create,App\Models\User');
 
     Route::post('/logout', [LoginController::class, 'logout']);
 });

@@ -183,4 +183,10 @@ class AdminController extends Controller
             'users' => User::all(),
         ]);
     }
+
+    public function users_delete()
+    {
+        DB::table('users')->where('id', '=', Request::input('id'))->delete();
+        return redirect('/users');
+    }
 }

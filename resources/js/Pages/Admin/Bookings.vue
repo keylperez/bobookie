@@ -35,7 +35,7 @@
                         align="right"
                     >
                         <button v-on:click="toggleModal(booking.id)">
-                            <EditIcon />
+                            <ViewIcon />
                         </button>
                         <button v-on:click="toggleDel(booking.id)">
                             <DelIcon />
@@ -341,7 +341,7 @@
 </template>
 
 <script setup>
-import EditIcon from "../../Shared/Edit.vue";
+import ViewIcon from "../../Shared/View.vue";
 import DelIcon from "../../Shared/Delete.vue";
 import BookingModal from "../../Shared/BookingModal.vue";
 import { ref, reactive } from "@vue/reactivity";

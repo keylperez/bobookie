@@ -6,7 +6,7 @@
             <div class="flex flex-row flex-wrap justify-end">
                 <div class="text-sm font-bold mx-16">
                     <Link
-                        href="/"
+                        :href="route('home')"
                         class="flex flex-row items-center space-x-1"
                     >
                         <svg

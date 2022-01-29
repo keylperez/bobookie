@@ -11,9 +11,11 @@
                     <th>NAME</th>
                     <th>USERNAME</th>
                     <th>EMAIL</th>
-                    <th align="right">ROLE</th>
+                    <th>ROLE</th>
+                    <th align="right">ACTIONS</th>
                 </thead>
 
+                <transition-group name="slide" mode="out-in">
                 <tr
                     align="center"
                     class="text-secondary cursor-pointer hover:bg-softgray"
@@ -23,14 +25,18 @@
                     <td class="font-thin py-4">{{ user.name }}</td>
                     <td class="font-thin py-4">{{ user.username }}</td>
                     <td class="font-thin py-4">{{ user.email }}</td>
-                    <!-- <td class="font-thin py-4">{{ user.type }}</td> -->
+                    <td class="font-thin py-4">{{ user.type }}</td>
                     <td
                         class="py-4 flex flex-row justify-end items-center space-x-3"
                         align="right"
                     >
-                        {{ user.type }}
+                        <button v-on:click="toggleDel(user.id)">
+                            <DelIcon />
+                        </button>
                     </td>
+                    
                 </tr>
+                 </transition-group>
             </table>
         </div>
     </div>
@@ -287,23 +293,32 @@
                         >
                             <div>
                                 <h1 class="text-2xl m-20 text-center">
-                                    ARE YOU SURE YOU WANT TO REMOVE THIS RECORD?
+                                    ARE YOU SURE YOU WANT TO REMOVE THIS USER?
                                 </h1>
 
                                 <div
                                     class="flex flex-row justify-center space-x-4 mb-8 mt-8"
                                 >
+
+                                    <form
+                                        id="delForm"
+                                        action=""
+                                        @submit.prevent="delMovie"
+                                    >
+                                    </form>
                                     <button
                                         v-on:click="toggleDel()"
                                         class="btn-secondary"
                                     >
                                         CANCEL
                                     </button>
-                                    <Link href="#"
-                                        ><button class="btn-primary">
-                                            CONFIRM
-                                        </button></Link
+                                    <button
+                                        type="submit"
+                                        form="delForm"
+                                        class="btn-primary"
                                     >
+                                        CONFIRM
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -339,39 +354,41 @@ const form = useForm({
     time: null,
 });
 
+const delForm = useForm({
+    id: null,
+});
+
+
 const toggleModal = (booking) => {
     // currentModal = booking;
     showModal.value = !showModal.value;
 };
-const toggleDel = (booking) => {
+const toggleDel = (id) => {
     // currentModal = booking;
+    delModal.value = !delModal.value;
+
+     if (id) {
+        delForm.id = id;
+    }
+};
+
+const delMovie = () => {
+    delForm.post("/users/delete", delForm);
     delModal.value = !delModal.value;
 };
 
-// export default {
-//     data() {
-//         return {
-//             filename: "",
-//             showModal: false,
-//             delModal: false,
-//             myDate: new Date().toISOString().slice(0, 10),
-//             currentModal: 0,
-//         };
-//     },
-//     components: { EditIcon, DelIcon, BookingModal },
-//     props: { bookings: Array },
-//     methods: {
-//         toggleModal: function (bookID) {
-//             this.currentModal = this.bookID;
-//             this.showModal = !this.showModal;
-//         },
-//         toggleDel: function (bookID) {
-//             this.currentModal = this.bookID;
-//             this.delModal = !this.delModal;
-//         },
-//     },
-// };
 </script>
 
-<style></style>
+<style>
+.slide-leave-active,
+.slide-enter-active {
+    transition: 1s;
+}
+.slide-enter {
+    transform: translate(100%, 0);
+}
+.slide-leave-to {
+    transform: translate(-100%, 0);
+}
+</style>
 

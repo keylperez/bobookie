@@ -83,7 +83,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "flex justify-center top-0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-bold text-primary text-xl font-main mx"
-}, " NOW SHOWING ")], -1
+}, " MOVIES THIS WEEK ")], -1
 /* HOISTED */
 );
 
@@ -149,7 +149,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "bg-secondary p-4 my-2 h-80 w-48 bg-cover",
+    "class": "bg-secondary p-4 my-2 h-80 w-48 bg-cover bg-center",
     style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)({
       'background-image': "url(".concat($props.movie.image, ")")
     })
@@ -169,11 +169,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* KEYED_FRAGMENT */
   ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     href: _ctx.route('book', {
-      id: $props.movie.id,
-      _query: {
-        title: $props.movie.title,
-        price: $props.movie.price
-      }
+      id: $props.movie.id
     })
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {

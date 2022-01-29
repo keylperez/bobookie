@@ -193,7 +193,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, _hoisted_9, 8
   /* PROPS */
   , _hoisted_7), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-    href: "/signup"
+    href: _ctx.route('signup')
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_10];
@@ -201,7 +201,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })], 40
+  }, 8
+  /* PROPS */
+  , ["href"])], 40
   /* PROPS, HYDRATE_EVENTS */
   , _hoisted_2)])], 64
   /* STABLE_FRAGMENT */
